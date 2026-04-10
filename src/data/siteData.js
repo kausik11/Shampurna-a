@@ -1,11 +1,10 @@
 export const navigationItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Why Choose Us', href: '#why-choose-us' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'Testimonials', href: '#testimonials' },
-  { label: 'Contact', href: '#appointment' },
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'Testimonials', href: '/testimonials' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 export const heroMoments = [
@@ -329,6 +328,37 @@ export const resultsGallery = [
   },
 ]
 
+export const beforeAfterCases = [
+  {
+    category: 'Hair Restoration',
+    beforeImage:
+      'https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=900&q=80',
+    afterImage:
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    category: 'Pigmentation Correction',
+    beforeImage:
+      'https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=900&q=80',
+    afterImage:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    category: 'Acne Clarity',
+    beforeImage:
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80',
+    afterImage:
+      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    category: 'Skin Glow Renewal',
+    beforeImage:
+      'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80',
+    afterImage:
+      'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80',
+  },
+]
+
 export const testimonials = [
   {
     name: 'Ananya S.',
@@ -389,6 +419,49 @@ export const testimonials = [
       'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80',
     quote:
       'I wanted something exclusive and calm rather than overly commercial. This felt aligned with that expectation.',
+  },
+]
+
+export const videoTestimonials = [
+  {
+    profileImage:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80',
+    name: 'Ananya S.',
+    feedback: 'My laser and glow journey felt premium, calm, and clearly guided.',
+    mainImage:
+      'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&h=1200&q=80',
+    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    facebookUrl: 'https://www.facebook.com/watch/?v=10153231379946729',
+  },
+  {
+    profileImage:
+      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300&q=80',
+    name: 'Ritika M.',
+    feedback: 'The consultation style felt elegant and the clinic ambience looked exceptional.',
+    mainImage:
+      'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&h=1100&q=80',
+    videoUrl: 'https://vimeo.com/76979871',
+    facebookUrl: 'https://www.facebook.com/watch/?v=273239423359643',
+  },
+  {
+    profileImage:
+      'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=300&q=80',
+    name: 'Madhurima R.',
+    feedback: 'From treatment explanation to the result journey, the process felt very polished.',
+    mainImage:
+      'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&h=1250&q=80',
+    videoUrl: 'https://www.youtube.com/watch?v=ysz5S6PUM-U',
+    facebookUrl: 'https://www.facebook.com/watch/?v=403857640125193',
+  },
+  {
+    profileImage:
+      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80',
+    name: 'Ishita D.',
+    feedback: 'I would absolutely watch more real patient stories presented like this.',
+    mainImage:
+      'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=900&h=1000&q=80',
+    videoUrl: 'https://www.youtube.com/watch?v=jNQXAC9IVRw',
+    facebookUrl: 'https://www.facebook.com/watch/?v=242292322131641',
   },
 ]
 
