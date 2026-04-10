@@ -1,0 +1,430 @@
+export const navigationItems = [
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
+  { label: 'Services', href: '#services' },
+  { label: 'Why Choose Us', href: '#why-choose-us' },
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'Testimonials', href: '#testimonials' },
+  { label: 'Contact', href: '#appointment' },
+]
+
+export const heroMoments = [
+  {
+    start: 0,
+    end: 4,
+    label: 'Arrival',
+    description:
+      'A composed cinematic entry that signals hygiene, hospitality, and a more elevated clinic experience.',
+  },
+  {
+    start: 4,
+    end: 8,
+    label: 'Consultation',
+    description:
+      'Personalized recommendations are positioned first, ensuring each treatment feels thoughtful rather than transactional.',
+  },
+  {
+    start: 8,
+    end: 12,
+    label: 'Technology',
+    description:
+      'Advanced equipment and curated technique are framed as part of a smooth, premium treatment journey.',
+  },
+  {
+    start: 12,
+    end: 999,
+    label: 'Confidence',
+    description:
+      'The overall message resolves in polished results, visible glow, and a sense of quiet luxury.',
+  },
+]
+
+export const heroStats = [
+  { value: '23+', label: 'Signature Services' },
+  { value: '1:1', label: 'Consultation Focus' },
+  { value: '5★', label: 'Luxury Positioning' },
+]
+
+export const aboutHighlights = [
+  {
+    label: 'Luxury Care',
+    title: 'Personalized rituals',
+    description:
+      'Treatments are paced with comfort, privacy, and polished service moments that feel premium from start to finish.',
+  },
+  {
+    label: 'Clinical Precision',
+    title: 'Advanced methods',
+    description:
+      'Modern aesthetic tools and considered planning help create a more refined, professional treatment journey.',
+  },
+  {
+    label: 'Hygiene',
+    title: 'Safe environment',
+    description:
+      'A clean, hygienic setting remains central to trust, confidence, and the quality of the experience.',
+  },
+  {
+    label: 'Approach',
+    title: 'Bespoke recommendations',
+    description:
+      'Every service begins with the client’s concern, pace, and desired finish rather than a one-size-fits-all protocol.',
+  },
+]
+
+export const services = [
+  {
+    title: 'Permanent Hair Removal',
+    icon: '✦',
+    image:
+      'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Luxury laser hair removal consultation placeholder',
+    focus: 'Laser smoothness',
+  },
+  {
+    title: 'Carbon Laser Treatment',
+    icon: '◌',
+    image:
+      'https://images.unsplash.com/photo-1556228578-dd8f3c6f9b1e?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Facial laser treatment setup placeholder',
+    focus: 'Texture reset',
+  },
+  {
+    title: 'BB Glow CC Glow Treatment',
+    icon: '✧',
+    image:
+      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Glowing skin beauty treatment placeholder',
+    focus: 'Radiance finish',
+  },
+  {
+    title: 'Skin Glow Treatment',
+    icon: '✺',
+    image:
+      'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Luminous skin care result placeholder',
+    focus: 'Glow boost',
+  },
+  {
+    title: 'Pimple and Acne Treatment',
+    icon: '✤',
+    image:
+      'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Acne care skin consultation placeholder',
+    focus: 'Acne clarity',
+  },
+  {
+    title: 'Wrinkle / HIFU Treatment',
+    icon: '⬢',
+    image:
+      'https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Skin tightening treatment placeholder',
+    focus: 'Firm contour',
+  },
+  {
+    title: 'Breast Enlargement',
+    icon: '◐',
+    image:
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Body contour aesthetic placeholder',
+    focus: 'Body volume',
+  },
+  {
+    title: 'Breast Shaping',
+    icon: '◑',
+    image:
+      'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Body shaping consultation placeholder',
+    focus: 'Shape balance',
+  },
+  {
+    title: 'Hips Shaping',
+    icon: '⬡',
+    image:
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Body sculpting placeholder',
+    focus: 'Sculpted line',
+  },
+  {
+    title: 'Ear Lobes Repair',
+    icon: '◍',
+    image:
+      'https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Ear aesthetic correction placeholder',
+    focus: 'Repair detail',
+  },
+  {
+    title: 'All Body Piercing',
+    icon: '✶',
+    image:
+      'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Body piercing studio placeholder',
+    focus: 'Piercing studio',
+  },
+  {
+    title: 'Mole, Tag and Wart Removal',
+    icon: '◈',
+    image:
+      'https://images.unsplash.com/photo-1498843053639-170ff2122f35?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Skin lesion consultation placeholder',
+    focus: 'Surface clearing',
+  },
+  {
+    title: 'Pigmentation Removal',
+    icon: '✹',
+    image:
+      'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Pigmentation treatment placeholder',
+    focus: 'Tone evenness',
+  },
+  {
+    title: 'Open Pores Treatment',
+    icon: '◎',
+    image:
+      'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Skin texture improvement placeholder',
+    focus: 'Pore refinement',
+  },
+  {
+    title: 'Permanent Eye Brow',
+    icon: '◠',
+    image:
+      'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Eyebrow enhancement placeholder',
+    focus: 'Brow artistry',
+  },
+  {
+    title: 'Permanent Lip Color',
+    icon: '◗',
+    image:
+      'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Lip tint aesthetic placeholder',
+    focus: 'Lip tint',
+  },
+  {
+    title: 'Beauty Spot',
+    icon: '•',
+    image:
+      'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Facial beauty detail placeholder',
+    focus: 'Beauty detail',
+  },
+  {
+    title: 'Pubic Area Tightening',
+    icon: '◔',
+    image:
+      'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Body wellness treatment placeholder',
+    focus: 'Intimate wellness',
+  },
+  {
+    title: 'Oxegenue Treatment',
+    icon: '✷',
+    image:
+      'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Oxygen facial treatment placeholder',
+    focus: 'Oxygen glow',
+  },
+  {
+    title: 'Meso Therapy',
+    icon: '⬟',
+    image:
+      'https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Mesotherapy skin treatment placeholder',
+    focus: 'Skin infusion',
+  },
+  {
+    title: 'Permanent Tattoo Removal',
+    icon: '⌁',
+    image:
+      'https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Tattoo removal laser placeholder',
+    focus: 'Ink fading',
+  },
+  {
+    title: 'Cryolipolysis - Fat Freezing',
+    icon: '❄',
+    image:
+      'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Body contour cryolipolysis placeholder',
+    focus: 'Fat freezing',
+  },
+  {
+    title: 'Glutathione - All Body',
+    icon: '✳',
+    image:
+      'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Full body glow treatment placeholder',
+    focus: 'All body glow',
+  },
+].map((service) => ({
+  ...service,
+  description:
+    'A premium consultation-led treatment tailored to comfort, finish, and a visibly refined result.',
+}))
+
+export const whyChooseUs = [
+  {
+    title: 'Advanced Technology',
+    icon: '◈',
+    description:
+      'Modern aesthetic systems are paired with a more polished visual and treatment experience.',
+  },
+  {
+    title: 'Personalized Consultation',
+    icon: '◎',
+    description:
+      'Each recommendation is designed around your concern, pace, and the level of refinement you want.',
+  },
+  {
+    title: 'Safe and Hygienic Environment',
+    icon: '✦',
+    description:
+      'Clinic confidence starts with a calm, hygienic setting and detail-focused treatment standards.',
+  },
+  {
+    title: 'Luxury Experience',
+    icon: '✧',
+    description:
+      'Soft lighting, hospitality, and a premium journey make each appointment feel considered and elevated.',
+  },
+  {
+    title: 'Skilled Specialists',
+    icon: '✺',
+    description:
+      'Professional handling and careful treatment pacing create greater clarity and reassurance.',
+  },
+  {
+    title: 'Result-Focused Plans',
+    icon: '⬢',
+    description:
+      'Treatment plans are structured to support visible change while maintaining elegance and balance.',
+  },
+]
+
+export const resultsGallery = [
+  {
+    tag: 'Skin Renewal',
+    title: 'Brightness and texture refinement',
+    description:
+      'Placeholder imagery for glow-focused journeys, peel programs, and progressive skin clarity.',
+    image:
+      'https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=1400&q=80',
+  },
+  {
+    tag: 'Contour Care',
+    title: 'Face and body shaping stories',
+    description:
+      'Designed to present sculpting, symmetry, and advanced treatment confidence in a premium way.',
+    image:
+      'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1400&q=80',
+  },
+  {
+    tag: 'Clinic Atmosphere',
+    title: 'Luxury treatment environment',
+    description:
+      'Use this panel for premium room imagery, technology snapshots, and elevated brand storytelling.',
+    image:
+      'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1400&q=80',
+  },
+]
+
+export const testimonials = [
+  {
+    name: 'Ananya S.',
+    username: '@ananya.skin',
+    tag: 'Skin Glow Program',
+    country: 'India',
+    image:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80',
+    quote:
+      'The entire visit felt private, polished, and thoughtfully guided. The clinic experience itself already feels premium.',
+  },
+  {
+    name: 'Ritika M.',
+    username: '@ritika.laser',
+    tag: 'Laser Consultation',
+    country: 'India',
+    image:
+      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80',
+    quote:
+      'I appreciated how calm and considered everything felt. The approach was elegant, not pushy, and very confidence-building.',
+  },
+  {
+    name: 'Madhurima R.',
+    username: '@madhurima.aesthetic',
+    tag: 'Facial Aesthetic Care',
+    country: 'India',
+    image:
+      'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=400&q=80',
+    quote:
+      'From the environment to the communication style, everything suggested quality. It felt luxurious without losing clinical clarity.',
+  },
+  {
+    name: 'Ishita D.',
+    username: '@ishita.glow',
+    tag: 'Pigmentation Care',
+    country: 'India',
+    image:
+      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80',
+    quote:
+      'My consultation felt detailed and well paced. Even the digital experience reflects the same premium standard.',
+  },
+  {
+    name: 'Neha K.',
+    username: '@nehaskinedit',
+    tag: 'Bridal Skin Planning',
+    country: 'India',
+    image:
+      'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80',
+    quote:
+      'The brand language feels elegant and the treatment explanation felt trustworthy from the first interaction.',
+  },
+  {
+    name: 'Sana P.',
+    username: '@sana.contour',
+    tag: 'Body Sculpting',
+    country: 'India',
+    image:
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80',
+    quote:
+      'I wanted something exclusive and calm rather than overly commercial. This felt aligned with that expectation.',
+  },
+]
+
+export const faqs = [
+  {
+    question: 'How do I know which treatment is right for me?',
+    answer:
+      'The site positions consultation as the first step. Treatment choices should follow an in-person assessment of skin condition, goals, and comfort level.',
+  },
+  {
+    question: 'Are aesthetic treatments always invasive?',
+    answer:
+      'No. The service mix includes both non-invasive and more advanced options. A premium clinic experience should guide clients clearly through those differences.',
+  },
+  {
+    question: 'Can I book multiple concerns in one visit?',
+    answer:
+      'Yes. This frontend encourages combined consultation flows so clients can discuss multiple concerns within a single booking request.',
+  },
+  {
+    question: 'Will results be immediate?',
+    answer:
+      'Some services can show early visible improvement, while others require a staged treatment plan. Clear expectations remain important.',
+  },
+]
+
+export const footerServices = [
+  'Permanent Hair Removal',
+  'Carbon Laser Treatment',
+  'Wrinkle / HIFU Treatment',
+  'Cryolipolysis - Fat Freezing',
+  'Glutathione - All Body',
+]
+
+export const socialLinks = [
+  { label: 'Instagram', short: 'Ig', href: '#' },
+  { label: 'Facebook', short: 'Fb', href: '#' },
+  { label: 'YouTube', short: 'Yt', href: '#' },
+]

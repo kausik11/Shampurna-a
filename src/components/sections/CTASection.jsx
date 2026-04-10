@@ -1,0 +1,39 @@
+import { useRevealAnimations } from '../../hooks/useRevealAnimations'
+
+function CTASection() {
+  const sectionRef = useRevealAnimations()
+
+  return (
+    <section ref={sectionRef} className="relative px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="reveal relative overflow-hidden rounded-[2.25rem] border border-[rgba(252,223,92,0.18)] bg-[linear-gradient(135deg,rgba(245,73,145,0.12),rgba(252,223,92,0.1),rgba(255,255,255,0.04))] px-6 py-12 shadow-[0_30px_80px_rgba(0,0,0,0.35)] backdrop-blur-2xl sm:px-10 lg:flex lg:items-center lg:justify-between lg:px-14">
+          <div className="absolute inset-y-0 right-0 w-1/3 bg-[radial-gradient(circle_at_center,rgba(252,223,92,0.14),transparent_65%)] blur-2xl" />
+          <div className="relative max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-gold)]">
+              Final Invitation
+            </p>
+            <h2 className="mt-4 font-display text-4xl leading-none text-[var(--color-heading)] sm:text-5xl">
+              Book Your Appointment
+            </h2>
+            <p className="mt-5 text-sm leading-7 text-white/65 sm:text-base">
+              Create a premium first impression before a client even enters the
+              clinic. This section is positioned as the final conversion prompt
+              with clear visual weight and minimal friction.
+            </p>
+          </div>
+
+          <div className="relative mt-8 lg:mt-0">
+            <a
+              className="button-shine inline-flex items-center rounded-full border border-[rgba(252,223,92,0.2)] bg-[var(--color-button)] px-6 py-3.5 text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)]"
+              href="#appointment"
+            >
+              Schedule Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default CTASection
