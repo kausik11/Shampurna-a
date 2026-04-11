@@ -1,4 +1,5 @@
 import HeroVideoSection from '../components/sections/HeroVideoSection'
+import HeroGallerySection from '../components/sections/HeroGallerySection'
 import AboutSection from '../components/sections/AboutSection'
 import ServicesSection from '../components/sections/ServicesSection'
 import BlobsShowcaseSection from '../components/sections/BlobsShowcaseSection'
@@ -16,6 +17,7 @@ function HomePage() {
   return (
     <>
       <HeroVideoSection />
+      <HeroGallerySection />
       <AboutSection />
       <ServicesSection />
       <BlobsShowcaseSection />

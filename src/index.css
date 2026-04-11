@@ -11,6 +11,15 @@
   --color-button: #8f8743;
   --color-heading: #fcf5fa;
   --color-text: rgba(252, 245, 250, 0.82);
+  --color-background: #12030b;
+  --color-foreground: #fcf5fa;
+  --color-primary: #f54991;
+  --color-primary-foreground: #fff6fb;
+  --color-secondary: #2c1323;
+  --color-secondary-foreground: #fcf5fa;
+  --color-destructive: #be123c;
+  --color-destructive-foreground: #fff7f9;
+  --color-ring: #f54991;
 }
 
 @theme inline {
