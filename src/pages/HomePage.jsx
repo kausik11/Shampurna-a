@@ -1,6 +1,7 @@
 import HeroVideoSection from '../components/sections/HeroVideoSection'
 import AboutSection from '../components/sections/AboutSection'
 import ServicesSection from '../components/sections/ServicesSection'
+import BlobsShowcaseSection from '../components/sections/BlobsShowcaseSection'
 import WhyChooseUsSection from '../components/sections/WhyChooseUsSection'
 import ResultsShowcase from '../components/sections/ResultsShowcase'
 import TreatmentGallerySection from '../components/sections/TreatmentGallerySection'
@@ -17,6 +18,7 @@ function HomePage() {
       <HeroVideoSection />
       <AboutSection />
       <ServicesSection />
+      <BlobsShowcaseSection />
       <TreatmentGallerySection />
       <WhyChooseUsSection />
       <ResultsShowcase />
