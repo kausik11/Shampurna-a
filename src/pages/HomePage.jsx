@@ -3,6 +3,7 @@ import AboutSection from '../components/sections/AboutSection'
 import ServicesSection from '../components/sections/ServicesSection'
 import WhyChooseUsSection from '../components/sections/WhyChooseUsSection'
 import ResultsShowcase from '../components/sections/ResultsShowcase'
+import TreatmentGallerySection from '../components/sections/TreatmentGallerySection'
 import BeforeAfterSection from '../components/sections/BeforeAfterSection'
 import AppointmentSection from '../components/sections/AppointmentSection'
 import TestimonialsSection from '../components/sections/TestimonialsSection'
@@ -16,6 +17,7 @@ function HomePage() {
       <HeroVideoSection />
       <AboutSection />
       <ServicesSection />
+      <TreatmentGallerySection />
       <WhyChooseUsSection />
       <ResultsShowcase />
       <BeforeAfterSection />
