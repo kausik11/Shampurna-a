@@ -157,7 +157,7 @@ const CircularGallery = forwardRef(function CircularGallery(
 
           return (
             <div
-              key={item.photo.url}
+              key={`${item.photo.url}-${index}`}
               role="group"
               aria-label={item.common}
               className="absolute left-1/2 top-1/2"
