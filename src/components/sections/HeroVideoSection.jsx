@@ -110,28 +110,28 @@ function HeroVideoSection() {
             playsInline
             poster="/shampurna-logo.jpeg"
           >
-            <source src="/hero-video.mp4" type="video/mp4" />
+            <source src="/Video_Editing_and_Generation_Complete.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(1,0,2,0.86)_0%,rgba(1,0,2,0.56)_42%,rgba(1,0,2,0.2)_100%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,0,2,0.06),rgba(1,0,2,0.72))]" />
         </div>
 
-        <div className="mx-auto max-w-7xl">
-          <div className="relative grid min-h-[86svh] gap-8 px-6 py-12 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:px-12 lg:py-16">
-            <div className="flex flex-col justify-center">
+        <div className="mx-auto max-w-[92rem]">
+          <div className="relative grid min-h-[86svh] gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-16">
+            <div className="flex flex-col justify-center lg:pl-2 xl:pl-6">
               <p className="hero-reveal text-xs font-semibold uppercase tracking-[0.34em] text-[var(--color-highlight)]">
                 Luxury Aesthetic Clinic
               </p>
-              <h1 className="hero-reveal mt-4 max-w-4xl font-display text-5xl leading-[0.88] text-[var(--color-heading)] sm:text-6xl lg:text-8xl">
+              <h1 className="hero-reveal mt-6 max-w-5xl font-display text-5xl leading-[0.94] text-[var(--color-heading)] sm:text-6xl lg:text-8xl">
                 Refined skin, body and beauty care with cinematic elegance.
               </h1>
-              <p className="hero-reveal mt-6 max-w-2xl text-sm leading-7 text-white/70 sm:text-base">
+              <p className="hero-reveal mt-8 max-w-3xl text-sm leading-8 text-white/70 sm:text-base">
                 Shampurna Aesthetic combines modern aesthetic treatments with a
                 hospitality-led atmosphere, premium detailing, and a polished
                 consultation-first experience.
               </p>
 
-              <div className="hero-reveal mt-7 flex flex-col gap-4 sm:flex-row">
+              <div className="hero-reveal mt-10 flex flex-col gap-4 sm:flex-row">
                 <a
                   className="button-shine inline-flex items-center justify-center rounded-full border border-[rgba(252,223,92,0.22)] bg-[var(--color-button)] px-6 py-3.5 text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)]"
                   href="#appointment"
@@ -146,7 +146,7 @@ function HeroVideoSection() {
                 </a>
               </div>
 
-              <div className="hero-reveal mt-8 max-w-xl rounded-[1.5rem] border border-white/12 bg-[rgba(1,0,2,0.44)] p-5 shadow-[0_20px_60px_rgba(1,0,2,0.3)] backdrop-blur-xl">
+              <div className="hero-reveal mt-12 max-w-2xl rounded-[1.5rem] border border-white/12 bg-[rgba(1,0,2,0.44)] p-5 shadow-[0_20px_60px_rgba(1,0,2,0.3)] backdrop-blur-xl">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex rounded-full border border-[rgba(252,223,92,0.25)] bg-[rgba(252,223,92,0.08)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.26em] text-[var(--color-gold)]">
                     {activeMoment.label}
