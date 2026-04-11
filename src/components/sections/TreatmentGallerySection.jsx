@@ -62,8 +62,8 @@ function TreatmentGallerySection() {
   return (
     <section
       id="signature-gallery"
-      className="relative left-1/2 right-1/2 my-12 w-screen -translate-x-1/2 overflow-hidden border-y border-white/10 bg-[linear-gradient(180deg,#4a1138_0%,#380828_100%)]"
-      style={{ height: '360svh' }}
+      className="relative left-1/2 right-1/2 mt-12 mb-4 w-screen -translate-x-1/2 overflow-hidden border-y border-white/10 bg-[linear-gradient(180deg,#4a1138_0%,#380828_100%)]"
+      style={{ height: '120svh' }}
     >
       <div className="sticky top-0 h-screen overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(245,73,145,0.16),transparent_28%),radial-gradient(circle_at_85%_18%,rgba(252,223,92,0.14),transparent_24%),radial-gradient(circle_at_50%_78%,rgba(143,135,67,0.16),transparent_30%)]" />

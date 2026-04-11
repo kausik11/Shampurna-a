@@ -84,7 +84,7 @@ export const services = [
     title: 'Carbon Laser Treatment',
     icon: '◌',
     image:
-      'https://images.unsplash.com/photo-1556228578-dd8f3c6f9b1e?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Facial laser treatment setup placeholder',
     focus: 'Texture reset',
   },
