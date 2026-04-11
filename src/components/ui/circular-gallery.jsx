@@ -170,7 +170,7 @@ const CircularGallery = forwardRef(function CircularGallery(
                 transition: 'opacity 0.3s linear',
               }}
             >
-              <div className="group relative h-full w-full overflow-hidden rounded-[1.25rem] border border-white/16 bg-[#120d14]/90 shadow-[0_24px_80px_rgba(0,0,0,0.34)] backdrop-blur-md">
+              <div className="group relative h-full w-full overflow-hidden rounded-[1.25rem] border border-white/12 bg-[rgba(1,0,2,0.5)] shadow-[0_24px_80px_rgba(1,0,2,0.34)] backdrop-blur-md">
                 <img
                   src={item.photo.url}
                   alt={item.photo.text}

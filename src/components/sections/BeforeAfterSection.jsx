@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import $ from 'jquery'
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import SectionHeading from '../ui/SectionHeading'
 import { beforeAfterCases } from '../../data/siteData'
 import { useRevealAnimations } from '../../hooks/useRevealAnimations'
@@ -50,9 +51,9 @@ function BeforeAfterCard({ category, beforeImage, afterImage }) {
             className="js-handle pointer-events-none absolute top-1/2 flex h-12 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_12px_30px_rgba(0,0,0,0.22)]"
             style={{ left: '50%' }}
           >
-            <span className="text-[var(--color-highlight)]">◀</span>
+            <FiChevronLeft className="h-4 w-4 text-[var(--color-highlight)]" aria-hidden="true" />
             <span className="mx-2 h-5 w-px bg-[rgba(143,135,67,0.25)]" />
-            <span className="text-[var(--color-highlight)]">▶</span>
+            <FiChevronRight className="h-4 w-4 text-[var(--color-highlight)]" aria-hidden="true" />
           </div>
 
           <button

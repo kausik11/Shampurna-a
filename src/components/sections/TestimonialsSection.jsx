@@ -9,7 +9,7 @@ import { useRevealAnimations } from '../../hooks/useRevealAnimations'
 
 function MarqueeTestimonialCard({ image, name, username, quote, country }) {
   return (
-    <Card className="w-64 rounded-[1.5rem] border-white/10 bg-[rgba(10,10,12,0.72)] shadow-[0_18px_50px_rgba(0,0,0,0.28)]">
+    <Card className="w-64 rounded-[1.5rem] border-white/12 bg-[rgba(1,0,2,0.52)] shadow-[0_18px_50px_rgba(1,0,2,0.3)]">
       <CardContent className="p-5 pt-5">
         <div className="flex items-center gap-3">
           <Avatar className="h-11 w-11 border border-[rgba(252,223,92,0.25)]">
@@ -86,7 +86,7 @@ function TestimonialsSection() {
           </div>
         </div>
 
-        <div className="reveal relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[rgba(8,8,10,0.62)] p-3 shadow-[0_24px_60px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
+        <div className="reveal relative overflow-hidden rounded-[1.75rem] border border-white/12 bg-[rgba(1,0,2,0.52)] p-3 shadow-[0_24px_60px_rgba(1,0,2,0.36)] backdrop-blur-2xl">
           <div className="relative flex h-[32rem] w-full flex-row items-center justify-center overflow-hidden [perspective:300px]">
             <div
               className="flex flex-row items-center gap-4"

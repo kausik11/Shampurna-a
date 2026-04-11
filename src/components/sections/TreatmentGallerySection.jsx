@@ -62,7 +62,7 @@ function TreatmentGallerySection() {
   return (
     <section
       id="signature-gallery"
-      className="relative left-1/2 right-1/2 my-12 w-screen -translate-x-1/2 overflow-hidden border-y border-white/10 bg-[linear-gradient(180deg,#0c090f_0%,#030104_100%)]"
+      className="relative left-1/2 right-1/2 my-12 w-screen -translate-x-1/2 overflow-hidden border-y border-white/10 bg-[linear-gradient(180deg,#4a1138_0%,#380828_100%)]"
       style={{ height: '360svh' }}
     >
       <div className="sticky top-0 h-screen overflow-hidden">

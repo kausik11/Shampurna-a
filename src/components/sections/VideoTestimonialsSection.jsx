@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ExternalLink, Play, Share2 } from 'lucide-react'
+import { FiExternalLink, FiPlay, FiShare2 } from 'react-icons/fi'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { MasonryGrid } from '@/components/ui/image-testimonial-grid'
 import SectionHeading from '../ui/SectionHeading'
@@ -15,7 +15,7 @@ function VideoTestimonialCard({
   facebookUrl,
 }) {
   return (
-    <article className="group relative overflow-hidden rounded-[1.5rem] bg-[rgba(10,10,12,0.7)] shadow-[0_18px_48px_rgba(0,0,0,0.26)] backdrop-blur-xl transition duration-300 hover:-translate-y-1">
+    <article className="group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[rgba(1,0,2,0.52)] shadow-[0_18px_48px_rgba(1,0,2,0.28)] backdrop-blur-xl transition duration-300 hover:-translate-y-1">
       <div className="relative">
         <img
           src={mainImage}
@@ -31,7 +31,7 @@ function VideoTestimonialCard({
           className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-[rgba(252,223,92,0.18)] text-[var(--color-gold)] backdrop-blur-xl transition hover:bg-[rgba(252,223,92,0.28)]"
           aria-label={`Play video testimonial from ${name}`}
         >
-          <Play className="h-4 w-4 fill-current" />
+          <FiPlay className="h-4 w-4" />
         </a>
 
         <div className="absolute inset-x-0 top-0 p-4 text-white">
@@ -54,7 +54,7 @@ function VideoTestimonialCard({
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-2 text-xs font-semibold text-white backdrop-blur-xl transition hover:bg-white/16"
           >
-            <Play className="h-3.5 w-3.5" />
+            <FiPlay className="h-3.5 w-3.5" />
             Watch
           </a>
           <a
@@ -63,9 +63,9 @@ function VideoTestimonialCard({
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-[rgba(245,73,145,0.14)] px-3 py-2 text-xs font-semibold text-white backdrop-blur-xl transition hover:bg-[rgba(245,73,145,0.22)]"
           >
-            <Share2 className="h-3.5 w-3.5" />
+            <FiShare2 className="h-3.5 w-3.5" />
             Facebook
-            <ExternalLink className="h-3.5 w-3.5" />
+            <FiExternalLink className="h-3.5 w-3.5" />
           </a>
         </div>
       </div>
@@ -110,7 +110,7 @@ function VideoTestimonialsSection() {
       id="video-testimonials"
       className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8"
     >
-      <div className="reveal rounded-[1.75rem] bg-[rgba(8,8,10,0.52)] p-4 shadow-[0_24px_60px_rgba(0,0,0,0.35)] backdrop-blur-2xl sm:p-6">
+      <div className="reveal rounded-[1.75rem] border border-white/12 bg-[rgba(1,0,2,0.46)] p-4 shadow-[0_24px_60px_rgba(1,0,2,0.36)] backdrop-blur-2xl sm:p-6">
         <SectionHeading
           align="left"
           eyebrow="Video Testimonials"

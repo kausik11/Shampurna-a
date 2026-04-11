@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { FiMinus, FiPlus } from 'react-icons/fi'
 import SectionHeading from '../ui/SectionHeading'
 import GlassPanel from '../ui/GlassPanel'
 import { faqs } from '../../data/siteData'
@@ -14,7 +15,11 @@ function FAQItem({ item, isOpen, onToggle }) {
         onClick={onToggle}
       >
         <span className="font-medium text-[var(--color-heading)]">{item.question}</span>
-        <span className="text-xl text-[var(--color-gold)]">{isOpen ? '−' : '+'}</span>
+        {isOpen ? (
+          <FiMinus className="h-5 w-5 text-[var(--color-gold)]" aria-hidden="true" />
+        ) : (
+          <FiPlus className="h-5 w-5 text-[var(--color-gold)]" aria-hidden="true" />
+        )}
       </button>
       <div
         className={`grid transition-all duration-300 ${

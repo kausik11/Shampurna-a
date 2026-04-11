@@ -41,7 +41,7 @@ export const heroMoments = [
 export const heroStats = [
   { value: '23+', label: 'Signature Services' },
   { value: '1:1', label: 'Consultation Focus' },
-  { value: '5★', label: 'Luxury Positioning' },
+  { value: '5', label: 'Luxury Positioning', icon: 'star' },
 ]
 
 export const aboutHighlights = [

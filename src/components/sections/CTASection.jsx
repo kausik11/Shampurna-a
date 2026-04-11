@@ -6,7 +6,7 @@ function CTASection() {
   return (
     <section ref={sectionRef} className="relative px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="reveal relative overflow-hidden rounded-[2.25rem] border border-[rgba(252,223,92,0.18)] bg-[linear-gradient(135deg,rgba(245,73,145,0.12),rgba(252,223,92,0.1),rgba(255,255,255,0.04))] px-6 py-12 shadow-[0_30px_80px_rgba(0,0,0,0.35)] backdrop-blur-2xl sm:px-10 lg:flex lg:items-center lg:justify-between lg:px-14">
+        <div className="reveal relative overflow-hidden rounded-[2.25rem] border border-[rgba(235,200,0,0.18)] bg-[linear-gradient(135deg,rgba(1,0,2,0.62),rgba(56,8,40,0.86),rgba(245,73,145,0.12))] px-6 py-12 shadow-[0_30px_80px_rgba(1,0,2,0.36)] backdrop-blur-2xl sm:px-10 lg:flex lg:items-center lg:justify-between lg:px-14">
           <div className="absolute inset-y-0 right-0 w-1/3 bg-[radial-gradient(circle_at_center,rgba(252,223,92,0.14),transparent_65%)] blur-2xl" />
           <div className="relative max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-gold)]">

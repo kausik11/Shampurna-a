@@ -1,9 +1,11 @@
 import { footerServices, navigationItems, socialLinks } from '../../data/siteData'
+import { FiStar } from 'react-icons/fi'
+import { socialIcons } from '@/lib/icons'
 
 function Footer() {
   return (
     <footer className="relative border-t border-white/10 px-4 pb-8 pt-16 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-10 rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-[0_30px_80px_rgba(0,0,0,0.35)] backdrop-blur-2xl lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
+      <div className="mx-auto grid max-w-7xl gap-10 rounded-[2rem] border border-white/12 bg-[rgba(1,0,2,0.46)] p-8 shadow-[0_30px_80px_rgba(1,0,2,0.36)] backdrop-blur-2xl lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
         <div>
           <a className="inline-flex items-center gap-4" href="#home">
             <img
@@ -81,16 +83,20 @@ function Footer() {
           </div>
 
           <div className="mt-6 flex gap-3">
-            {socialLinks.map((item) => (
-              <a
-                key={item.label}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm text-white/70 transition duration-300 hover:-translate-y-1 hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)]"
-                href={item.href}
-                aria-label={item.label}
-              >
-                {item.short}
-              </a>
-            ))}
+            {socialLinks.map((item) => {
+              const SocialIcon = socialIcons[item.label] ?? FiStar
+
+              return (
+                <a
+                  key={item.label}
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/6 text-sm text-white/78 transition duration-300 hover:-translate-y-1 hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)]"
+                  href={item.href}
+                  aria-label={item.label}
+                >
+                  <SocialIcon className="h-4 w-4" aria-hidden="true" />
+                </a>
+              )
+            })}
           </div>
         </div>
       </div>

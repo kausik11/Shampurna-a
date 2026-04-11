@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { heroMoments, heroStats } from '../../data/siteData'
+import { FaStar } from '@/lib/icons'
 
 const fallbackMoment = heroMoments[0]
 
@@ -98,7 +99,7 @@ function HeroVideoSection() {
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
     >
-      <div className="parallax-stage relative overflow-hidden border-y border-white/10 bg-black shadow-[0_30px_90px_rgba(0,0,0,0.45)] sm:rounded-[2rem] sm:border sm:mx-4 lg:mx-6">
+      <div className="parallax-stage relative overflow-hidden border-y border-white/10 bg-[#010002] shadow-[0_30px_90px_rgba(1,0,2,0.45)] sm:rounded-[2rem] sm:border sm:mx-4 lg:mx-6">
         <div className="absolute inset-0">
           <video
             ref={videoRef}
@@ -145,7 +146,7 @@ function HeroVideoSection() {
                 </a>
               </div>
 
-              <div className="hero-reveal mt-8 max-w-xl rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.28)] backdrop-blur-xl">
+              <div className="hero-reveal mt-8 max-w-xl rounded-[1.5rem] border border-white/12 bg-[rgba(1,0,2,0.44)] p-5 shadow-[0_20px_60px_rgba(1,0,2,0.3)] backdrop-blur-xl">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex rounded-full border border-[rgba(252,223,92,0.25)] bg-[rgba(252,223,92,0.08)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.26em] text-[var(--color-gold)]">
                     {activeMoment.label}
@@ -160,7 +161,7 @@ function HeroVideoSection() {
 
             <div className="relative flex items-end justify-end">
               <div className="floating-badge w-full max-w-md space-y-4 self-end lg:mb-4">
-                <div className="rounded-[1.7rem] border border-white/10 bg-white/[0.06] p-5 shadow-[0_18px_60px_rgba(0,0,0,0.3)] backdrop-blur-2xl">
+                <div className="rounded-[1.7rem] border border-white/12 bg-[rgba(1,0,2,0.46)] p-5 shadow-[0_18px_60px_rgba(1,0,2,0.32)] backdrop-blur-2xl">
                   <div className="flex items-center gap-4">
                     <img
                       className="h-16 w-16 rounded-full border border-[rgba(252,223,92,0.35)] object-cover"
@@ -183,10 +184,11 @@ function HeroVideoSection() {
                   {heroStats.map((item) => (
                     <div
                       key={item.label}
-                      className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-4 text-left shadow-[0_16px_45px_rgba(0,0,0,0.25)] backdrop-blur-xl"
+                      className="rounded-[1.5rem] border border-white/12 bg-[rgba(1,0,2,0.42)] p-4 text-left shadow-[0_16px_45px_rgba(1,0,2,0.26)] backdrop-blur-xl"
                     >
-                      <p className="font-display text-4xl text-[var(--color-heading)]">
+                      <p className="flex items-center gap-2 font-display text-4xl text-[var(--color-heading)]">
                         {item.value}
+                        {item.icon === 'star' ? <FaStar className="h-5 w-5 text-[var(--color-gold)]" aria-hidden="true" /> : null}
                       </p>
                       <p className="mt-2 text-xs uppercase tracking-[0.22em] text-white/45">
                         {item.label}

@@ -1,7 +1,7 @@
 function PageLoader({ isLoading }) {
   return (
     <div
-      className={`fixed inset-0 z-[90] grid place-items-center bg-[radial-gradient(circle_at_top,rgba(252,223,92,0.12),transparent_32%),linear-gradient(180deg,#080608,#010002)] transition duration-700 ${
+      className={`fixed inset-0 z-[90] grid place-items-center bg-[radial-gradient(circle_at_top,rgba(235,200,0,0.12),transparent_32%),radial-gradient(circle_at_20%_20%,rgba(245,73,145,0.14),transparent_30%),linear-gradient(180deg,#4a1138,#380828)] transition duration-700 ${
         isLoading ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
       }`}
       aria-hidden={!isLoading}

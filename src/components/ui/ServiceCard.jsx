@@ -1,7 +1,11 @@
 import { gsap } from 'gsap'
+import { FiStar } from 'react-icons/fi'
+import { serviceIcons } from '@/lib/icons'
 import GlassPanel from './GlassPanel'
 
 function ServiceCard({ service, index }) {
+  const ServiceIcon = serviceIcons[service.title] ?? FiStar
+
   const handleMove = (event) => {
     const currentTarget = event.currentTarget
     const rect = currentTarget.getBoundingClientRect()
@@ -52,7 +56,7 @@ function ServiceCard({ service, index }) {
               {service.focus}
             </div>
             <div className="absolute bottom-4 right-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[rgba(1,0,2,0.48)] text-xl text-[var(--color-gold)] backdrop-blur-xl">
-              {service.icon}
+              <ServiceIcon className="h-5 w-5" aria-hidden="true" />
             </div>
           </div>
 

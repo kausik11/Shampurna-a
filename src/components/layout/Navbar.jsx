@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
+import { FiMenu, FiX } from 'react-icons/fi'
 import { Link, NavLink } from 'react-router-dom'
 import { navigationItems } from '../../data/siteData'
 
@@ -34,7 +35,7 @@ function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/10 bg-[rgba(8,8,10,0.62)] px-4 py-3 shadow-[0_24px_60px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/12 bg-[rgba(1,0,2,0.58)] px-4 py-3 shadow-[0_24px_60px_rgba(1,0,2,0.34)] backdrop-blur-2xl">
         <Link className="inline-flex items-center gap-3" to="/">
           <img
             className="h-12 w-12 rounded-full border border-[rgba(252,223,92,0.38)] object-cover"
@@ -77,32 +78,28 @@ function Navbar() {
         </div>
 
         <button
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white lg:hidden"
           type="button"
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
           onClick={() => setIsOpen((value) => !value)}
         >
           <span className="sr-only">Toggle navigation</span>
-          <span className="space-y-1.5">
-            <span className="block h-0.5 w-5 bg-current" />
-            <span className="block h-0.5 w-5 bg-current" />
-            <span className="block h-0.5 w-5 bg-current" />
-          </span>
+          {isOpen ? <FiX className="h-5 w-5" aria-hidden="true" /> : <FiMenu className="h-5 w-5" aria-hidden="true" />}
         </button>
       </div>
 
       <div
         ref={panelRef}
         id="mobile-menu"
-        className="pointer-events-none invisible mx-auto mt-3 max-w-7xl rounded-[1.75rem] border border-white/10 bg-[rgba(8,8,10,0.84)] p-4 opacity-0 shadow-[0_24px_60px_rgba(0,0,0,0.38)] backdrop-blur-2xl lg:hidden"
+        className="pointer-events-none invisible mx-auto mt-3 max-w-7xl rounded-[1.75rem] border border-white/12 bg-[rgba(1,0,2,0.78)] p-4 opacity-0 shadow-[0_24px_60px_rgba(1,0,2,0.38)] backdrop-blur-2xl lg:hidden"
       >
         <nav className="flex flex-col gap-3">
           {navigationItems.map((item) => (
             <NavLink
               key={item.label}
               className={({ isActive }) =>
-                `rounded-2xl border border-white/5 bg-white/[0.03] px-4 py-3 text-sm font-medium transition hover:border-[rgba(252,223,92,0.2)] hover:text-[var(--color-highlight)] ${
+                `rounded-2xl border border-white/8 bg-white/[0.04] px-4 py-3 text-sm font-medium transition hover:border-[rgba(235,200,0,0.24)] hover:text-[var(--color-highlight)] ${
                   isActive ? 'text-[var(--color-gold)]' : 'text-white/75'
                 }`
               }

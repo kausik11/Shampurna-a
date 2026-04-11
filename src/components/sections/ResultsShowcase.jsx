@@ -64,8 +64,8 @@ function ResultsShowcase() {
               key={item.title}
               className={`reveal group overflow-hidden rounded-[1.6rem] border p-3 text-left backdrop-blur-xl transition duration-300 ${
                 activeIndex === index
-                  ? 'border-[rgba(252,223,92,0.26)] bg-white/[0.08]'
-                  : 'border-white/10 bg-white/[0.04] hover:border-[rgba(245,73,145,0.28)]'
+                  ? 'border-[rgba(235,200,0,0.28)] bg-[rgba(1,0,2,0.54)]'
+                  : 'border-white/10 bg-[rgba(1,0,2,0.34)] hover:border-[rgba(245,73,145,0.28)]'
               }`}
               type="button"
               onClick={() => setActiveIndex(index)}
