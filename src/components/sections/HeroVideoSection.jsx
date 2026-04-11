@@ -110,7 +110,7 @@ function HeroVideoSection() {
             playsInline
             poster="/shampurna-logo.jpeg"
           >
-            <source src="/Video_Editing_and_Generation_Complete.mp4" type="video/mp4" />
+            <source src="/Laser Treatment.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(1,0,2,0.86)_0%,rgba(1,0,2,0.56)_42%,rgba(1,0,2,0.2)_100%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,0,2,0.06),rgba(1,0,2,0.72))]" />
