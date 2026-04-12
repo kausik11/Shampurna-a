@@ -34,19 +34,19 @@ function Navbar() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/12 bg-[rgba(1,0,2,0.58)] px-4 py-3 shadow-[0_24px_60px_rgba(1,0,2,0.34)] backdrop-blur-2xl">
-        <Link className="inline-flex items-center gap-3" to="/">
+    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-4 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-full border border-white/12 bg-[rgba(1,0,2,0.58)] px-3 py-2.5 shadow-[0_24px_60px_rgba(1,0,2,0.34)] backdrop-blur-2xl sm:px-4 sm:py-3">
+        <Link className="inline-flex min-w-0 items-center gap-3 sm:gap-4" to="/">
           <img
-            className="h-12 w-12 rounded-full border border-[rgba(252,223,92,0.38)] object-cover"
-            src="/shampurna-logo.jpeg"
+            className="h-20 w-20 shrink-0 rounded-full border border-[rgba(252,223,92,0.38)] object-cover object-center sm:h-24 sm:w-24"
+            src="/logo.png"
             alt="Shampurna Aesthetic logo"
           />
-          <div className="hidden sm:block">
-            <p className="font-display text-2xl leading-none text-[var(--color-heading)]">
+          <div className="min-w-0">
+            <p className="truncate font-display text-xl leading-none text-[var(--color-heading)] sm:text-2xl">
               Shampurna
             </p>
-            <p className="text-[11px] uppercase tracking-[0.22em] text-white/50">
+            <p className="hidden text-[11px] uppercase tracking-[0.18em] text-white/50 sm:block sm:tracking-[0.22em]">
               Aesthetic Clinic
             </p>
           </div>
@@ -78,7 +78,7 @@ function Navbar() {
         </div>
 
         <button
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white lg:hidden"
+          className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white sm:h-11 sm:w-11 lg:hidden"
           type="button"
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
@@ -92,7 +92,7 @@ function Navbar() {
       <div
         ref={panelRef}
         id="mobile-menu"
-        className="pointer-events-none invisible mx-auto mt-3 max-w-7xl rounded-[1.75rem] border border-white/12 bg-[rgba(1,0,2,0.78)] p-4 opacity-0 shadow-[0_24px_60px_rgba(1,0,2,0.38)] backdrop-blur-2xl lg:hidden"
+        className="pointer-events-none invisible mx-auto mt-3 max-w-7xl rounded-[1.25rem] border border-white/12 bg-[rgba(1,0,2,0.78)] p-3 opacity-0 shadow-[0_24px_60px_rgba(1,0,2,0.38)] backdrop-blur-2xl sm:rounded-[1.75rem] sm:p-4 lg:hidden"
       >
         <nav className="flex flex-col gap-3">
           {navigationItems.map((item) => (

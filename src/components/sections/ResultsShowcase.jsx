@@ -21,7 +21,7 @@ function ResultsShowcase() {
     <section
       ref={sectionRef}
       id="gallery"
-      className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8"
+      className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24 xl:py-28"
     >
       <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
         <div className="reveal">
@@ -35,20 +35,20 @@ function ResultsShowcase() {
         <p className="reveal text-sm text-white/45">Results may vary depending on skin type and treatment plan.</p>
       </div>
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="mt-10 grid gap-6 lg:grid-cols-[1.15fr_0.85fr] xl:gap-8">
         <GlassPanel className="reveal result-stage overflow-hidden p-3">
           <div className="relative overflow-hidden rounded-[1.75rem]">
             <img
-              className="h-[28rem] w-full object-cover"
+              className="h-[20rem] w-full object-cover sm:h-[24rem] lg:h-[28rem]"
               src={resultsGallery[activeIndex].image}
               alt={resultsGallery[activeIndex].title}
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,0,2,0.05),rgba(1,0,2,0.72))]" />
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-gold)]">
+            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-gold)] sm:text-xs sm:tracking-[0.28em]">
                 {resultsGallery[activeIndex].tag}
               </p>
-              <h3 className="mt-2 font-display text-3xl text-[var(--color-heading)]">
+              <h3 className="mt-2 text-wrap font-display text-2xl leading-tight text-[var(--color-heading)] sm:text-3xl">
                 {resultsGallery[activeIndex].title}
               </h3>
               <p className="mt-3 max-w-lg text-sm leading-7 text-white/70">
@@ -70,9 +70,9 @@ function ResultsShowcase() {
               type="button"
               onClick={() => setActiveIndex(index)}
             >
-              <div className="grid gap-4 sm:grid-cols-[140px_1fr] sm:items-center">
+              <div className="grid gap-4 sm:grid-cols-[8.5rem_1fr] sm:items-center">
                 <img
-                  className="h-28 w-full rounded-[1.2rem] object-cover sm:w-36"
+                  className="h-28 w-full rounded-[1.2rem] object-cover sm:h-28 sm:w-full"
                   src={item.image}
                   alt={item.title}
                 />
@@ -80,7 +80,7 @@ function ResultsShowcase() {
                   <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-gold)]">
                     {item.tag}
                   </p>
-                  <h3 className="mt-2 font-display text-2xl text-[var(--color-heading)] transition group-hover:text-[var(--color-highlight)]">
+                  <h3 className="mt-2 text-wrap font-display text-xl leading-tight text-[var(--color-heading)] transition group-hover:text-[var(--color-highlight)] sm:text-2xl">
                     {item.title}
                   </h3>
                   <p className="mt-2 text-sm leading-7 text-white/60">

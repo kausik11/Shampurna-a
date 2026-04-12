@@ -66,11 +66,11 @@ function HeroVideoSection() {
     <section
       ref={containerRef}
       id="home"
-      className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 pb-10 pt-6"
+      className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 pb-8 pt-4 sm:pb-10 sm:pt-6"
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
     >
-      <div className="parallax-stage relative overflow-hidden border-y border-white/10 bg-[#010002] shadow-[0_30px_90px_rgba(1,0,2,0.45)] sm:rounded-[2rem] sm:border sm:mx-4 lg:mx-6">
+      <div className="parallax-stage relative overflow-hidden border-y border-white/10 bg-[#010002] shadow-[0_30px_90px_rgba(1,0,2,0.45)] sm:mx-4 sm:rounded-[2rem] sm:border lg:mx-6 2xl:mx-auto 2xl:max-w-[94rem]">
         <div className="absolute inset-0">
           <video
             ref={videoRef}
@@ -88,29 +88,29 @@ function HeroVideoSection() {
         </div>
 
         <div className="mx-auto max-w-[92rem]">
-          <div className="relative grid min-h-[86svh] gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-16">
+          <div className="relative grid min-h-[calc(100svh-7rem)] gap-8 px-4 py-12 sm:min-h-[82svh] sm:px-6 md:py-14 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-16 xl:min-h-[86svh]">
             <div className="flex flex-col justify-center lg:pl-2 xl:pl-6">
-              <p className="hero-reveal text-xs font-semibold uppercase tracking-[0.34em] text-[var(--color-highlight)]">
+              <p className="hero-reveal text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--color-highlight)] sm:text-xs sm:tracking-[0.34em]">
                 Luxury Aesthetic Clinic
               </p>
-              <h1 className="hero-reveal mt-6 max-w-5xl font-display text-4xl leading-[1.02] text-[var(--color-heading)] sm:text-5xl lg:text-7xl">
+              <h1 className="hero-reveal mt-4 max-w-5xl text-wrap font-display text-4xl leading-[1.04] text-[var(--color-heading)] sm:mt-6 sm:text-5xl lg:text-6xl xl:text-7xl">
                 Refined skin, body and beauty care with cinematic elegance.
               </h1>
-              <p className="hero-reveal mt-8 max-w-3xl text-sm leading-8 text-white/70 sm:text-base">
+              <p className="hero-reveal mt-5 max-w-3xl text-sm leading-7 text-white/70 sm:mt-8 sm:text-base sm:leading-8">
                 Shampurna Aesthetic combines modern aesthetic treatments with a
                 hospitality-led atmosphere, premium detailing, and a polished
                 consultation-first experience.
               </p>
 
-              <div className="hero-reveal mt-10 flex flex-col gap-4 sm:flex-row">
+              <div className="hero-reveal mt-8 flex flex-col gap-3 min-[420px]:flex-row sm:mt-10 sm:gap-4">
                 <a
-                  className="button-shine inline-flex items-center justify-center rounded-full border border-[rgba(252,223,92,0.22)] bg-[var(--color-button)] px-6 py-3.5 text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)]"
+                  className="button-shine inline-flex items-center justify-center rounded-full border border-[rgba(252,223,92,0.22)] bg-[var(--color-button)] px-5 py-3 text-center text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)] sm:px-6 sm:py-3.5"
                   href="#appointment"
                 >
                   Book Appointment
                 </a>
                 <a
-                  className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.06] px-6 py-3.5 text-sm font-semibold text-[var(--color-heading)] backdrop-blur-xl transition duration-300 hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)]"
+                  className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.06] px-5 py-3 text-center text-sm font-semibold text-[var(--color-heading)] backdrop-blur-xl transition duration-300 hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)] sm:px-6 sm:py-3.5"
                   href="#services"
                 >
                   Explore Services
@@ -133,7 +133,7 @@ function HeroVideoSection() {
             </div>
 
             <div className="relative flex items-end justify-end">
-              <div className="floating-badge w-full max-w-md space-y-4 self-end lg:mb-4">
+              <div className="floating-badge w-full max-w-xl space-y-4 self-end lg:mb-4 lg:max-w-md">
 
 
                 {/* <div className="rounded-[1.7rem] border border-white/12 bg-[rgba(1,0,2,0.46)] p-5 shadow-[0_18px_60px_rgba(1,0,2,0.32)] backdrop-blur-2xl">
@@ -155,17 +155,17 @@ function HeroVideoSection() {
                   </div>
                 </div> */}
 
-                <div className="grid gap-4 sm:grid-cols-3">
+                <div className="grid gap-3 min-[520px]:grid-cols-3 sm:gap-4">
                   {heroStats.map((item) => (
                     <div
                       key={item.label}
-                      className="rounded-[1.5rem] border border-white/12 bg-[rgba(1,0,2,0.42)] p-4 text-left shadow-[0_16px_45px_rgba(1,0,2,0.26)] backdrop-blur-xl"
+                      className="rounded-[1.15rem] border border-white/12 bg-[rgba(1,0,2,0.42)] p-4 text-left shadow-[0_16px_45px_rgba(1,0,2,0.26)] backdrop-blur-xl sm:rounded-[1.5rem]"
                     >
-                      <p className="flex items-center gap-2 font-display text-4xl text-[var(--color-heading)]">
+                      <p className="flex items-center gap-2 font-display text-3xl leading-none text-[var(--color-heading)] sm:text-4xl">
                         {item.value}
                         {item.icon === 'star' ? <FaStar className="h-5 w-5 text-[var(--color-gold)]" aria-hidden="true" /> : null}
                       </p>
-                      <p className="mt-2 text-xs uppercase tracking-[0.22em] text-white/45">
+                      <p className="mt-2 text-[10px] uppercase tracking-[0.16em] text-white/45 sm:text-xs sm:tracking-[0.22em]">
                         {item.label}
                       </p>
                     </div>

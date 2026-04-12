@@ -162,15 +162,15 @@ const CircularGallery = forwardRef(function CircularGallery(
               aria-label={item.common}
               className="absolute left-1/2 top-1/2"
               style={{
-                width: 'clamp(9rem, min(22vw, 30svh), 16.5rem)',
-                height: 'clamp(11rem, min(28vw, 38svh), 22rem)',
+                width: 'clamp(8rem, min(24vw, 28svh), 16.5rem)',
+                height: 'clamp(10rem, min(32vw, 36svh), 22rem)',
                 transform: `translate3d(-50%, -50%, 0) rotateY(${itemAngle}deg) translateZ(${radius}px)`,
                 opacity,
                 transformStyle: 'preserve-3d',
                 transition: 'opacity 0.3s linear',
               }}
             >
-              <div className="group relative h-full w-full overflow-hidden rounded-[1.25rem] border border-white/12 bg-[rgba(1,0,2,0.5)] shadow-[0_24px_80px_rgba(1,0,2,0.34)] backdrop-blur-md">
+              <div className="group relative h-full w-full overflow-hidden rounded-[1rem] border border-white/12 bg-[rgba(1,0,2,0.5)] shadow-[0_24px_80px_rgba(1,0,2,0.34)] backdrop-blur-md sm:rounded-[1.25rem]">
                 <img
                   src={item.photo.url}
                   alt={item.photo.text}
@@ -178,14 +178,14 @@ const CircularGallery = forwardRef(function CircularGallery(
                   style={{ objectPosition: item.photo.pos || 'center' }}
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,0,2,0.1),rgba(1,0,2,0.85))]" />
-                <div className="absolute bottom-0 left-0 w-full p-4 text-white">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--color-gold)]">
+                <div className="absolute bottom-0 left-0 w-full p-3 text-white sm:p-4">
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-[var(--color-gold)] sm:text-[11px] sm:tracking-[0.28em]">
                     Signature Treatment
                   </p>
-                  <h3 className="mt-2 font-display text-2xl leading-tight text-[var(--color-heading)]">
+                  <h3 className="mt-2 text-wrap font-display text-lg leading-tight text-[var(--color-heading)] sm:text-2xl">
                     {item.common}
                   </h3>
-                  <p className="mt-2 text-sm italic text-white/75">{item.binomial}</p>
+                  <p className="mt-2 text-xs italic text-white/75 sm:text-sm">{item.binomial}</p>
                 </div>
               </div>
             </div>

@@ -3,7 +3,7 @@ import { FaStar } from '@/lib/icons'
 
 function TestimonialCard({ testimonial }) {
   return (
-    <GlassPanel className="h-full p-8">
+    <GlassPanel className="h-full p-5 sm:p-8">
       <div className="flex h-full flex-col justify-between">
         <div>
           <div className="flex gap-1 text-[var(--color-gold)]">
@@ -11,7 +11,7 @@ function TestimonialCard({ testimonial }) {
               <FaStar key={`${testimonial.name}-${index}`} className="h-4 w-4" aria-hidden="true" />
             ))}
           </div>
-          <p className="mt-6 font-display text-3xl leading-tight text-[var(--color-heading)]">
+          <p className="mt-5 text-wrap font-display text-2xl leading-tight text-[var(--color-heading)] sm:mt-6 sm:text-3xl">
             "{testimonial.quote}"
           </p>
         </div>

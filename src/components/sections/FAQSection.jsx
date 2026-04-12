@@ -9,16 +9,16 @@ function FAQItem({ item, isOpen, onToggle }) {
   return (
     <GlassPanel className="overflow-hidden p-0">
       <button
-        className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left"
+        className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-5 sm:py-5"
         type="button"
         aria-expanded={isOpen}
         onClick={onToggle}
       >
-        <span className="font-medium text-[var(--color-heading)]">{item.question}</span>
+        <span className="text-wrap font-medium leading-6 text-[var(--color-heading)]">{item.question}</span>
         {isOpen ? (
-          <FiMinus className="h-5 w-5 text-[var(--color-gold)]" aria-hidden="true" />
+          <FiMinus className="h-5 w-5 shrink-0 text-[var(--color-gold)]" aria-hidden="true" />
         ) : (
-          <FiPlus className="h-5 w-5 text-[var(--color-gold)]" aria-hidden="true" />
+          <FiPlus className="h-5 w-5 shrink-0 text-[var(--color-gold)]" aria-hidden="true" />
         )}
       </button>
       <div
@@ -41,9 +41,9 @@ function FAQSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8"
+      className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24 xl:py-28"
     >
-      <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+      <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] xl:gap-10">
         <div className="reveal">
           <SectionHeading
             align="left"

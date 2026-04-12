@@ -84,7 +84,16 @@
     font-family: var(--font-display);
     font-optical-sizing: auto;
     font-weight: 800;
+    overflow-wrap: anywhere;
     text-shadow: 0 0 28px rgba(235, 200, 0, 0.14);
+  }
+
+  p,
+  a,
+  button,
+  label,
+  span {
+    overflow-wrap: anywhere;
   }
 
   body::before {

@@ -15,12 +15,12 @@ function VideoTestimonialCard({
   facebookUrl,
 }) {
   return (
-    <article className="group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[rgba(1,0,2,0.52)] shadow-[0_18px_48px_rgba(1,0,2,0.28)] backdrop-blur-xl transition duration-300 hover:-translate-y-1">
+    <article className="group relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-[rgba(1,0,2,0.52)] shadow-[0_18px_48px_rgba(1,0,2,0.28)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 sm:rounded-[1.5rem]">
       <div className="relative">
         <img
           src={mainImage}
           alt={feedback}
-          className="h-auto w-full object-cover transition duration-500 group-hover:scale-105"
+          className="max-h-[34rem] w-full object-cover transition duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/15 to-black/72" />
 
@@ -28,13 +28,13 @@ function VideoTestimonialCard({
           href={videoUrl}
           target="_blank"
           rel="noreferrer"
-          className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-[rgba(252,223,92,0.18)] text-[var(--color-gold)] backdrop-blur-xl transition hover:bg-[rgba(252,223,92,0.28)]"
+          className="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(252,223,92,0.18)] text-[var(--color-gold)] backdrop-blur-xl transition hover:bg-[rgba(252,223,92,0.28)] sm:right-4 sm:top-4 sm:h-11 sm:w-11"
           aria-label={`Play video testimonial from ${name}`}
         >
           <FiPlay className="h-4 w-4" />
         </a>
 
-        <div className="absolute inset-x-0 top-0 p-4 text-white">
+        <div className="absolute inset-x-0 top-0 p-3 text-white sm:p-4">
           <div className="mb-3 flex items-center gap-3">
             <Avatar className="h-10 w-10 ring-2 ring-white/30">
               <AvatarImage src={profileImage} alt={name} />
@@ -42,12 +42,12 @@ function VideoTestimonialCard({
             </Avatar>
             <span className="text-sm font-semibold drop-shadow-md">{name}</span>
           </div>
-          <p className="max-w-[14rem] text-sm font-medium leading-tight text-white/92 drop-shadow-md">
+          <p className="max-w-[13rem] text-sm font-medium leading-tight text-white/92 drop-shadow-md sm:max-w-[14rem]">
             {feedback}
           </p>
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 p-4">
+        <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-center justify-between gap-2 p-3 sm:gap-3 sm:p-4">
           <a
             href={videoUrl}
             target="_blank"
@@ -108,9 +108,9 @@ function VideoTestimonialsSection() {
     <section
       ref={sectionRef}
       id="video-testimonials"
-      className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8"
+      className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24 xl:py-28"
     >
-      <div className="reveal rounded-[1.75rem] border border-white/12 bg-[rgba(1,0,2,0.46)] p-4 shadow-[0_24px_60px_rgba(1,0,2,0.36)] backdrop-blur-2xl sm:p-6">
+      <div className="reveal rounded-[1.35rem] border border-white/12 bg-[rgba(1,0,2,0.46)] p-3 shadow-[0_24px_60px_rgba(1,0,2,0.36)] backdrop-blur-2xl sm:rounded-[1.75rem] sm:p-6">
         <SectionHeading
           align="left"
           eyebrow="Video Testimonials"

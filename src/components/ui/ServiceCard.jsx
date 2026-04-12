@@ -51,8 +51,7 @@ function ServiceCard({ service, index }) {
 
   return (
     <GlassPanel
-      className="reveal group relative overflow-hidden p-6 transition duration-500"
-      onMouseLeave={undefined}
+      className="reveal group relative overflow-hidden p-4 transition duration-500 sm:p-5 lg:p-6"
     >
       <article
         className="relative h-full cursor-pointer rounded-[1.45rem]"
@@ -68,13 +67,13 @@ function ServiceCard({ service, index }) {
         <div className="relative">
           <div className="relative overflow-hidden rounded-[1.35rem] border border-white/10">
             <img
-              className="h-52 w-full object-cover transition duration-700 group-hover:scale-105"
+              className="h-44 w-full object-cover transition duration-700 group-hover:scale-105 sm:h-52 xl:h-56"
               src={service.image}
               alt={service.imageAlt}
               loading="lazy"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,0,2,0.04),rgba(1,0,2,0.78))]" />
-            <div className="absolute left-4 top-4 inline-flex items-center rounded-full border border-[rgba(252,223,92,0.22)] bg-[rgba(1,0,2,0.46)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--color-gold)] backdrop-blur-xl">
+            <div className="absolute left-3 top-3 inline-flex max-w-[calc(100%-4.5rem)] items-center rounded-full border border-[rgba(252,223,92,0.22)] bg-[rgba(1,0,2,0.46)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-gold)] backdrop-blur-xl sm:left-4 sm:top-4 sm:text-[11px] sm:tracking-[0.22em]">
               {service.focus}
             </div>
             <div className="absolute bottom-4 right-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[rgba(1,0,2,0.48)] text-xl text-[var(--color-gold)] backdrop-blur-xl">
@@ -91,22 +90,22 @@ function ServiceCard({ service, index }) {
             </span>
           </div>
 
-          <h3 className="mt-4 font-display text-3xl leading-none text-[var(--color-heading)] transition group-hover:text-[var(--color-highlight)]">
+          <h3 className="mt-3 text-wrap font-display text-2xl leading-tight text-[var(--color-heading)] transition group-hover:text-[var(--color-highlight)] sm:mt-4 lg:text-3xl">
             {service.title}
           </h3>
           <p className="mt-4 text-sm leading-7 text-white/65">
             {service.description}
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-col gap-3 min-[420px]:flex-row min-[420px]:flex-wrap">
             <Link
-              className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-white/75 transition hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)]"
+              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-center text-xs font-semibold uppercase tracking-[0.14em] text-white/75 transition hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)] sm:tracking-[0.18em]"
               to={service.href}
             >
               Learn More
             </Link>
             <a
-              className="inline-flex items-center rounded-full border border-[rgba(252,223,92,0.18)] bg-[rgba(252,223,92,0.08)] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-gold)] transition hover:bg-[rgba(252,223,92,0.14)]"
+              className="inline-flex items-center justify-center rounded-full border border-[rgba(252,223,92,0.18)] bg-[rgba(252,223,92,0.08)] px-4 py-2.5 text-center text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-gold)] transition hover:bg-[rgba(252,223,92,0.14)] sm:tracking-[0.18em]"
               href="#appointment"
             >
               Book Now

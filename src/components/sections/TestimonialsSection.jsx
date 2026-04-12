@@ -9,7 +9,7 @@ import { useRevealAnimations } from '../../hooks/useRevealAnimations'
 
 function MarqueeTestimonialCard({ image, name, username, quote, country }) {
   return (
-    <Card className="w-64 rounded-[1.5rem] border-white/12 bg-[rgba(1,0,2,0.52)] shadow-[0_18px_50px_rgba(1,0,2,0.3)]">
+    <Card className="w-60 rounded-[1.25rem] border-white/12 bg-[rgba(1,0,2,0.52)] shadow-[0_18px_50px_rgba(1,0,2,0.3)] sm:w-64 sm:rounded-[1.5rem]">
       <CardContent className="p-5 pt-5">
         <div className="flex items-center gap-3">
           <Avatar className="h-11 w-11 border border-[rgba(252,223,92,0.25)]">
@@ -17,7 +17,7 @@ function MarqueeTestimonialCard({ image, name, username, quote, country }) {
             <AvatarFallback>{name[0]}</AvatarFallback>
           </Avatar>
           <div className="flex flex-col">
-            <figcaption className="flex items-center gap-1 text-sm font-medium text-[var(--color-heading)]">
+            <figcaption className="flex flex-wrap items-center gap-1 text-sm font-medium leading-tight text-[var(--color-heading)]">
               {name}
               <span className="text-[10px] uppercase tracking-[0.12em] text-[var(--color-gold)]">
                 {country}
@@ -54,9 +54,9 @@ function TestimonialsSection() {
     <section
       ref={sectionRef}
       id="testimonials"
-      className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8"
+      className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24 xl:py-28"
     >
-      <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center xl:gap-10">
         <div className="reveal">
           <SectionHeading
             align="left"
@@ -81,13 +81,13 @@ function TestimonialsSection() {
             ))}
           </div>
 
-          <div className="mt-8 min-h-[23rem]">
+          <div className="mt-8 min-h-[20rem] sm:min-h-[23rem]">
             <TestimonialCard testimonial={featuredTestimonials[activeIndex % featuredTestimonials.length]} />
           </div>
         </div>
 
-        <div className="reveal relative overflow-hidden rounded-[1.75rem] border border-white/12 bg-[rgba(1,0,2,0.52)] p-3 shadow-[0_24px_60px_rgba(1,0,2,0.36)] backdrop-blur-2xl">
-          <div className="relative flex h-[32rem] w-full flex-row items-center justify-center overflow-hidden [perspective:300px]">
+        <div className="reveal relative overflow-hidden rounded-[1.35rem] border border-white/12 bg-[rgba(1,0,2,0.52)] p-2 shadow-[0_24px_60px_rgba(1,0,2,0.36)] backdrop-blur-2xl sm:rounded-[1.75rem] sm:p-3">
+          <div className="relative flex h-[26rem] w-full flex-row items-center justify-center overflow-hidden [perspective:300px] sm:h-[30rem] lg:h-[32rem]">
             <div
               className="flex flex-row items-center gap-4"
               style={{

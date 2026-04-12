@@ -92,9 +92,9 @@ function AppointmentSection() {
     <section
       ref={sectionRef}
       id="appointment"
-      className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8"
+      className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24 xl:py-28"
     >
-      <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] xl:gap-10">
         <div className="reveal">
           <SectionHeading
             align="left"
@@ -103,7 +103,7 @@ function AppointmentSection() {
             description="This frontend form is prepared for future API integration. For now, it provides premium validation, a refined success state, and a layout that clearly supports bookings."
           />
 
-          <GlassPanel className="mt-8 space-y-6 p-6">
+          <GlassPanel className="mt-8 space-y-6 p-5 sm:p-6">
             <div>
               <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-gold)]">
                 Concierge Promise
@@ -124,7 +124,7 @@ function AppointmentSection() {
               ].map((item) => (
                 <div
                   key={item}
-                  className="rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-4 text-sm text-white/70"
+                  className="rounded-[1rem] border border-white/10 bg-white/[0.04] p-4 text-sm text-white/70 sm:rounded-[1.25rem]"
                 >
                   {item}
                 </div>
@@ -133,7 +133,7 @@ function AppointmentSection() {
           </GlassPanel>
         </div>
 
-        <GlassPanel className="reveal p-6 sm:p-8">
+        <GlassPanel className="reveal p-4 sm:p-6 lg:p-8">
           <form className="space-y-5" noValidate onSubmit={handleSubmit}>
             <div className="grid gap-5 md:grid-cols-2">
               <Field label="Full Name" error={errors.fullName}>
@@ -220,7 +220,7 @@ function AppointmentSection() {
 
             <div className="flex flex-col gap-4 border-t border-white/10 pt-4 sm:flex-row sm:items-center sm:justify-between">
               <button
-                className="button-shine inline-flex items-center justify-center rounded-full border border-[rgba(252,223,92,0.2)] bg-[var(--color-button)] px-6 py-3.5 text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)]"
+                className="button-shine inline-flex items-center justify-center rounded-full border border-[rgba(252,223,92,0.2)] bg-[var(--color-button)] px-5 py-3 text-center text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)] sm:px-6 sm:py-3.5"
                 type="submit"
               >
                 Request Appointment

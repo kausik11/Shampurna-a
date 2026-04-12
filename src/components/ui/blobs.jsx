@@ -22,7 +22,7 @@ export function AnimatedBlobs({
     maskClip: 'padding-box, border-box',
     maskComposite: 'intersect',
     mixBlendMode: 'screen',
-    height: 'min(82vmin, 40rem)',
+    height: 'clamp(18rem, 72vmin, 40rem)',
     filter: 'blur(1.1vmin)',
   }
 
@@ -52,20 +52,20 @@ export function AnimatedBlobs({
   return (
     <div
       className={cn(
-        'relative flex min-h-[38rem] w-full items-center justify-center overflow-hidden',
+        'relative flex min-h-[28rem] w-full items-center justify-center overflow-hidden sm:min-h-[34rem] lg:min-h-[38rem]',
         className,
       )}
     >
       {label ? (
         <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-6">
-          <div className="flex max-w-[min(74vw,32rem)] flex-col items-center gap-6 text-center">
-            <span className="text-center font-display text-[clamp(2.75rem,7vw,5.5rem)] leading-[0.9] tracking-tight text-[var(--color-heading)]">
+          <div className="flex max-w-[min(84vw,32rem)] flex-col items-center gap-5 text-center sm:gap-6">
+            <span className="text-center font-display text-[clamp(2.35rem,8vw,5.5rem)] leading-[0.92] tracking-normal text-[var(--color-heading)]">
               {label}
             </span>
             {actionLabel ? (
               <a
                 href={actionHref}
-                className="button-shine pointer-events-auto inline-flex items-center justify-center gap-2 rounded-full border border-[rgba(252,223,92,0.22)] bg-[var(--color-button)] px-6 py-3.5 text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)]"
+                className="button-shine pointer-events-auto inline-flex items-center justify-center gap-2 rounded-full border border-[rgba(252,223,92,0.22)] bg-[var(--color-button)] px-5 py-3 text-center text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)] sm:px-6 sm:py-3.5"
               >
                 <span>{actionLabel}</span>
                 <FaArrowRightLong className="text-xs" />
