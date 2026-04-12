@@ -162,8 +162,8 @@ const CircularGallery = forwardRef(function CircularGallery(
               aria-label={item.common}
               className="absolute left-1/2 top-1/2"
               style={{
-                width: 'clamp(11rem, 24vw, 18.75rem)',
-                height: 'clamp(15rem, 32vw, 25rem)',
+                width: 'clamp(9rem, min(22vw, 30svh), 16.5rem)',
+                height: 'clamp(11rem, min(28vw, 38svh), 22rem)',
                 transform: `translate3d(-50%, -50%, 0) rotateY(${itemAngle}deg) translateZ(${radius}px)`,
                 opacity,
                 transformStyle: 'preserve-3d',
@@ -186,11 +186,6 @@ const CircularGallery = forwardRef(function CircularGallery(
                     {item.common}
                   </h3>
                   <p className="mt-2 text-sm italic text-white/75">{item.binomial}</p>
-                  {item.photo.by ? (
-                    <p className="mt-3 text-[11px] uppercase tracking-[0.24em] text-white/50">
-                      Image Source: {item.photo.by}
-                    </p>
-                  ) : null}
                 </div>
               </div>
             </div>

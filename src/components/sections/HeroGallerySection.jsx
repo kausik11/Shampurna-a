@@ -9,7 +9,6 @@ import {
 import {
   ScrollXCarousel,
   ScrollXCarouselContainer,
-  ScrollXCarouselProgress,
   ScrollXCarouselWrap,
 } from '@/components/ui/scroll-x-carousel'
 
@@ -27,7 +26,7 @@ function GalleryCard({ item, note }) {
       <CardHoverRevealMain className="relative">
         <img
           alt={item.imageAlt}
-          className="h-[16rem] w-full object-cover sm:h-[19rem] lg:h-[22rem]"
+          className="h-[12.5rem] w-full object-cover sm:h-[15rem] lg:h-[17rem] xl:h-[18rem]"
           loading="lazy"
           src={item.image}
         />
@@ -50,11 +49,11 @@ function GalleryCard({ item, note }) {
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4 sm:p-5">
-        <div className="rounded-[1rem] border border-white/10 bg-[rgba(1,0,2,0.46)] p-4 backdrop-blur-md">
+        <div className="rounded-[1rem] border border-white/10 bg-[rgba(1,0,2,0.46)] p-3 backdrop-blur-md sm:p-4">
           <p className="text-[10px] uppercase tracking-[0.28em] text-white/42">
             Signature treatment
           </p>
-          <h3 className="mt-2 font-display text-2xl leading-none text-[var(--color-heading)] sm:text-[2rem]">
+          <h3 className="mt-2 font-display text-xl leading-none text-[var(--color-heading)] sm:text-2xl">
             {item.title}
           </h3>
         </div>
@@ -89,12 +88,12 @@ function HeroGallerySection() {
       className="relative left-1/2 right-1/2 mt-4 w-screen -translate-x-1/2 overflow-hidden border-y border-white/10 bg-[linear-gradient(180deg,#2b071f_0%,#380828_48%,#220416_100%)] sm:mt-6 lg:mt-8"
     >
       <ScrollXCarousel className="h-[130vh] sm:h-[140vh] lg:h-[150vh]">
-        <ScrollXCarouselContainer className="flex h-screen flex-col justify-center">
+        <ScrollXCarouselContainer className="flex h-[100svh] flex-col justify-start">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_14%_18%,rgba(245,73,145,0.18),transparent_28%),radial-gradient(circle_at_82%_16%,rgba(235,200,0,0.14),transparent_24%),radial-gradient(circle_at_50%_84%,rgba(143,135,67,0.16),transparent_26%)]" />
           <div className="absolute inset-y-0 left-0 z-10 w-[12vw] min-w-10 bg-[linear-gradient(90deg,rgba(34,4,22,0.98),transparent)]" />
           <div className="absolute inset-y-0 right-0 z-10 w-[12vw] min-w-10 bg-[linear-gradient(270deg,rgba(34,4,22,0.98),transparent)]" />
 
-          <div className="relative mx-auto w-full max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
+          <div className="relative z-20 mx-auto w-full max-w-7xl px-4 pt-8 sm:px-6 sm:pt-10 lg:px-8 lg:pt-12">
             <div className="max-w-3xl">
               <Badge
                 variant="outline"
@@ -102,10 +101,10 @@ function HeroGallerySection() {
               >
                 Scroll Gallery
               </Badge>
-              <h2 className="mt-5 font-display text-4xl leading-[0.96] text-[var(--color-heading)] sm:text-5xl lg:text-6xl">
+              <h2 className="mt-4 font-display text-3xl leading-tight text-[var(--color-heading)] sm:text-4xl lg:text-5xl">
                 Explore the clinic story through a moving treatment gallery.
               </h2>
-              <p className="mt-5 max-w-2xl text-sm leading-7 text-white/68 sm:text-base">
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/68 sm:text-base">
                 Signature skin, laser, contour, and finishing treatments unfold
                 as you scroll, so the homepage moves from the hero straight into
                 a more visual consultation journey.
@@ -113,7 +112,7 @@ function HeroGallerySection() {
             </div>
           </div>
 
-          <div className="relative mt-8 flex flex-col gap-5 sm:mt-10">
+          <div className="relative mt-5 flex flex-col gap-3 sm:mt-6 sm:gap-4">
             <ScrollXCarouselWrap
               xRagnge={['4%', '-56%']}
               className="flex gap-4 pr-6 sm:gap-6 lg:gap-7 [&>*:first-child]:ml-4 sm:[&>*:first-child]:ml-6 lg:[&>*:first-child]:ml-8"
@@ -133,17 +132,6 @@ function HeroGallerySection() {
             </ScrollXCarouselWrap>
           </div>
 
-          <div className="relative mx-auto mt-6 w-full max-w-7xl px-4 pb-4 sm:px-6 lg:px-8">
-            <ScrollXCarouselProgress
-              className="h-px bg-white/10"
-              progressStyle="h-full bg-[linear-gradient(90deg,var(--color-highlight),var(--color-gold))]"
-            />
-
-            <div className="mt-4 flex flex-col gap-3 text-xs uppercase tracking-[0.26em] text-white/42 sm:flex-row sm:items-center sm:justify-between">
-              <span>Best placed directly after the hero</span>
-              <span>Responsive sticky gallery using existing Unsplash imagery</span>
-            </div>
-          </div>
         </ScrollXCarouselContainer>
       </ScrollXCarousel>
     </section>

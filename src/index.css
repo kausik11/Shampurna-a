@@ -1,15 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;600;700;800&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
 @theme {
-  --font-display: 'Cormorant Garamond', serif;
-  --font-sans: 'Manrope', sans-serif;
+  --font-display: 'Inter', sans-serif;
+  --font-sans: 'Inter', sans-serif;
   --color-page: #380828;
   --color-gold: #EBC800;
   --color-highlight: #f54991;
   --color-button: #8f8743;
-  --color-heading: #fcf5fa;
+  --color-heading: #fff8df;
   --color-text: rgba(252, 245, 250, 0.82);
   --color-background: #12030b;
   --color-foreground: #fcf5fa;
@@ -55,6 +54,7 @@
       radial-gradient(circle at top right, rgba(235, 200, 0, 0.12), transparent 28%),
       linear-gradient(180deg, #4a1138 0%, #380828 100%);
     font-family: var(--font-sans);
+    font-optical-sizing: auto;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -75,6 +75,16 @@
     background: var(--color-page);
     color: var(--color-text);
     overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: var(--color-heading);
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-weight: 800;
+    text-shadow: 0 0 28px rgba(235, 200, 0, 0.14);
   }
 
   body::before {

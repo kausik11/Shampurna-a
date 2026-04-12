@@ -1,14 +1,11 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import { heroMoments, heroStats } from '../../data/siteData'
+import { heroStats } from '../../data/siteData'
 import { FaStar } from '@/lib/icons'
-
-const fallbackMoment = heroMoments[0]
 
 function HeroVideoSection() {
   const containerRef = useRef(null)
   const videoRef = useRef(null)
-  const [activeMoment, setActiveMoment] = useState(fallbackMoment)
 
   useEffect(() => {
     if (!containerRef.current) {
@@ -40,32 +37,6 @@ function HeroVideoSection() {
     }, containerRef)
 
     return () => context.revert()
-  }, [])
-
-  useEffect(() => {
-    const videoElement = videoRef.current
-
-    if (!videoElement) {
-      return undefined
-    }
-
-    const syncMoment = () => {
-      const currentTime = videoElement.currentTime
-      const nextMoment =
-        heroMoments.find(
-          (item) => currentTime >= item.start && currentTime < item.end,
-        ) ?? fallbackMoment
-
-      setActiveMoment((current) => (current === nextMoment ? current : nextMoment))
-    }
-
-    videoElement.addEventListener('timeupdate', syncMoment)
-    videoElement.addEventListener('seeked', syncMoment)
-
-    return () => {
-      videoElement.removeEventListener('timeupdate', syncMoment)
-      videoElement.removeEventListener('seeked', syncMoment)
-    }
   }, [])
 
   const handleMouseMove = (event) => {
@@ -122,7 +93,7 @@ function HeroVideoSection() {
               <p className="hero-reveal text-xs font-semibold uppercase tracking-[0.34em] text-[var(--color-highlight)]">
                 Luxury Aesthetic Clinic
               </p>
-              <h1 className="hero-reveal mt-6 max-w-5xl font-display text-5xl leading-[0.94] text-[var(--color-heading)] sm:text-6xl lg:text-8xl">
+              <h1 className="hero-reveal mt-6 max-w-5xl font-display text-4xl leading-[1.02] text-[var(--color-heading)] sm:text-5xl lg:text-7xl">
                 Refined skin, body and beauty care with cinematic elegance.
               </h1>
               <p className="hero-reveal mt-8 max-w-3xl text-sm leading-8 text-white/70 sm:text-base">
@@ -146,7 +117,7 @@ function HeroVideoSection() {
                 </a>
               </div>
 
-              <div className="hero-reveal mt-12 max-w-2xl rounded-[1.5rem] border border-white/12 bg-[rgba(1,0,2,0.44)] p-5 shadow-[0_20px_60px_rgba(1,0,2,0.3)] backdrop-blur-xl">
+              {/* <div className="hero-reveal mt-12 max-w-2xl rounded-[1.5rem] border border-white/12 bg-[rgba(1,0,2,0.44)] p-5 shadow-[0_20px_60px_rgba(1,0,2,0.3)] backdrop-blur-xl">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex rounded-full border border-[rgba(252,223,92,0.25)] bg-[rgba(252,223,92,0.08)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.26em] text-[var(--color-gold)]">
                     {activeMoment.label}
@@ -156,12 +127,16 @@ function HeroVideoSection() {
                 <p className="mt-4 text-sm leading-7 text-white/74">
                   {activeMoment.description}
                 </p>
-              </div>
+              </div> */}
+
+
             </div>
 
             <div className="relative flex items-end justify-end">
               <div className="floating-badge w-full max-w-md space-y-4 self-end lg:mb-4">
-                <div className="rounded-[1.7rem] border border-white/12 bg-[rgba(1,0,2,0.46)] p-5 shadow-[0_18px_60px_rgba(1,0,2,0.32)] backdrop-blur-2xl">
+
+
+                {/* <div className="rounded-[1.7rem] border border-white/12 bg-[rgba(1,0,2,0.46)] p-5 shadow-[0_18px_60px_rgba(1,0,2,0.32)] backdrop-blur-2xl">
                   <div className="flex items-center gap-4">
                     <img
                       className="h-16 w-16 rounded-full border border-[rgba(252,223,92,0.35)] object-cover"
@@ -178,7 +153,7 @@ function HeroVideoSection() {
                       </p>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="grid gap-4 sm:grid-cols-3">
                   {heroStats.map((item) => (
