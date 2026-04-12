@@ -1,10 +1,27 @@
 import { gsap } from 'gsap'
 import { FiStar } from 'react-icons/fi'
+import { Link, useNavigate } from 'react-router-dom'
 import { serviceIcons } from '@/lib/icons'
 import GlassPanel from './GlassPanel'
 
 function ServiceCard({ service, index }) {
   const ServiceIcon = serviceIcons[service.title] ?? FiStar
+  const navigate = useNavigate()
+
+  const goToService = (event) => {
+    if (event.target.closest('a, button')) {
+      return
+    }
+
+    navigate(service.href)
+  }
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+      navigate(service.href)
+    }
+  }
 
   const handleMove = (event) => {
     const currentTarget = event.currentTarget
@@ -38,9 +55,14 @@ function ServiceCard({ service, index }) {
       onMouseLeave={undefined}
     >
       <article
-        className="relative h-full rounded-[1.45rem]"
+        className="relative h-full cursor-pointer rounded-[1.45rem]"
         onMouseLeave={handleLeave}
         onMouseMove={handleMove}
+        onClick={goToService}
+        onKeyDown={handleKeyDown}
+        role="link"
+        tabIndex={0}
+        aria-label={`View ${service.title} details`}
       >
         <div className="absolute right-[-1rem] top-[-1rem] h-28 w-28 rounded-full bg-[radial-gradient(circle,_rgba(252,223,92,0.16),_transparent_70%)] blur-2xl transition duration-500 group-hover:scale-125" />
         <div className="relative">
@@ -77,12 +99,12 @@ function ServiceCard({ service, index }) {
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3">
-            <a
+            <Link
               className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-white/75 transition hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)]"
-              href="#appointment"
+              to={service.href}
             >
               Learn More
-            </a>
+            </Link>
             <a
               className="inline-flex items-center rounded-full border border-[rgba(252,223,92,0.18)] bg-[rgba(252,223,92,0.08)] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-gold)] transition hover:bg-[rgba(252,223,92,0.14)]"
               href="#appointment"

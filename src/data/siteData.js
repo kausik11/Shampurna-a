@@ -71,6 +71,34 @@ export const aboutHighlights = [
   },
 ]
 
+const createSlug = (value) =>
+  value
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)+/g, '')
+
+const resultImagePairs = [
+  {
+    beforeImage:
+      'https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=900&q=80',
+    afterImage:
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    beforeImage:
+      'https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=900&q=80',
+    afterImage:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    beforeImage:
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80',
+    afterImage:
+      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80',
+  },
+]
+
 export const services = [
   {
     title: 'Permanent Hair Removal',
@@ -256,10 +284,55 @@ export const services = [
     imageAlt: 'Full body glow treatment placeholder',
     focus: 'All body glow',
   },
-].map((service) => ({
+].map((service, index) => ({
   ...service,
+  slug: createSlug(service.title),
+  href: `/services/${createSlug(service.title)}`,
   description:
     'A premium consultation-led treatment tailored to comfort, finish, and a visibly refined result.',
+  detailDescription: `${service.title} is planned through a focused consultation so the treatment can match your skin or body concern, comfort level, and desired finish. The session is handled with a hygiene-first process, calm pacing, and result-focused aftercare guidance.`,
+  highlights: [
+    `Personalized ${service.focus.toLowerCase()} plan`,
+    'Comfort-led appointment flow',
+    'Clear preparation and aftercare guidance',
+  ],
+  results: [
+    {
+      title: `${service.focus} progress`,
+      description:
+        'A visual result story showing how the treatment plan is positioned from the starting concern to a more refined finish.',
+      ...resultImagePairs[index % resultImagePairs.length],
+    },
+    {
+      title: 'Texture and confidence result',
+      description:
+        'A second before-after example for presenting visible improvement, treatment consistency, and polished client outcomes.',
+      ...resultImagePairs[(index + 1) % resultImagePairs.length],
+    },
+    {
+      title: 'Follow-up refinement',
+      description:
+        'A continued-care result slide designed for showing progress after review, maintenance, or a staged treatment plan.',
+      ...resultImagePairs[(index + 2) % resultImagePairs.length],
+    },
+  ],
+  faqs: [
+    {
+      question: `Is ${service.title} suitable for everyone?`,
+      answer:
+        'Suitability depends on the concern, skin condition, medical history, and expected result. A consultation is recommended before confirming the treatment plan.',
+    },
+    {
+      question: 'How should I prepare before the appointment?',
+      answer:
+        'Arrive with clean skin when relevant, avoid aggressive home treatments before the session, and share any recent procedures or sensitivity concerns during consultation.',
+    },
+    {
+      question: 'When can I expect visible results?',
+      answer:
+        'Timelines vary by service and individual response. Some treatments focus on instant glow, while corrective or shaping plans may need multiple sessions and follow-up care.',
+    },
+  ],
 }))
 
 export const whyChooseUs = [
