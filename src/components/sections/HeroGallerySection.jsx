@@ -86,8 +86,8 @@ function HeroGallerySection() {
       id="hero-gallery"
       className="full-bleed mt-2 overflow-hidden border-y border-white/10 bg-[linear-gradient(180deg,#2b071f_0%,#380828_48%,#220416_100%)] sm:mt-6 lg:mt-8"
     >
-      <ScrollXCarousel className="h-[108svh] min-[390px]:h-[116svh] sm:h-[128svh] lg:h-[138svh] xl:h-[145svh] [@media(max-height:700px)]:h-[132svh]">
-        <ScrollXCarouselContainer className="flex h-[100svh] flex-col justify-start">
+      <ScrollXCarousel className="h-auto pb-8 sm:h-[128svh] sm:pb-0 lg:h-[138svh] xl:h-[145svh] sm:[@media(max-height:700px)]:h-[132svh]">
+        <ScrollXCarouselContainer className="!relative flex h-auto flex-col justify-start sm:!sticky sm:h-[100svh]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_14%_18%,rgba(245,73,145,0.18),transparent_28%),radial-gradient(circle_at_82%_16%,rgba(235,200,0,0.14),transparent_24%),radial-gradient(circle_at_50%_84%,rgba(143,135,67,0.16),transparent_26%)]" />
           <div className="absolute inset-y-0 left-0 z-10 w-[12vw] min-w-10 bg-[linear-gradient(90deg,rgba(34,4,22,0.98),transparent)]" />
           <div className="absolute inset-y-0 right-0 z-10 w-[12vw] min-w-10 bg-[linear-gradient(270deg,rgba(34,4,22,0.98),transparent)]" />

@@ -78,7 +78,7 @@ function HeroVideoSection() {
     <section
       ref={containerRef}
       id="home"
-      className="full-bleed pb-6 pt-3 sm:pb-10 sm:pt-6"
+      className="full-bleed -mt-[4.75rem] pb-6 pt-[4.75rem] sm:mt-0 sm:pb-10 sm:pt-6"
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
     >
@@ -100,8 +100,8 @@ function HeroVideoSection() {
         </div>
 
         <div className="mx-auto max-w-[92rem]">
-          <div className="relative grid min-h-[calc(100svh-5.25rem)] gap-7 px-4 py-10 min-[380px]:min-h-[calc(100svh-5.75rem)] sm:min-h-[82svh] sm:gap-8 sm:px-6 sm:py-12 md:py-14 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-16 xl:min-h-[86svh] [@media(max-height:700px)]:py-8">
-            <div className="flex flex-col justify-center lg:pl-2 xl:pl-6">
+          <div className="relative grid min-h-[calc(88svh-5.25rem)] content-start gap-5 px-4 pb-6 pt-2 min-[380px]:min-h-[calc(90svh-5.75rem)] sm:min-h-[82svh] sm:content-normal sm:gap-8 sm:px-6 sm:py-12 md:py-14 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-16 xl:min-h-[86svh] [@media(max-height:700px)]:pb-5 [@media(max-height:700px)]:pt-2 sm:[@media(max-height:700px)]:py-8">
+            <div className="flex flex-col justify-start sm:justify-center lg:pl-2 xl:pl-6">
               <p className="hero-reveal text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-highlight)] min-[380px]:text-[11px] min-[380px]:tracking-[0.22em] sm:text-xs sm:tracking-[0.34em]">
                 Luxury Aesthetic Clinic
               </p>

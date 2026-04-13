@@ -57,9 +57,9 @@ export function AnimatedBlobs({
       )}
     >
       {label ? (
-        <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6">
-          <div className="flex max-w-[min(88vw,32rem)] flex-col items-center gap-4 text-center sm:gap-6">
-            <span className="text-center font-display text-[2rem] leading-[0.96] tracking-normal text-[var(--color-heading)] min-[390px]:text-4xl sm:text-5xl lg:text-[5.5rem]">
+        <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-5 sm:px-6">
+          <div className="flex max-w-[13.5rem] flex-col items-center gap-3 text-center min-[390px]:max-w-[16rem] sm:max-w-[min(88vw,32rem)] sm:gap-6">
+            <span className="text-balance text-center font-display text-[clamp(1.55rem,7.6vw,2rem)] leading-[0.98] tracking-normal text-[var(--color-heading)] min-[390px]:text-4xl sm:text-5xl lg:text-[5.5rem]">
               {label}
             </span>
             {actionLabel ? (

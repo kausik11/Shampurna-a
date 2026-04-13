@@ -92,7 +92,7 @@ function Navbar() {
       <div
         ref={panelRef}
         id="mobile-menu"
-        className="pointer-events-none invisible mx-auto mt-2 max-h-[calc(100svh-5.5rem)] max-w-7xl overflow-y-auto rounded-[1.1rem] border border-white/12 bg-[rgba(1,0,2,0.82)] p-2.5 opacity-0 shadow-[0_24px_60px_rgba(1,0,2,0.38)] backdrop-blur-2xl sm:mt-3 sm:rounded-[1.75rem] sm:p-4 lg:hidden"
+        className="pointer-events-none invisible absolute left-2.5 right-2.5 top-full mx-auto mt-2 max-h-[calc(100svh-5.5rem)] max-w-7xl overflow-y-auto rounded-[1.1rem] border border-white/12 bg-[rgba(1,0,2,0.82)] p-2.5 opacity-0 shadow-[0_24px_60px_rgba(1,0,2,0.38)] backdrop-blur-2xl sm:left-6 sm:right-6 sm:mt-3 sm:rounded-[1.75rem] sm:p-4 lg:hidden"
       >
         <nav className="flex flex-col gap-2 sm:gap-3">
           {navigationItems.map((item) => (
