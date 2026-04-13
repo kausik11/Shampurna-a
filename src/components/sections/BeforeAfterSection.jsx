@@ -7,35 +7,35 @@ import { useRevealAnimations } from '../../hooks/useRevealAnimations'
 
 function BeforeAfterCard({ category, beforeImage, afterImage }) {
   return (
-    <article className="group relative rounded-[1.35rem] bg-[rgba(255,255,255,0.045)] p-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.24)] backdrop-blur-2xl sm:rounded-[1.75rem] sm:p-3">
+    <article className="group relative rounded-[1.2rem] bg-[rgba(255,255,255,0.045)] p-2 shadow-[0_20px_50px_rgba(0,0,0,0.24)] backdrop-blur-2xl sm:rounded-[1.75rem] sm:p-3">
       <div className="absolute inset-x-10 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(252,223,92,0.4),transparent)]" />
 
-      <div className="relative -mt-7 mx-auto w-fit max-w-[calc(100%-1rem)] rounded-[1.1rem] bg-[linear-gradient(135deg,rgba(143,135,67,0.95),rgba(245,73,145,0.68))] px-4 py-2.5 text-center shadow-[0_16px_34px_rgba(0,0,0,0.22)] sm:-mt-8 sm:rounded-[1.25rem] sm:px-6 sm:py-3">
-        <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-white sm:text-sm sm:tracking-[0.16em]">
+      <div className="relative -mt-6 mx-auto w-fit max-w-[calc(100%-1rem)] rounded-[1rem] bg-[linear-gradient(135deg,rgba(143,135,67,0.95),rgba(245,73,145,0.68))] px-3.5 py-2.5 text-center shadow-[0_16px_34px_rgba(0,0,0,0.22)] sm:-mt-8 sm:rounded-[1.25rem] sm:px-6 sm:py-3">
+        <p className="text-[11px] font-extrabold uppercase tracking-[0.08em] text-white sm:text-sm sm:tracking-[0.16em]">
           {category}
         </p>
       </div>
 
       <div className="mt-5 rounded-[1.2rem] bg-[rgba(255,255,255,0.03)] p-2.5 sm:mt-6 sm:rounded-[1.35rem] sm:p-4">
         <div className="mb-3 flex items-center justify-between gap-3 px-1 text-sm font-semibold sm:mb-4 sm:px-2 sm:text-[1.05rem]">
-          <span className="rounded-full bg-[rgba(245,73,145,0.18)] px-3 py-1.5 text-xs font-extrabold uppercase tracking-[0.08em] text-[var(--color-highlight)] shadow-[0_0_24px_rgba(245,73,145,0.16)] sm:px-5 sm:py-2 sm:text-[1.05rem]">
+          <span className="rounded-full bg-[rgba(245,73,145,0.18)] px-3 py-1.5 text-xs font-extrabold uppercase tracking-[0.06em] text-[var(--color-highlight)] shadow-[0_0_24px_rgba(245,73,145,0.16)] sm:px-5 sm:py-2 sm:text-[1.05rem] sm:tracking-[0.08em]">
             Before
           </span>
-          <span className="rounded-full bg-[rgba(252,223,92,0.18)] px-3 py-1.5 text-xs font-extrabold uppercase tracking-[0.08em] text-[var(--color-gold)] shadow-[0_0_24px_rgba(252,223,92,0.16)] sm:px-5 sm:py-2 sm:text-[1.05rem]">
+          <span className="rounded-full bg-[rgba(252,223,92,0.18)] px-3 py-1.5 text-xs font-extrabold uppercase tracking-[0.06em] text-[var(--color-gold)] shadow-[0_0_24px_rgba(252,223,92,0.16)] sm:px-5 sm:py-2 sm:text-[1.05rem] sm:tracking-[0.08em]">
             After
           </span>
         </div>
 
-        <div className="js-before-after relative overflow-hidden rounded-[1.2rem]">
+        <div className="js-before-after relative touch-none overflow-hidden rounded-[1.2rem]">
           <img
-            className="h-[16rem] w-full object-cover sm:h-[20rem] lg:h-[22rem]"
+            className="h-[14rem] w-full object-cover min-[390px]:h-[16rem] sm:h-[20rem] lg:h-[22rem]"
             src={beforeImage}
             alt={`${category} before placeholder`}
           />
 
           <div className="js-after-overlay absolute inset-y-0 left-0 overflow-hidden" style={{ width: '50%' }}>
             <img
-              className="js-after-image h-[16rem] w-full max-w-none object-cover sm:h-[20rem] lg:h-[22rem]"
+              className="js-after-image h-[14rem] w-full max-w-none object-cover min-[390px]:h-[16rem] sm:h-[20rem] lg:h-[22rem]"
               src={afterImage}
               alt={`${category} after placeholder`}
               style={{ width: '200%' }}
@@ -48,7 +48,7 @@ function BeforeAfterCard({ category, beforeImage, afterImage }) {
           />
 
           <div
-            className="js-handle pointer-events-none absolute top-1/2 flex h-10 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_12px_30px_rgba(0,0,0,0.22)] sm:h-12 sm:w-20"
+            className="js-handle pointer-events-none absolute top-1/2 flex h-11 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_12px_30px_rgba(0,0,0,0.22)] sm:h-12 sm:w-20"
             style={{ left: '50%' }}
           >
             <FiChevronLeft className="h-4 w-4 text-[var(--color-highlight)]" aria-hidden="true" />

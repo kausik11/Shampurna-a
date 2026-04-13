@@ -47,7 +47,7 @@ function validateForm(values) {
 function Field({ label, error, children }) {
   return (
     <label className="block">
-      <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.22em] text-white/45">
+      <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.14em] text-white/45 sm:text-xs sm:tracking-[0.22em]">
         {label}
       </span>
       {children}
@@ -133,12 +133,12 @@ function AppointmentSection() {
           </GlassPanel>
         </div>
 
-        <GlassPanel className="reveal p-4 sm:p-6 lg:p-8">
+        <GlassPanel className="reveal p-3.5 sm:p-6 lg:p-8">
           <form className="space-y-5" noValidate onSubmit={handleSubmit}>
             <div className="grid gap-5 md:grid-cols-2">
               <Field label="Full Name" error={errors.fullName}>
                 <input
-                  className="w-full rounded-[1.15rem] border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition focus:border-[rgba(252,223,92,0.35)] focus:bg-white/[0.07]"
+                  className="min-h-11 w-full rounded-[1rem] border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition focus:border-[rgba(252,223,92,0.35)] focus:bg-white/[0.07] sm:rounded-[1.15rem]"
                   name="fullName"
                   placeholder="Your full name"
                   value={formValues.fullName}
@@ -148,7 +148,7 @@ function AppointmentSection() {
 
               <Field label="Phone Number" error={errors.phoneNumber}>
                 <input
-                  className="w-full rounded-[1.15rem] border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition focus:border-[rgba(252,223,92,0.35)] focus:bg-white/[0.07]"
+                  className="min-h-11 w-full rounded-[1rem] border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition focus:border-[rgba(252,223,92,0.35)] focus:bg-white/[0.07] sm:rounded-[1.15rem]"
                   name="phoneNumber"
                   placeholder="+91"
                   value={formValues.phoneNumber}
@@ -160,7 +160,7 @@ function AppointmentSection() {
             <div className="grid gap-5 md:grid-cols-2">
               <Field label="Email Address" error={errors.emailAddress}>
                 <input
-                  className="w-full rounded-[1.15rem] border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition focus:border-[rgba(252,223,92,0.35)] focus:bg-white/[0.07]"
+                  className="min-h-11 w-full rounded-[1rem] border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition focus:border-[rgba(252,223,92,0.35)] focus:bg-white/[0.07] sm:rounded-[1.15rem]"
                   name="emailAddress"
                   placeholder="name@email.com"
                   value={formValues.emailAddress}
@@ -170,7 +170,7 @@ function AppointmentSection() {
 
               <Field label="Preferred Service" error={errors.preferredService}>
                 <select
-                  className="w-full rounded-[1.15rem] border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition focus:border-[rgba(252,223,92,0.35)] focus:bg-white/[0.07]"
+                  className="min-h-11 w-full rounded-[1rem] border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition focus:border-[rgba(252,223,92,0.35)] focus:bg-white/[0.07] sm:rounded-[1.15rem]"
                   name="preferredService"
                   value={formValues.preferredService}
                   onChange={handleChange}
@@ -188,7 +188,7 @@ function AppointmentSection() {
             <div className="grid gap-5 md:grid-cols-2">
               <Field label="Preferred Date" error={errors.preferredDate}>
                 <input
-                  className="w-full rounded-[1.15rem] border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition focus:border-[rgba(252,223,92,0.35)] focus:bg-white/[0.07]"
+                  className="min-h-11 w-full rounded-[1rem] border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition focus:border-[rgba(252,223,92,0.35)] focus:bg-white/[0.07] sm:rounded-[1.15rem]"
                   min={new Date().toISOString().split('T')[0]}
                   name="preferredDate"
                   type="date"
@@ -199,7 +199,7 @@ function AppointmentSection() {
 
               <Field label="Preferred Time" error={errors.preferredTime}>
                 <input
-                  className="w-full rounded-[1.15rem] border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition focus:border-[rgba(252,223,92,0.35)] focus:bg-white/[0.07]"
+                  className="min-h-11 w-full rounded-[1rem] border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition focus:border-[rgba(252,223,92,0.35)] focus:bg-white/[0.07] sm:rounded-[1.15rem]"
                   name="preferredTime"
                   type="time"
                   value={formValues.preferredTime}
@@ -210,7 +210,7 @@ function AppointmentSection() {
 
             <Field label="Message / Concern" error={errors.message}>
               <textarea
-                className="min-h-36 w-full rounded-[1.15rem] border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition focus:border-[rgba(252,223,92,0.35)] focus:bg-white/[0.07]"
+                className="min-h-32 w-full rounded-[1rem] border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition focus:border-[rgba(252,223,92,0.35)] focus:bg-white/[0.07] sm:min-h-36 sm:rounded-[1.15rem]"
                 name="message"
                 placeholder="Tell us about your concerns or preferred outcomes."
                 value={formValues.message}
@@ -220,7 +220,7 @@ function AppointmentSection() {
 
             <div className="flex flex-col gap-4 border-t border-white/10 pt-4 sm:flex-row sm:items-center sm:justify-between">
               <button
-                className="button-shine inline-flex items-center justify-center rounded-full border border-[rgba(252,223,92,0.2)] bg-[var(--color-button)] px-5 py-3 text-center text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)] sm:px-6 sm:py-3.5"
+                className="button-shine inline-flex min-h-11 items-center justify-center rounded-full border border-[rgba(252,223,92,0.2)] bg-[var(--color-button)] px-5 py-3 text-center text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)] sm:px-6 sm:py-3.5"
                 type="submit"
               >
                 Request Appointment

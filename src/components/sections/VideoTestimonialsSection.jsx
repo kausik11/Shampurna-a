@@ -15,12 +15,12 @@ function VideoTestimonialCard({
   facebookUrl,
 }) {
   return (
-    <article className="group relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-[rgba(1,0,2,0.52)] shadow-[0_18px_48px_rgba(1,0,2,0.28)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 sm:rounded-[1.5rem]">
+    <article className="group relative overflow-hidden rounded-[1.15rem] border border-white/10 bg-[rgba(1,0,2,0.52)] shadow-[0_18px_48px_rgba(1,0,2,0.28)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 sm:rounded-[1.5rem]">
       <div className="relative">
         <img
           src={mainImage}
           alt={feedback}
-          className="max-h-[34rem] w-full object-cover transition duration-500 group-hover:scale-105"
+          className="max-h-[28rem] min-h-[20rem] w-full object-cover transition duration-500 group-hover:scale-105 sm:max-h-[34rem]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/15 to-black/72" />
 
@@ -28,7 +28,7 @@ function VideoTestimonialCard({
           href={videoUrl}
           target="_blank"
           rel="noreferrer"
-          className="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(252,223,92,0.18)] text-[var(--color-gold)] backdrop-blur-xl transition hover:bg-[rgba(252,223,92,0.28)] sm:right-4 sm:top-4 sm:h-11 sm:w-11"
+          className="absolute right-3 top-3 inline-flex h-11 w-11 items-center justify-center rounded-full bg-[rgba(252,223,92,0.18)] text-[var(--color-gold)] backdrop-blur-xl transition hover:bg-[rgba(252,223,92,0.28)] sm:right-4 sm:top-4"
           aria-label={`Play video testimonial from ${name}`}
         >
           <FiPlay className="h-4 w-4" />
@@ -42,7 +42,7 @@ function VideoTestimonialCard({
             </Avatar>
             <span className="text-sm font-semibold drop-shadow-md">{name}</span>
           </div>
-          <p className="max-w-[13rem] text-sm font-medium leading-tight text-white/92 drop-shadow-md sm:max-w-[14rem]">
+          <p className="max-w-[min(13rem,72vw)] text-sm font-medium leading-tight text-white/92 drop-shadow-md sm:max-w-[14rem]">
             {feedback}
           </p>
         </div>
@@ -52,7 +52,7 @@ function VideoTestimonialCard({
             href={videoUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-2 text-xs font-semibold text-white backdrop-blur-xl transition hover:bg-white/16"
+            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white/10 px-3 py-2 text-xs font-semibold text-white backdrop-blur-xl transition hover:bg-white/16"
           >
             <FiPlay className="h-3.5 w-3.5" />
             Watch
@@ -61,7 +61,7 @@ function VideoTestimonialCard({
             href={facebookUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[rgba(245,73,145,0.14)] px-3 py-2 text-xs font-semibold text-white backdrop-blur-xl transition hover:bg-[rgba(245,73,145,0.22)]"
+            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[rgba(245,73,145,0.14)] px-3 py-2 text-xs font-semibold text-white backdrop-blur-xl transition hover:bg-[rgba(245,73,145,0.22)]"
           >
             <FiShare2 className="h-3.5 w-3.5" />
             Facebook

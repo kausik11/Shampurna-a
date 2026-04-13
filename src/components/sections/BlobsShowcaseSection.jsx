@@ -7,7 +7,7 @@ function BlobsShowcaseSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-none px-4 py-14 sm:px-6 sm:py-20 lg:px-8"
+      className="full-bleed overflow-hidden border-y border-none px-4 py-12 sm:px-6 sm:py-20 lg:px-8"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(245,73,145,0.14),transparent_24%),radial-gradient(circle_at_78%_28%,rgba(235,200,0,0.12),transparent_24%),radial-gradient(circle_at_50%_70%,rgba(143,135,67,0.18),transparent_30%)]" />
 
@@ -25,7 +25,7 @@ function BlobsShowcaseSection() {
             label="Ask Me Anything !"
             actionLabel="Start a Conversation"
             actionHref="#appointment"
-            className="min-h-[28rem] rounded-[1.5rem] border-none backdrop-blur-xl sm:min-h-[34rem] sm:rounded-[2rem] lg:min-h-[40rem]"
+            className="min-h-[23rem] rounded-[1.25rem] border-none backdrop-blur-xl min-[390px]:min-h-[26rem] sm:min-h-[34rem] sm:rounded-[2rem] lg:min-h-[40rem]"
           />
         </div>
 

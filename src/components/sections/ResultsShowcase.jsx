@@ -36,16 +36,16 @@ function ResultsShowcase() {
       </div>
 
       <div className="mt-10 grid gap-6 lg:grid-cols-[1.15fr_0.85fr] xl:gap-8">
-        <GlassPanel className="reveal result-stage overflow-hidden p-3">
-          <div className="relative overflow-hidden rounded-[1.75rem]">
+        <GlassPanel className="reveal result-stage overflow-hidden p-2.5 sm:p-3">
+          <div className="relative overflow-hidden rounded-[1.2rem] sm:rounded-[1.75rem]">
             <img
-              className="h-[20rem] w-full object-cover sm:h-[24rem] lg:h-[28rem]"
+              className="h-[18rem] w-full object-cover min-[390px]:h-[20rem] sm:h-[24rem] lg:h-[28rem]"
               src={resultsGallery[activeIndex].image}
               alt={resultsGallery[activeIndex].title}
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,0,2,0.05),rgba(1,0,2,0.72))]" />
             <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-gold)] sm:text-xs sm:tracking-[0.28em]">
+              <p className="text-[10px] uppercase tracking-[0.14em] text-[var(--color-gold)] sm:text-xs sm:tracking-[0.28em]">
                 {resultsGallery[activeIndex].tag}
               </p>
               <h3 className="mt-2 text-wrap font-display text-2xl leading-tight text-[var(--color-heading)] sm:text-3xl">
@@ -62,7 +62,7 @@ function ResultsShowcase() {
           {resultsGallery.map((item, index) => (
             <button
               key={item.title}
-              className={`reveal group overflow-hidden rounded-[1.6rem] border p-3 text-left backdrop-blur-xl transition duration-300 ${
+              className={`reveal group min-h-11 overflow-hidden rounded-[1.2rem] border p-2.5 text-left backdrop-blur-xl transition duration-300 sm:rounded-[1.6rem] sm:p-3 ${
                 activeIndex === index
                   ? 'border-[rgba(235,200,0,0.28)] bg-[rgba(1,0,2,0.54)]'
                   : 'border-white/10 bg-[rgba(1,0,2,0.34)] hover:border-[rgba(245,73,145,0.28)]'
@@ -77,7 +77,7 @@ function ResultsShowcase() {
                   alt={item.title}
                 />
                 <div>
-                  <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-gold)]">
+                  <p className="text-[11px] uppercase tracking-[0.14em] text-[var(--color-gold)] sm:text-xs sm:tracking-[0.24em]">
                     {item.tag}
                   </p>
                   <h3 className="mt-2 text-wrap font-display text-xl leading-tight text-[var(--color-heading)] transition group-hover:text-[var(--color-highlight)] sm:text-2xl">

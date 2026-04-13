@@ -67,6 +67,7 @@
 
   html {
     scroll-behavior: auto;
+    overflow-x: clip;
   }
 
   body {
@@ -92,7 +93,10 @@
   a,
   button,
   label,
-  span {
+  span,
+  input,
+  select,
+  textarea {
     overflow-wrap: anywhere;
   }
 
@@ -129,10 +133,26 @@
   #root {
     position: relative;
     z-index: 1;
+    min-width: 0;
+    overflow-x: clip;
   }
 }
 
 @layer utilities {
+  .full-bleed {
+    position: relative;
+    left: 50%;
+    width: 100dvw;
+    max-width: 100%;
+    transform: translateX(-50%);
+  }
+
+  @supports not (width: 100dvw) {
+    .full-bleed {
+      width: 100vw;
+    }
+  }
+
   .button-shine {
     position: relative;
     overflow: hidden;

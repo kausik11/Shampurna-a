@@ -22,11 +22,11 @@ const galleryNotes = [
 
 function GalleryCard({ item, note }) {
   return (
-    <CardHoverReveal className="min-w-[82vw] max-w-[22rem] rounded-[1.2rem] border border-white/12 bg-[rgba(1,0,2,0.28)] shadow-[0_18px_60px_rgba(1,0,2,0.32)] sm:min-w-[24rem] sm:max-w-none sm:rounded-[1.5rem] md:min-w-[27rem] lg:min-w-[30rem] xl:min-w-[32rem]">
+    <CardHoverReveal className="min-w-[min(84vw,20rem)] max-w-[22rem] rounded-[1.1rem] border border-white/12 bg-[rgba(1,0,2,0.28)] shadow-[0_18px_60px_rgba(1,0,2,0.32)] sm:min-w-[24rem] sm:max-w-none sm:rounded-[1.5rem] md:min-w-[27rem] lg:min-w-[30rem] xl:min-w-[32rem]">
       <CardHoverRevealMain className="relative">
         <img
           alt={item.imageAlt}
-          className="h-[12rem] w-full object-cover sm:h-[14rem] md:h-[15rem] lg:h-[17rem] xl:h-[18rem]"
+          className="h-[11.5rem] w-full object-cover min-[380px]:h-[12.5rem] sm:h-[14rem] md:h-[15rem] lg:h-[17rem] xl:h-[18rem]"
           loading="lazy"
           src={item.image}
         />
@@ -36,13 +36,13 @@ function GalleryCard({ item, note }) {
       <div className="pointer-events-none absolute left-3 top-3 flex max-w-[calc(100%-1.5rem)] flex-wrap gap-2 sm:left-5 sm:top-5 sm:max-w-[calc(100%-2.5rem)]">
         <Badge
           variant="outline"
-          className="border-white/12 bg-black/25 px-2.5 py-1 text-[9px] uppercase tracking-[0.18em] text-[var(--color-heading)] sm:px-3 sm:text-[10px] sm:tracking-[0.28em]"
+          className="border-white/12 bg-black/25 px-2.5 py-1 text-[9px] uppercase tracking-[0.12em] text-[var(--color-heading)] sm:px-3 sm:text-[10px] sm:tracking-[0.28em]"
         >
           {item.focus}
         </Badge>
         <Badge
           variant="outline"
-          className="border-[rgba(235,200,0,0.18)] bg-[rgba(235,200,0,0.08)] px-2.5 py-1 text-[9px] uppercase tracking-[0.18em] text-[var(--color-gold)] sm:px-3 sm:text-[10px] sm:tracking-[0.28em]"
+          className="border-[rgba(235,200,0,0.18)] bg-[rgba(235,200,0,0.08)] px-2.5 py-1 text-[9px] uppercase tracking-[0.12em] text-[var(--color-gold)] sm:px-3 sm:text-[10px] sm:tracking-[0.28em]"
         >
           {note}
         </Badge>
@@ -50,7 +50,7 @@ function GalleryCard({ item, note }) {
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4 sm:p-5">
         <div className="rounded-[1rem] border border-white/10 bg-[rgba(1,0,2,0.46)] p-3 backdrop-blur-md sm:p-4">
-          <p className="text-[10px] uppercase tracking-[0.28em] text-white/42">
+          <p className="text-[9px] uppercase tracking-[0.16em] text-white/42 sm:text-[10px] sm:tracking-[0.28em]">
             Signature treatment
           </p>
           <h3 className="mt-2 text-wrap font-display text-lg leading-tight text-[var(--color-heading)] sm:text-2xl">
@@ -84,23 +84,23 @@ function HeroGallerySection() {
   return (
     <section
       id="hero-gallery"
-      className="relative left-1/2 right-1/2 mt-2 w-screen -translate-x-1/2 overflow-hidden border-y border-white/10 bg-[linear-gradient(180deg,#2b071f_0%,#380828_48%,#220416_100%)] sm:mt-6 lg:mt-8"
+      className="full-bleed mt-2 overflow-hidden border-y border-white/10 bg-[linear-gradient(180deg,#2b071f_0%,#380828_48%,#220416_100%)] sm:mt-6 lg:mt-8"
     >
-      <ScrollXCarousel className="h-[118vh] sm:h-[128vh] lg:h-[138vh] xl:h-[145vh]">
+      <ScrollXCarousel className="h-[108svh] min-[390px]:h-[116svh] sm:h-[128svh] lg:h-[138svh] xl:h-[145svh] [@media(max-height:700px)]:h-[132svh]">
         <ScrollXCarouselContainer className="flex h-[100svh] flex-col justify-start">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_14%_18%,rgba(245,73,145,0.18),transparent_28%),radial-gradient(circle_at_82%_16%,rgba(235,200,0,0.14),transparent_24%),radial-gradient(circle_at_50%_84%,rgba(143,135,67,0.16),transparent_26%)]" />
           <div className="absolute inset-y-0 left-0 z-10 w-[12vw] min-w-10 bg-[linear-gradient(90deg,rgba(34,4,22,0.98),transparent)]" />
           <div className="absolute inset-y-0 right-0 z-10 w-[12vw] min-w-10 bg-[linear-gradient(270deg,rgba(34,4,22,0.98),transparent)]" />
 
-          <div className="relative z-20 mx-auto w-full max-w-7xl px-4 pt-7 sm:px-6 sm:pt-10 lg:px-8 lg:pt-12">
+          <div className="relative z-20 mx-auto w-full max-w-7xl px-4 pt-6 sm:px-6 sm:pt-10 lg:px-8 lg:pt-12 [@media(max-height:700px)]:pt-4">
             <div className="max-w-3xl">
               <Badge
                 variant="outline"
-                className="border-white/12 bg-white/6 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-[var(--color-gold)] sm:tracking-[0.3em]"
+                className="border-white/12 bg-white/6 px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-[var(--color-gold)] sm:tracking-[0.3em]"
               >
                 Scroll Gallery
               </Badge>
-              <h2 className="mt-4 max-w-3xl text-wrap font-display text-3xl leading-tight text-[var(--color-heading)] sm:text-4xl lg:text-5xl">
+              <h2 className="mt-4 max-w-3xl text-wrap font-display text-[1.9rem] leading-tight text-[var(--color-heading)] min-[390px]:text-4xl lg:text-5xl">
                 Explore the clinic story through a moving treatment gallery.
               </h2>
               <p className="mt-3 max-w-2xl text-sm leading-7 text-white/68 sm:mt-4 sm:text-base">
@@ -111,7 +111,7 @@ function HeroGallerySection() {
             </div>
           </div>
 
-          <div className="relative mt-5 flex flex-col gap-3 sm:mt-6 sm:gap-4">
+          <div className="relative mt-5 flex flex-col gap-3 sm:mt-6 sm:gap-4 [@media(max-height:700px)]:mt-4">
             <ScrollXCarouselWrap
               xRange={['4%', '-56%']}
               className="flex gap-4 pr-6 sm:gap-6 lg:gap-7 [&>*:first-child]:ml-4 sm:[&>*:first-child]:ml-6 lg:[&>*:first-child]:ml-8"

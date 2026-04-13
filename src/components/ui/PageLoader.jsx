@@ -6,17 +6,17 @@ function PageLoader({ isLoading }) {
       }`}
       aria-hidden={!isLoading}
     >
-      <div className="flex flex-col items-center gap-5">
+      <div className="flex max-w-[90vw] flex-col items-center gap-5 px-4">
         <img
           className="h-24 w-24 animate-[pulse_1.8s_ease-in-out_infinite] rounded-full border border-[rgba(252,223,92,0.35)] object-cover"
           src="/shampurna-logo.jpeg"
           alt=""
         />
         <div className="space-y-2 text-center">
-          <p className="text-xs uppercase tracking-[0.34em] text-[var(--color-gold)]">
+          <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)] sm:tracking-[0.34em]">
             Shampurna Aesthetic
           </p>
-          <p className="font-display text-3xl text-[var(--color-heading)]">
+          <p className="text-wrap font-display text-2xl leading-tight text-[var(--color-heading)] sm:text-3xl">
             Preparing the luxury experience
           </p>
         </div>

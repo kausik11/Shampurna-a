@@ -22,7 +22,7 @@ export function AnimatedBlobs({
     maskClip: 'padding-box, border-box',
     maskComposite: 'intersect',
     mixBlendMode: 'screen',
-    height: 'clamp(18rem, 72vmin, 40rem)',
+    height: 'clamp(15rem, 68vmin, 40rem)',
     filter: 'blur(1.1vmin)',
   }
 
@@ -52,20 +52,20 @@ export function AnimatedBlobs({
   return (
     <div
       className={cn(
-        'relative flex min-h-[28rem] w-full items-center justify-center overflow-hidden sm:min-h-[34rem] lg:min-h-[38rem]',
+        'relative flex min-h-[23rem] w-full items-center justify-center overflow-hidden min-[390px]:min-h-[26rem] sm:min-h-[34rem] lg:min-h-[38rem]',
         className,
       )}
     >
       {label ? (
-        <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-6">
-          <div className="flex max-w-[min(84vw,32rem)] flex-col items-center gap-5 text-center sm:gap-6">
-            <span className="text-center font-display text-[clamp(2.35rem,8vw,5.5rem)] leading-[0.92] tracking-normal text-[var(--color-heading)]">
+        <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6">
+          <div className="flex max-w-[min(88vw,32rem)] flex-col items-center gap-4 text-center sm:gap-6">
+            <span className="text-center font-display text-[2rem] leading-[0.96] tracking-normal text-[var(--color-heading)] min-[390px]:text-4xl sm:text-5xl lg:text-[5.5rem]">
               {label}
             </span>
             {actionLabel ? (
               <a
                 href={actionHref}
-                className="button-shine pointer-events-auto inline-flex items-center justify-center gap-2 rounded-full border border-[rgba(252,223,92,0.22)] bg-[var(--color-button)] px-5 py-3 text-center text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)] sm:px-6 sm:py-3.5"
+                className="button-shine pointer-events-auto inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[rgba(252,223,92,0.22)] bg-[var(--color-button)] px-5 py-3 text-center text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)] sm:px-6 sm:py-3.5"
               >
                 <span>{actionLabel}</span>
                 <FaArrowRightLong className="text-xs" />

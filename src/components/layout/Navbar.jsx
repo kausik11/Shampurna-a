@@ -34,16 +34,16 @@ function Navbar() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-4 lg:px-8">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-full border border-white/12 bg-[rgba(1,0,2,0.58)] px-3 py-2.5 shadow-[0_24px_60px_rgba(1,0,2,0.34)] backdrop-blur-2xl sm:px-4 sm:py-3">
+    <header className="sticky top-0 z-50 px-2.5 pt-2.5 sm:px-6 sm:pt-4 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 rounded-full border border-white/12 bg-[rgba(1,0,2,0.58)] px-2.5 py-2 shadow-[0_24px_60px_rgba(1,0,2,0.34)] backdrop-blur-2xl min-[380px]:gap-3 min-[380px]:px-3 sm:px-4 sm:py-3">
         <Link className="inline-flex min-w-0 items-center gap-2.5 sm:gap-3" to="/">
           <img
-            className="h-14 w-14 shrink-0 rounded-full border border-[rgba(252,223,92,0.38)] object-cover object-center sm:h-16 sm:w-16"
+            className="h-11 w-11 shrink-0 rounded-full border border-[rgba(252,223,92,0.38)] object-cover object-center min-[380px]:h-12 min-[380px]:w-12 sm:h-16 sm:w-16"
             src="/logo.png"
             alt="Shampurna Aesthetic logo"
           />
           <div className="min-w-0">
-            <p className="truncate font-display text-xl leading-none text-[var(--color-heading)] sm:text-2xl">
+            <p className="truncate font-display text-lg leading-none text-[var(--color-heading)] min-[380px]:text-xl sm:text-2xl">
               Shampurna
             </p>
             <p className="hidden text-[11px] uppercase tracking-[0.18em] text-white/50 sm:block sm:tracking-[0.22em]">
@@ -78,7 +78,7 @@ function Navbar() {
         </div>
 
         <button
-          className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white sm:h-11 sm:w-11 lg:hidden"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white sm:h-12 sm:w-12 lg:hidden"
           type="button"
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
@@ -92,14 +92,14 @@ function Navbar() {
       <div
         ref={panelRef}
         id="mobile-menu"
-        className="pointer-events-none invisible mx-auto mt-3 max-w-7xl rounded-[1.25rem] border border-white/12 bg-[rgba(1,0,2,0.78)] p-3 opacity-0 shadow-[0_24px_60px_rgba(1,0,2,0.38)] backdrop-blur-2xl sm:rounded-[1.75rem] sm:p-4 lg:hidden"
+        className="pointer-events-none invisible mx-auto mt-2 max-h-[calc(100svh-5.5rem)] max-w-7xl overflow-y-auto rounded-[1.1rem] border border-white/12 bg-[rgba(1,0,2,0.82)] p-2.5 opacity-0 shadow-[0_24px_60px_rgba(1,0,2,0.38)] backdrop-blur-2xl sm:mt-3 sm:rounded-[1.75rem] sm:p-4 lg:hidden"
       >
-        <nav className="flex flex-col gap-3">
+        <nav className="flex flex-col gap-2 sm:gap-3">
           {navigationItems.map((item) => (
             <NavLink
               key={item.label}
               className={({ isActive }) =>
-                `rounded-2xl border border-white/8 bg-white/[0.04] px-4 py-3 text-sm font-medium transition hover:border-[rgba(235,200,0,0.24)] hover:text-[var(--color-highlight)] ${
+                `rounded-[1rem] border border-white/8 bg-white/[0.04] px-4 py-3 text-sm font-medium transition hover:border-[rgba(235,200,0,0.24)] hover:text-[var(--color-highlight)] sm:rounded-2xl ${
                   isActive ? 'text-[var(--color-gold)]' : 'text-white/75'
                 }`
               }
@@ -110,7 +110,7 @@ function Navbar() {
             </NavLink>
           ))}
           <Link
-            className="button-shine mt-2 inline-flex items-center justify-center rounded-2xl bg-[var(--color-button)] px-4 py-3 text-sm font-semibold text-[#f5efcf]"
+            className="button-shine mt-1 inline-flex min-h-11 items-center justify-center rounded-[1rem] bg-[var(--color-button)] px-4 py-3 text-sm font-semibold text-[#f5efcf] sm:mt-2 sm:rounded-2xl"
             to="/contact"
             onClick={() => setIsOpen(false)}
           >

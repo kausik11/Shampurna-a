@@ -3,6 +3,10 @@ import { gsap } from 'gsap'
 import { heroStats } from '../../data/siteData'
 import { FaStar } from '@/lib/icons'
 
+const canUsePointerParallax = () =>
+  typeof window !== 'undefined' &&
+  window.matchMedia('(hover: hover) and (pointer: fine)').matches
+
 function HeroVideoSection() {
   const containerRef = useRef(null)
   const videoRef = useRef(null)
@@ -40,6 +44,10 @@ function HeroVideoSection() {
   }, [])
 
   const handleMouseMove = (event) => {
+    if (!canUsePointerParallax()) {
+      return
+    }
+
     const currentTarget = event.currentTarget
     const rect = currentTarget.getBoundingClientRect()
     const moveX = ((event.clientX - rect.left) / rect.width - 0.5) * 18
@@ -54,6 +62,10 @@ function HeroVideoSection() {
   }
 
   const handleMouseLeave = (event) => {
+    if (!canUsePointerParallax()) {
+      return
+    }
+
     gsap.to(event.currentTarget.querySelector('.parallax-stage'), {
       x: 0,
       y: 0,
@@ -66,7 +78,7 @@ function HeroVideoSection() {
     <section
       ref={containerRef}
       id="home"
-      className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 pb-8 pt-4 sm:pb-10 sm:pt-6"
+      className="full-bleed pb-6 pt-3 sm:pb-10 sm:pt-6"
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
     >
@@ -88,29 +100,29 @@ function HeroVideoSection() {
         </div>
 
         <div className="mx-auto max-w-[92rem]">
-          <div className="relative grid min-h-[calc(100svh-7rem)] gap-8 px-4 py-12 sm:min-h-[82svh] sm:px-6 md:py-14 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-16 xl:min-h-[86svh]">
+          <div className="relative grid min-h-[calc(100svh-5.25rem)] gap-7 px-4 py-10 min-[380px]:min-h-[calc(100svh-5.75rem)] sm:min-h-[82svh] sm:gap-8 sm:px-6 sm:py-12 md:py-14 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-16 xl:min-h-[86svh] [@media(max-height:700px)]:py-8">
             <div className="flex flex-col justify-center lg:pl-2 xl:pl-6">
-              <p className="hero-reveal text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--color-highlight)] sm:text-xs sm:tracking-[0.34em]">
+              <p className="hero-reveal text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-highlight)] min-[380px]:text-[11px] min-[380px]:tracking-[0.22em] sm:text-xs sm:tracking-[0.34em]">
                 Luxury Aesthetic Clinic
               </p>
-              <h1 className="hero-reveal mt-4 max-w-5xl text-wrap font-display text-4xl leading-[1.04] text-[var(--color-heading)] sm:mt-6 sm:text-5xl lg:text-6xl xl:text-7xl">
+              <h1 className="hero-reveal mt-4 max-w-5xl text-wrap font-display text-[2.25rem] leading-[1.04] text-[var(--color-heading)] min-[390px]:text-5xl sm:mt-6 lg:text-6xl xl:text-7xl">
                 Refined skin, body and beauty care with cinematic elegance.
               </h1>
-              <p className="hero-reveal mt-5 max-w-3xl text-sm leading-7 text-white/70 sm:mt-8 sm:text-base sm:leading-8">
+              <p className="hero-reveal mt-5 max-w-3xl text-sm leading-7 text-white/70 sm:mt-7 sm:text-base sm:leading-8">
                 Shampurna Aesthetic combines modern aesthetic treatments with a
                 hospitality-led atmosphere, premium detailing, and a polished
                 consultation-first experience.
               </p>
 
-              <div className="hero-reveal mt-8 flex flex-col gap-3 min-[420px]:flex-row sm:mt-10 sm:gap-4">
+              <div className="hero-reveal mt-7 flex flex-col gap-3 min-[420px]:flex-row sm:mt-10 sm:gap-4">
                 <a
-                  className="button-shine inline-flex items-center justify-center rounded-full border border-[rgba(252,223,92,0.22)] bg-[var(--color-button)] px-5 py-3 text-center text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)] sm:px-6 sm:py-3.5"
+                  className="button-shine inline-flex min-h-11 items-center justify-center rounded-full border border-[rgba(252,223,92,0.22)] bg-[var(--color-button)] px-5 py-3 text-center text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)] sm:px-6 sm:py-3.5"
                   href="#appointment"
                 >
                   Book Appointment
                 </a>
                 <a
-                  className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.06] px-5 py-3 text-center text-sm font-semibold text-[var(--color-heading)] backdrop-blur-xl transition duration-300 hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)] sm:px-6 sm:py-3.5"
+                  className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.06] px-5 py-3 text-center text-sm font-semibold text-[var(--color-heading)] backdrop-blur-xl transition duration-300 hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)] sm:px-6 sm:py-3.5"
                   href="#services"
                 >
                   Explore Services
@@ -155,11 +167,11 @@ function HeroVideoSection() {
                   </div>
                 </div> */}
 
-                <div className="grid gap-3 min-[520px]:grid-cols-3 sm:gap-4">
+                <div className="grid gap-3 min-[430px]:grid-cols-3 sm:gap-4">
                   {heroStats.map((item) => (
                     <div
                       key={item.label}
-                      className="rounded-[1.15rem] border border-white/12 bg-[rgba(1,0,2,0.42)] p-4 text-left shadow-[0_16px_45px_rgba(1,0,2,0.26)] backdrop-blur-xl sm:rounded-[1.5rem]"
+                      className="rounded-[1.05rem] border border-white/12 bg-[rgba(1,0,2,0.42)] p-3.5 text-left shadow-[0_16px_45px_rgba(1,0,2,0.26)] backdrop-blur-xl sm:rounded-[1.5rem] sm:p-4"
                     >
                       <p className="flex items-center gap-2 font-display text-3xl leading-none text-[var(--color-heading)] sm:text-4xl">
                         {item.value}

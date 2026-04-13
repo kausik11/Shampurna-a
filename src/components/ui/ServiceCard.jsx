@@ -4,6 +4,10 @@ import { Link, useNavigate } from 'react-router-dom'
 import { serviceIcons } from '@/lib/icons'
 import GlassPanel from './GlassPanel'
 
+const canUseTilt = () =>
+  typeof window !== 'undefined' &&
+  window.matchMedia('(hover: hover) and (pointer: fine)').matches
+
 function ServiceCard({ service, index }) {
   const ServiceIcon = serviceIcons[service.title] ?? FiStar
   const navigate = useNavigate()
@@ -24,6 +28,10 @@ function ServiceCard({ service, index }) {
   }
 
   const handleMove = (event) => {
+    if (!canUseTilt()) {
+      return
+    }
+
     const currentTarget = event.currentTarget
     const rect = currentTarget.getBoundingClientRect()
     const x = ((event.clientX - rect.left) / rect.width - 0.5) * 10
@@ -40,6 +48,10 @@ function ServiceCard({ service, index }) {
   }
 
   const handleLeave = (event) => {
+    if (!canUseTilt()) {
+      return
+    }
+
     gsap.to(event.currentTarget, {
       rotateX: 0,
       rotateY: 0,
@@ -51,7 +63,7 @@ function ServiceCard({ service, index }) {
 
   return (
     <GlassPanel
-      className="reveal group relative overflow-hidden p-4 transition duration-500 sm:p-5 lg:p-6"
+      className="reveal group relative overflow-hidden p-3.5 transition duration-500 sm:p-5 lg:p-6"
     >
       <article
         className="relative h-full cursor-pointer rounded-[1.45rem]"
@@ -67,7 +79,7 @@ function ServiceCard({ service, index }) {
         <div className="relative">
           <div className="relative overflow-hidden rounded-[1.35rem] border border-white/10">
             <img
-              className="h-44 w-full object-cover transition duration-700 group-hover:scale-105 sm:h-52 xl:h-56"
+              className="h-40 w-full object-cover transition duration-700 group-hover:scale-105 min-[390px]:h-44 sm:h-52 xl:h-56"
               src={service.image}
               alt={service.imageAlt}
               loading="lazy"
@@ -90,7 +102,7 @@ function ServiceCard({ service, index }) {
             </span>
           </div>
 
-          <h3 className="mt-3 text-wrap font-display text-2xl leading-tight text-[var(--color-heading)] transition group-hover:text-[var(--color-highlight)] sm:mt-4 lg:text-3xl">
+          <h3 className="mt-3 text-wrap font-display text-[1.65rem] leading-tight text-[var(--color-heading)] transition group-hover:text-[var(--color-highlight)] sm:mt-4 sm:text-2xl lg:text-3xl">
             {service.title}
           </h3>
           <p className="mt-4 text-sm leading-7 text-white/65">
@@ -99,13 +111,13 @@ function ServiceCard({ service, index }) {
 
           <div className="mt-6 flex flex-col gap-3 min-[420px]:flex-row min-[420px]:flex-wrap">
             <Link
-              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-center text-xs font-semibold uppercase tracking-[0.14em] text-white/75 transition hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)] sm:tracking-[0.18em]"
+              className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-center text-xs font-semibold uppercase tracking-[0.1em] text-white/75 transition hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)] sm:tracking-[0.18em]"
               to={service.href}
             >
               Learn More
             </Link>
             <a
-              className="inline-flex items-center justify-center rounded-full border border-[rgba(252,223,92,0.18)] bg-[rgba(252,223,92,0.08)] px-4 py-2.5 text-center text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-gold)] transition hover:bg-[rgba(252,223,92,0.14)] sm:tracking-[0.18em]"
+              className="inline-flex min-h-11 items-center justify-center rounded-full border border-[rgba(252,223,92,0.18)] bg-[rgba(252,223,92,0.08)] px-4 py-2.5 text-center text-xs font-semibold uppercase tracking-[0.1em] text-[var(--color-gold)] transition hover:bg-[rgba(252,223,92,0.14)] sm:tracking-[0.18em]"
               href="#appointment"
             >
               Book Now

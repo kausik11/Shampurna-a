@@ -4,9 +4,9 @@ import { socialIcons } from '@/lib/icons'
 
 function Footer() {
   return (
-    <footer className="relative border-t border-white/10 px-4 pb-8 pt-14 sm:px-6 sm:pt-16 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-8 rounded-[1.5rem] border border-white/12 bg-[rgba(1,0,2,0.46)] p-5 shadow-[0_30px_80px_rgba(1,0,2,0.36)] backdrop-blur-2xl sm:rounded-[2rem] sm:p-8 md:grid-cols-2 lg:grid-cols-[1.15fr_0.75fr_0.85fr_1fr] lg:gap-10">
-        <div>
+    <footer className="relative border-t border-white/10 px-4 pb-24 pt-14 sm:px-6 sm:pb-28 sm:pt-16 lg:px-8 lg:pb-10">
+      <div className="mx-auto grid max-w-7xl gap-8 rounded-[1.25rem] border border-white/12 bg-[rgba(1,0,2,0.46)] p-4 shadow-[0_30px_80px_rgba(1,0,2,0.36)] backdrop-blur-2xl sm:rounded-[2rem] sm:p-8 md:grid-cols-2 lg:grid-cols-[1.15fr_0.75fr_0.85fr_1fr] lg:gap-10">
+        <div className="min-w-0">
           <a className="inline-flex min-w-0 items-center gap-3 sm:gap-4" href="#home">
             <img
               className="h-12 w-12 shrink-0 rounded-full border border-[rgba(252,223,92,0.4)] object-cover shadow-[0_10px_30px_rgba(0,0,0,0.35)] sm:h-16 sm:w-16"
@@ -30,8 +30,8 @@ function Footer() {
           </p>
         </div>
 
-        <div>
-          <h2 className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-gold)]">
+        <div className="min-w-0">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-gold)] sm:text-sm sm:tracking-[0.28em]">
             Quick Links
           </h2>
           <ul className="mt-5 space-y-3 text-sm text-white/65">
@@ -45,8 +45,8 @@ function Footer() {
           </ul>
         </div>
 
-        <div>
-          <h2 className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-gold)]">
+        <div className="min-w-0">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-gold)] sm:text-sm sm:tracking-[0.28em]">
             Signature Services
           </h2>
           <ul className="mt-5 space-y-3 text-sm text-white/65">
@@ -60,8 +60,8 @@ function Footer() {
           </ul>
         </div>
 
-        <div>
-          <h2 className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-gold)]">
+        <div className="min-w-0">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-gold)] sm:text-sm sm:tracking-[0.28em]">
             Contact
           </h2>
           <div className="mt-5 space-y-3 text-sm text-white/65">

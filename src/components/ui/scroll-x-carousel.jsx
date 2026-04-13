@@ -24,7 +24,7 @@ function ScrollXCarousel({ children, className, ...props }) {
     <ScrollXCarouselContext.Provider value={{ scrollYProgress }}>
       <div
         ref={carouselRef}
-        className={cn('relative w-screen max-w-full', className)}
+        className={cn('relative w-full max-w-full overflow-x-clip', className)}
         {...props}
       >
         {children}
