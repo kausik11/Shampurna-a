@@ -112,9 +112,20 @@ function HeroGallerySection() {
           </div>
 
           <div className="relative mt-5 flex flex-col gap-3 sm:mt-6 sm:gap-4 [@media(max-height:700px)]:mt-4">
+            <div
+              className="flex w-full snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-4 pb-3 pr-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:hidden"
+              aria-label="Swipe through treatment gallery"
+            >
+              {firstRow.map((item) => (
+                <div key={item.title} className="shrink-0 snap-start">
+                  <GalleryCard item={item} note={item.note} />
+                </div>
+              ))}
+            </div>
+
             <ScrollXCarouselWrap
               xRange={['4%', '-56%']}
-              className="flex gap-4 pr-6 sm:gap-6 lg:gap-7 [&>*:first-child]:ml-4 sm:[&>*:first-child]:ml-6 lg:[&>*:first-child]:ml-8"
+              className="hidden gap-4 pr-6 sm:flex sm:gap-6 lg:gap-7 [&>*:first-child]:ml-4 sm:[&>*:first-child]:ml-6 lg:[&>*:first-child]:ml-8"
             >
               {firstRow.map((item) => (
                 <GalleryCard key={item.title} item={item} note={item.note} />

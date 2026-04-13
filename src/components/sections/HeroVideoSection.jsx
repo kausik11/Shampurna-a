@@ -102,7 +102,7 @@ function HeroVideoSection() {
         <div className="mx-auto max-w-[92rem]">
           <div className="relative grid min-h-[calc(88svh-5.25rem)] content-start gap-5 px-4 pb-6 pt-2 min-[380px]:min-h-[calc(90svh-5.75rem)] sm:min-h-[82svh] sm:content-normal sm:gap-8 sm:px-6 sm:py-12 md:py-14 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-16 xl:min-h-[86svh] [@media(max-height:700px)]:pb-5 [@media(max-height:700px)]:pt-2 sm:[@media(max-height:700px)]:py-8">
             <div className="flex flex-col justify-start sm:justify-center lg:pl-2 xl:pl-6">
-              <p className="hero-reveal text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-highlight)] min-[380px]:text-[11px] min-[380px]:tracking-[0.22em] sm:text-xs sm:tracking-[0.34em]">
+              <p className="hero-reveal mt-5 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-highlight)] min-[380px]:text-[11px] min-[380px]:tracking-[0.22em] sm:mt-0 sm:text-xs sm:tracking-[0.34em]">
                 Luxury Aesthetic Clinic
               </p>
               <h1 className="hero-reveal mt-4 max-w-5xl text-wrap font-display text-[2.25rem] leading-[1.04] text-[var(--color-heading)] min-[390px]:text-5xl sm:mt-6 lg:text-6xl xl:text-7xl">

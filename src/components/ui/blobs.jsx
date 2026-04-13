@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils'
 import { FaArrowRightLong } from 'react-icons/fa6'
+import { Link } from 'react-router-dom'
 
 export function AnimatedBlobs({
   className,
@@ -49,6 +50,10 @@ export function AnimatedBlobs({
     },
   ]
 
+  const isAppRoute = actionHref?.startsWith('/')
+  const ActionComponent = isAppRoute ? Link : 'a'
+  const actionProps = isAppRoute ? { to: actionHref } : { href: actionHref }
+
   return (
     <div
       className={cn(
@@ -63,13 +68,13 @@ export function AnimatedBlobs({
               {label}
             </span>
             {actionLabel ? (
-              <a
-                href={actionHref}
+              <ActionComponent
+                {...actionProps}
                 className="button-shine pointer-events-auto inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[rgba(252,223,92,0.22)] bg-[var(--color-button)] px-5 py-3 text-center text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)] sm:px-6 sm:py-3.5"
               >
                 <span>{actionLabel}</span>
                 <FaArrowRightLong className="text-xs" />
-              </a>
+              </ActionComponent>
             ) : null}
           </div>
         </div>

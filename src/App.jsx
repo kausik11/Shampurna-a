@@ -9,6 +9,7 @@ import ServiceDetailPage from './pages/ServiceDetailPage'
 import GalleryPage from './pages/GalleryPage'
 import TestimonialsPage from './pages/TestimonialsPage'
 import ContactPage from './pages/ContactPage'
+import ChatPage from './pages/ChatPage'
 import { useLenis } from './hooks/useLenis'
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/chat" element={<ChatPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

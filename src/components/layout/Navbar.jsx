@@ -46,7 +46,7 @@ function Navbar() {
             <p className="truncate font-display text-lg leading-none text-[var(--color-heading)] min-[380px]:text-xl sm:text-2xl">
               Shampurna
             </p>
-            <p className="hidden text-[11px] uppercase tracking-[0.18em] text-white/50 sm:block sm:tracking-[0.22em]">
+            <p className="block truncate text-[9px] uppercase tracking-[0.1em] text-white/50 min-[380px]:text-[10px] min-[380px]:tracking-[0.14em] sm:text-[11px] sm:tracking-[0.22em]">
               Aesthetic Clinic
             </p>
           </div>
