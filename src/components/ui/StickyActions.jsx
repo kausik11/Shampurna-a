@@ -1,5 +1,6 @@
 import { FiCalendar } from 'react-icons/fi'
 import { FaRobot, FaWhatsapp } from 'react-icons/fa6'
+import { Link } from 'react-router-dom'
 
 function StickyActions() {
   return (
@@ -15,15 +16,15 @@ function StickyActions() {
           </span>
         </a>
 
-        <a
+        <Link
           className="group inline-flex h-11 w-11 items-center justify-center rounded-full bg-[rgba(1,0,2,0.68)] text-[var(--color-highlight)] shadow-[0_18px_45px_rgba(1,0,2,0.32)] backdrop-blur-2xl transition duration-300 hover:-translate-y-0.5 sm:h-14 sm:w-14"
-          href="#appointment"
-          aria-label="Chatbot"
+          to="/chat"
+          aria-label="AI Chatbot"
         >
           <span className="inline-flex items-center justify-center transition-transform duration-500 group-hover:rotate-180">
             <FaRobot className="h-5 w-5 sm:h-7 sm:w-7" aria-hidden="true" />
           </span>
-        </a>
+        </Link>
       </div>
 
       <a
