@@ -1,7 +1,29 @@
+import allBodyPiercingImage from '../assets/images/All Body Piercing.jpeg'
 import bbGlowTreatmentImage from '../assets/images/BBGLOW Treatment.jpeg'
+import beautySpotImage from '../assets/images/Beauty Spot.jpeg'
+import breastEnlargementImage from '../assets/images/Breast Enlargement.jpeg'
+import breastShapingImage from '../assets/images/Breast Shaping.jpeg'
+import breastShappingResultGalleryImage from '../assets/breast-shapping-resultgallery.jpeg'
 import carbonLaserTreatmentImage from '../assets/images/carbon_laser_treatment.jpeg'
+import clinicResultGalleryImage from '../assets/clinic-resultgallery.jpeg'
+import cryolipolysisFatFreezingImage from '../assets/images/Cryolipolysis - Fat Freezing.jpeg'
+import earLobesRepairImage from '../assets/images/Ear Lobes Repair.jpeg'
+import glutathioneAllBodyImage from '../assets/images/Glutathione - All Body.jpeg'
+import hipsShapingImage from '../assets/images/Hips Shaping.jpeg'
+import mesoTherapyImage from '../assets/images/Meso Therapy.jpeg'
+import moleTagAndWartRemovalImage from '../assets/images/Mole, Tag and Wart Removal.jpeg'
+import openPoresTreatmentImage from '../assets/images/Open Pores Treatment.jpeg'
+import oxegenueTreatmentImage from '../assets/images/Oxegenue Treatment.jpeg'
+import permanentEyeBrowImage from '../assets/images/Permanent Eye Brow.jpeg'
 import permanentHairRemovalImage from '../assets/images/permanent_hair_removal.jpeg'
+import permanentLipColorImage from '../assets/images/Permanent Lip Color.jpeg'
+import permanentTattooRemovalImage from '../assets/images/Permanent Tattoo Removal.jpeg'
+import pigmentationRemovalImage from '../assets/images/Pigmentation Removal.jpeg'
+import pimpleAndAcneTreatmentImage from '../assets/images/Pimple_and_Acne Treatment.jpeg'
+import pubicAreaTighteningImage from '../assets/images/Pubic Area Tightening.jpeg'
+import sexyBodyResultGalleryImage from '../assets/sexy-body-export const resultsGallery.jpg'
 import skinGlowTreatmentImage from '../assets/images/skin_glow_treatment.jpeg'
+import wrinkleHifuTreatmentImage from '../assets/images/WrinkleHIFU Treatment.jpg'
 
 export const navigationItems = [
   { label: 'Home', href: '/' },
@@ -103,6 +125,32 @@ const resultImagePairs = [
       'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80',
   },
 ]
+
+const serviceImages = {
+  'Permanent Hair Removal': permanentHairRemovalImage,
+  'Carbon Laser Treatment': carbonLaserTreatmentImage,
+  'BB Glow CC Glow Treatment': bbGlowTreatmentImage,
+  'Skin Glow Treatment': skinGlowTreatmentImage,
+  'Pimple and Acne Treatment': pimpleAndAcneTreatmentImage,
+  'Wrinkle / HIFU Treatment': wrinkleHifuTreatmentImage,
+  'Breast Enlargement': breastEnlargementImage,
+  'Breast Shaping': breastShapingImage,
+  'Hips Shaping': hipsShapingImage,
+  'Ear Lobes Repair': earLobesRepairImage,
+  'All Body Piercing': allBodyPiercingImage,
+  'Mole, Tag and Wart Removal': moleTagAndWartRemovalImage,
+  'Pigmentation Removal': pigmentationRemovalImage,
+  'Open Pores Treatment': openPoresTreatmentImage,
+  'Permanent Eye Brow': permanentEyeBrowImage,
+  'Permanent Lip Color': permanentLipColorImage,
+  'Beauty Spot': beautySpotImage,
+  'Pubic Area Tightening': pubicAreaTighteningImage,
+  'Oxegenue Treatment': oxegenueTreatmentImage,
+  'Meso Therapy': mesoTherapyImage,
+  'Permanent Tattoo Removal': permanentTattooRemovalImage,
+  'Cryolipolysis - Fat Freezing': cryolipolysisFatFreezingImage,
+  'Glutathione - All Body': glutathioneAllBodyImage,
+}
 
 export const services = [
   {
@@ -287,6 +335,7 @@ export const services = [
   },
 ].map((service, index) => ({
   ...service,
+  image: serviceImages[service.title] || service.image,
   slug: createSlug(service.title),
   href: `/services/${createSlug(service.title)}`,
   description:
@@ -377,28 +426,25 @@ export const whyChooseUs = [
 
 export const resultsGallery = [
   {
-    tag: 'Skin Renewal',
-    title: 'Brightness and texture refinement',
+    tag: 'Body Contour',
+    title: 'Breast shaping result gallery',
     description:
-      'Placeholder imagery for glow-focused journeys, peel programs, and progressive skin clarity.',
-    image:
-      'https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=1400&q=80',
-  },
-  {
-    tag: 'Contour Care',
-    title: 'Face and body shaping stories',
-    description:
-      'Designed to present sculpting, symmetry, and advanced treatment confidence in a premium way.',
-    image:
-      'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1400&q=80',
+      'A focused visual for shaping-led treatment storytelling, symmetry refinement, and polished body contour outcomes.',
+    image: breastShappingResultGalleryImage,
   },
   {
     tag: 'Clinic Atmosphere',
-    title: 'Luxury treatment environment',
+    title: 'Luxury clinic environment',
     description:
-      'Use this panel for premium room imagery, technology snapshots, and elevated brand storytelling.',
-    image:
-      'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1400&q=80',
+      'This panel can frame the in-clinic experience with a cleaner, more premium sense of space, hygiene, and comfort.',
+    image: clinicResultGalleryImage,
+  },
+  {
+    tag: 'Body Confidence',
+    title: 'Sculpted body result story',
+    description:
+      'A stronger body-focused visual for presenting contour goals, visible refinement, and confidence-led treatment journeys.',
+    image: sexyBodyResultGalleryImage,
   },
 ]
 
