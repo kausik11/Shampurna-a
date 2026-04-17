@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { createPortal } from 'react-dom'
 import axios from 'axios'
 import SectionHeading from '../ui/SectionHeading'
 import GlassPanel from '../ui/GlassPanel'
@@ -68,6 +69,95 @@ function Field({ label, error, children }) {
   )
 }
 
+function AppointmentSuccessPopup({ isOpen, onClose }) {
+  useEffect(() => {
+    if (!isOpen) {
+      return undefined
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        onClose()
+      }
+    }
+
+    const originalOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.body.style.overflow = originalOverflow
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isOpen, onClose])
+
+  if (typeof document === 'undefined') {
+    return null
+  }
+
+  return createPortal(
+    <div
+      className={`fixed inset-0 z-[120] flex items-end justify-center px-4 py-4 transition duration-300 sm:items-center sm:px-6 ${
+        isOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+      }`}
+      aria-hidden={!isOpen}
+    >
+      <button
+        className="absolute inset-0 h-full w-full bg-[rgba(18,3,11,0.76)] backdrop-blur-[12px]"
+        type="button"
+        aria-label="Close success popup"
+        tabIndex={isOpen ? 0 : -1}
+        onClick={onClose}
+      />
+
+      <div
+        className={`relative w-full max-w-lg transform transition duration-300 ${
+          isOpen ? 'translate-y-0 scale-100 opacity-100' : 'translate-y-6 scale-[0.98] opacity-0'
+        }`}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="appointment-success-title"
+      >
+        <div className="pointer-events-none absolute -inset-3 rounded-[1.5rem] bg-[radial-gradient(circle_at_18%_16%,rgba(245,73,145,0.3),transparent_34%),radial-gradient(circle_at_84%_10%,rgba(235,200,0,0.22),transparent_30%)] blur-2xl" />
+
+        <div className="relative overflow-hidden rounded-[1rem] border border-white/10 bg-[linear-gradient(180deg,rgba(74,17,56,0.96),rgba(32,6,22,0.98))] p-6 shadow-[0_28px_80px_rgba(0,0,0,0.34)] sm:p-8">
+          <div className="absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,rgba(252,223,92,0.18),transparent)]" />
+
+          <div className="relative">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-gold)] sm:text-xs sm:tracking-[0.28em]">
+              Request Confirmed
+            </p>
+            <h3
+              id="appointment-success-title"
+              className="mt-3 text-wrap font-display text-3xl leading-tight text-[var(--color-heading)] sm:text-4xl"
+            >
+              Your appointment request has been received.
+            </h3>
+            <p className="mt-4 text-sm leading-7 text-white/68 sm:text-base">
+              Thank you for reaching out to Shampurna Aesthetic. Our team will review your request and contact you soon to confirm the next step.
+            </p>
+
+            <div className="mt-6 rounded-[0.9rem] border border-[rgba(252,223,92,0.16)] bg-[rgba(255,255,255,0.04)] p-4 text-sm leading-7 text-white/72">
+              A confirmation email has also been sent to the address you entered.
+            </div>
+
+            <div className="mt-6 flex justify-end">
+              <button
+                className="button-shine inline-flex min-h-11 items-center justify-center rounded-[0.5rem] border border-[rgba(252,223,92,0.2)] bg-[var(--color-button)] px-5 py-3 text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)]"
+                type="button"
+                onClick={onClose}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>,
+    document.body,
+  )
+}
+
 function AppointmentSection() {
   const sectionRef = useRevealAnimations()
   const [formValues, setFormValues] = useState(initialForm)
@@ -81,6 +171,10 @@ function AppointmentSection() {
       .sort((left, right) => left.localeCompare(right))
       .map((title) => ({ label: title, value: title })),
   )
+
+  const closeSuccessPopup = useCallback(() => {
+    setIsSubmitted(false)
+  }, [])
 
   const localServiceOptions = useMemo(
     () => services.map((item) => item.title).sort((left, right) => left.localeCompare(right)),
@@ -337,14 +431,11 @@ function AppointmentSection() {
               </div>
             ) : null}
 
-            {isSubmitted ? (
-              <div className="rounded-[1.2rem] border border-[rgba(252,223,92,0.18)] bg-[rgba(252,223,92,0.08)] p-4 text-sm text-[var(--color-heading)]">
-                Your appointment request has been submitted successfully. The clinic team will contact you soon.
-              </div>
-            ) : null}
           </form>
         </GlassPanel>
       </div>
+
+      <AppointmentSuccessPopup isOpen={isSubmitted} onClose={closeSuccessPopup} />
     </section>
   )
 }
