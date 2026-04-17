@@ -2,6 +2,10 @@ import { FiCalendar } from 'react-icons/fi'
 import { FaRobot, FaWhatsapp } from 'react-icons/fa6'
 import { useChatPopup } from '../chat/ChatPopupContext'
 
+const whatsappMessage = encodeURIComponent(
+  'Hello Shampurna Aesthetic, I would like to know more about your treatments and book a consultation. Please share the next steps.',
+)
+
 function StickyActions() {
   const { openChat } = useChatPopup()
 
@@ -10,8 +14,10 @@ function StickyActions() {
       <div className="flex items-center justify-end gap-2 sm:gap-3">
         <a
           className="group inline-flex h-11 w-11 items-center justify-center rounded-full bg-[rgba(1,0,2,0.68)] text-[#25D366] shadow-[0_18px_45px_rgba(1,0,2,0.32)] backdrop-blur-2xl transition duration-300 hover:-translate-y-0.5 sm:h-14 sm:w-14"
-          href="https://wa.me/910000000000"
+          href={`https://wa.me/9804100036?text=${whatsappMessage}`}
           aria-label="WhatsApp"
+          rel="noreferrer"
+          target="_blank"
         >
           <span className="inline-flex items-center justify-center transition-transform duration-500 group-hover:rotate-180">
             <FaWhatsapp className="h-5 w-5 sm:h-7 sm:w-7" aria-hidden="true" />

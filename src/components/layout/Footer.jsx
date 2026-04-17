@@ -68,16 +68,16 @@ function Footer() {
             <p>Shampurna Aesthetic Clinic</p>
             <p>Premium address placeholder, Kolkata</p>
             <p>
-              <a className="transition hover:text-[var(--color-highlight)]" href="tel:+910000000000">
-                +91 00000 00000
+              <a className="transition hover:text-[var(--color-highlight)]" href="tel:9804100036">
+                9804100036
               </a>
             </p>
             <p>
               <a
                 className="transition hover:text-[var(--color-highlight)]"
-                href="mailto:concierge@shampurnaaesthetic.com"
+                href="mailto:enquiry.shampurna@gmail.com"
               >
-                concierge@shampurnaaesthetic.com
+                enquiry.shampurna@gmail.com
               </a>
             </p>
           </div>
