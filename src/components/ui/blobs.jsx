@@ -7,6 +7,7 @@ export function AnimatedBlobs({
   label = 'Blobs',
   actionLabel,
   actionHref = '#appointment',
+  onActionClick,
 }) {
   const blobStyle = {
     '--border-radius': '115% 140% 145% 110% / 125% 140% 110% 125%',
@@ -50,9 +51,14 @@ export function AnimatedBlobs({
     },
   ]
 
+  const hasActionClick = typeof onActionClick === 'function'
   const isAppRoute = actionHref?.startsWith('/')
-  const ActionComponent = isAppRoute ? Link : 'a'
-  const actionProps = isAppRoute ? { to: actionHref } : { href: actionHref }
+  const ActionComponent = hasActionClick ? 'button' : isAppRoute ? Link : 'a'
+  const actionProps = hasActionClick
+    ? { type: 'button', onClick: onActionClick }
+    : isAppRoute
+      ? { to: actionHref }
+      : { href: actionHref }
 
   return (
     <div

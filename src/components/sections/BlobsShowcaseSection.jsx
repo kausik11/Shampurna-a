@@ -1,8 +1,10 @@
 import { AnimatedBlobs } from '../ui/blobs'
 import { useRevealAnimations } from '../../hooks/useRevealAnimations'
+import { useChatPopup } from '../chat/ChatPopupContext'
 
 function BlobsShowcaseSection() {
   const sectionRef = useRevealAnimations()
+  const { openChat } = useChatPopup()
 
   return (
     <section
@@ -24,7 +26,7 @@ function BlobsShowcaseSection() {
           <AnimatedBlobs
             label="Ask Me Anything !"
             actionLabel="Start a Conversation"
-            actionHref="/chat"
+            onActionClick={openChat}
             className="min-h-[23rem] rounded-[1.25rem] border-none backdrop-blur-xl min-[390px]:min-h-[26rem] sm:min-h-[34rem] sm:rounded-[2rem] lg:min-h-[40rem]"
           />
         </div>

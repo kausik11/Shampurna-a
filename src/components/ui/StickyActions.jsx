@@ -1,8 +1,10 @@
 import { FiCalendar } from 'react-icons/fi'
 import { FaRobot, FaWhatsapp } from 'react-icons/fa6'
-import { Link } from 'react-router-dom'
+import { useChatPopup } from '../chat/ChatPopupContext'
 
 function StickyActions() {
+  const { openChat } = useChatPopup()
+
   return (
     <div className="fixed inset-x-3 bottom-3 z-40 flex max-w-[calc(100vw-1.5rem)] flex-col items-end gap-2 sm:inset-x-auto sm:bottom-5 sm:right-6 sm:max-w-none sm:gap-3">
       <div className="flex items-center justify-end gap-2 sm:gap-3">
@@ -16,15 +18,16 @@ function StickyActions() {
           </span>
         </a>
 
-        <Link
+        <button
           className="group inline-flex h-11 w-11 items-center justify-center rounded-full bg-[rgba(1,0,2,0.68)] text-[var(--color-highlight)] shadow-[0_18px_45px_rgba(1,0,2,0.32)] backdrop-blur-2xl transition duration-300 hover:-translate-y-0.5 sm:h-14 sm:w-14"
-          to="/chat"
+          type="button"
           aria-label="AI Chatbot"
+          onClick={openChat}
         >
           <span className="inline-flex items-center justify-center transition-transform duration-500 group-hover:rotate-180">
             <FaRobot className="h-5 w-5 sm:h-7 sm:w-7" aria-hidden="true" />
           </span>
-        </Link>
+        </button>
       </div>
 
       <a
