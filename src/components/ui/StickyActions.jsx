@@ -14,7 +14,7 @@ function StickyActions() {
       <div className="flex items-center justify-end gap-2 sm:gap-3">
         <a
           className="group inline-flex h-11 w-11 items-center justify-center rounded-full bg-[rgba(1,0,2,0.68)] text-[#25D366] shadow-[0_18px_45px_rgba(1,0,2,0.32)] backdrop-blur-2xl transition duration-300 hover:-translate-y-0.5 sm:h-14 sm:w-14"
-          href={`https://wa.me/9804100036?text=${whatsappMessage}`}
+          href={`https://wa.me/919804100036?text=${whatsappMessage}`}
           aria-label="WhatsApp"
           rel="noreferrer"
           target="_blank"
