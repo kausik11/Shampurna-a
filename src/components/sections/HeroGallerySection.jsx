@@ -98,10 +98,10 @@ function HeroGallerySection() {
                 variant="outline"
                 className="border-white/12 bg-white/6 px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-[var(--color-gold)] sm:tracking-[0.3em]"
               >
-                Scroll Gallery
+                Gallery Images
               </Badge>
               <h2 className="mt-4 max-w-3xl text-wrap font-display text-[1.9rem] leading-tight text-[var(--color-heading)] min-[390px]:text-4xl lg:text-5xl">
-                Explore the clinic story through a moving treatment gallery.
+                Explore the clinic story through a treatment gallery.
               </h2>
               <p className="mt-3 max-w-2xl text-sm leading-7 text-white/68 sm:mt-4 sm:text-base">
                 Signature skin, laser, contour, and finishing treatments unfold

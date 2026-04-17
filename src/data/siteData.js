@@ -1,3 +1,8 @@
+import bbGlowTreatmentImage from '../assets/images/BBGLOW Treatment.jpeg'
+import carbonLaserTreatmentImage from '../assets/images/carbon_laser_treatment.jpeg'
+import permanentHairRemovalImage from '../assets/images/permanent_hair_removal.jpeg'
+import skinGlowTreatmentImage from '../assets/images/skin_glow_treatment.jpeg'
+
 export const navigationItems = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
@@ -103,32 +108,28 @@ export const services = [
   {
     title: 'Permanent Hair Removal',
     icon: '✦',
-    image:
-      'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80',
+    image: permanentHairRemovalImage,
     imageAlt: 'Luxury laser hair removal consultation placeholder',
     focus: 'Laser smoothness',
   },
   {
     title: 'Carbon Laser Treatment',
     icon: '◌',
-    image:
-      'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80',
+    image: carbonLaserTreatmentImage,
     imageAlt: 'Facial laser treatment setup placeholder',
     focus: 'Texture reset',
   },
   {
     title: 'BB Glow CC Glow Treatment',
     icon: '✧',
-    image:
-      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80',
+    image: bbGlowTreatmentImage,
     imageAlt: 'Glowing skin beauty treatment placeholder',
     focus: 'Radiance finish',
   },
   {
     title: 'Skin Glow Treatment',
     icon: '✺',
-    image:
-      'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1200&q=80',
+    image: skinGlowTreatmentImage,
     imageAlt: 'Luminous skin care result placeholder',
     focus: 'Glow boost',
   },

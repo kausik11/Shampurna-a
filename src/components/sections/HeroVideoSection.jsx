@@ -106,12 +106,10 @@ function HeroVideoSection() {
                 Luxury Aesthetic Clinic
               </p>
               <h1 className="hero-reveal mt-4 max-w-5xl text-wrap font-display text-[2.25rem] leading-[1.04] text-[var(--color-heading)] min-[390px]:text-5xl sm:mt-6 lg:text-6xl xl:text-7xl">
-                Refined skin, body and beauty care with cinematic elegance.
+              Kolkata’s Most Trusted Destination for Aesthetic Care and Luxury Beauty Treatments
               </h1>
               <p className="hero-reveal mt-5 max-w-3xl text-sm leading-7 text-white/70 sm:mt-7 sm:text-base sm:leading-8">
-                Shampurna Aesthetic combines modern aesthetic treatments with a
-                hospitality-led atmosphere, premium detailing, and a polished
-                consultation-first experience.
+           Indulge in advanced skin, body, and beauty treatments with precision and luxury—elevated by Shampurna Aesthetic’s hospitality-led, consultation-first experience.
               </p>
 
               <div className="hero-reveal mt-7 flex flex-col gap-3 min-[420px]:flex-row sm:mt-10 sm:gap-4">
