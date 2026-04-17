@@ -160,7 +160,8 @@ const serviceImages = {
   'Glutathione - All Body': glutathioneAllBodyImage,
 }
 
-export const services = [
+export const services = 
+[
   {
     title: 'Permanent Hair Removal',
     icon: '✦',

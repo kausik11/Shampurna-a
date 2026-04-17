@@ -1,8 +1,20 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import axios from 'axios'
 import SectionHeading from '../ui/SectionHeading'
 import GlassPanel from '../ui/GlassPanel'
 import { services } from '../../data/siteData'
 import { useRevealAnimations } from '../../hooks/useRevealAnimations'
+
+const CALLBACK_API_BASE_URL = (
+  import.meta.env.VITE_API_BASE_URL || 'https://sampurna-backend.vercel.app'
+).replace(/\/$/, '')
+
+const normalizeServiceTitle = (value) =>
+  `${value ?? ''}`
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '')
 
 const initialForm = {
   fullName: '',
@@ -61,19 +73,77 @@ function AppointmentSection() {
   const [formValues, setFormValues] = useState(initialForm)
   const [errors, setErrors] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
+  const [serviceOptions, setServiceOptions] = useState(() =>
+    services
+      .map((item) => item.title)
+      .sort((left, right) => left.localeCompare(right))
+      .map((title) => ({ label: title, value: title })),
+  )
 
-  const serviceOptions = useMemo(
+  const localServiceOptions = useMemo(
     () => services.map((item) => item.title).sort((left, right) => left.localeCompare(right)),
     [],
   )
+
+  useEffect(() => {
+    let isMounted = true
+
+    const syncServiceOptions = async () => {
+      try {
+        const response = await axios.get(`${CALLBACK_API_BASE_URL}/api/services`)
+        const backendTitles = Array.isArray(response.data)
+          ? response.data
+              .map((item) => `${item?.title ?? ''}`.trim())
+              .filter(Boolean)
+              .sort((left, right) => left.localeCompare(right))
+          : []
+
+        if (!isMounted) {
+          return
+        }
+
+        if (!backendTitles.length) {
+          setServiceOptions(localServiceOptions.map((title) => ({ label: title, value: title })))
+          return
+        }
+
+        const options = backendTitles.map((backendTitle) => {
+          const matchedLocalTitle = localServiceOptions.find(
+            (localTitle) => normalizeServiceTitle(localTitle) === normalizeServiceTitle(backendTitle),
+          )
+
+          return {
+            label: matchedLocalTitle || backendTitle,
+            value: backendTitle,
+          }
+        })
+
+        setServiceOptions(options)
+      } catch (_error) {
+        if (isMounted) {
+          setServiceOptions(localServiceOptions.map((title) => ({ label: title, value: title })))
+        }
+      }
+    }
+
+    syncServiceOptions()
+
+    return () => {
+      isMounted = false
+    }
+  }, [localServiceOptions])
 
   const handleChange = (event) => {
     const { name, value } = event.target
     setFormValues((current) => ({ ...current, [name]: value }))
     setErrors((current) => ({ ...current, [name]: '' }))
+    setIsSubmitted(false)
+    setSubmitError('')
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     const nextErrors = validateForm(formValues)
 
@@ -84,8 +154,36 @@ function AppointmentSection() {
     }
 
     setErrors({})
-    setIsSubmitted(true)
-    setFormValues(initialForm)
+    setSubmitError('')
+    setIsSubmitting(true)
+
+    try {
+      await axios.post(`${CALLBACK_API_BASE_URL}/api/callbacks`, {
+        fullName: formValues.fullName.trim(),
+        phoneNumber: formValues.phoneNumber.trim(),
+        email: formValues.emailAddress.trim(),
+        preferredService: formValues.preferredService,
+        preferredDate: formValues.preferredDate,
+        preferredTime: formValues.preferredTime,
+        description: formValues.message.trim(),
+      })
+
+      setIsSubmitted(true)
+      setFormValues(initialForm)
+    } catch (error) {
+      setIsSubmitted(false)
+
+      if (axios.isAxiosError(error)) {
+        setSubmitError(
+          error.response?.data?.message ||
+            'Unable to submit your request right now. Please try again in a moment.',
+        )
+      } else {
+        setSubmitError('Unable to submit your request right now. Please try again in a moment.')
+      }
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -100,7 +198,7 @@ function AppointmentSection() {
             align="left"
             eyebrow="Appointment Concierge"
             title="Reserve a private consultation with a polished, conversion-focused booking flow."
-            description="This frontend form is prepared for future API integration. For now, it provides premium validation, a refined success state, and a layout that clearly supports bookings."
+            description="Consultation requests are submitted directly to the clinic callback system, with a refined form flow designed to feel private, polished, and effortless."
           />
 
           <GlassPanel className="mt-8 space-y-6 p-5 sm:p-6">
@@ -151,6 +249,7 @@ function AppointmentSection() {
                   className="min-h-11 w-full rounded-[1rem] border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition focus:border-[rgba(252,223,92,0.35)] focus:bg-white/[0.07] sm:rounded-[1.15rem]"
                   name="phoneNumber"
                   placeholder="+91"
+                  type="tel"
                   value={formValues.phoneNumber}
                   onChange={handleChange}
                 />
@@ -163,6 +262,7 @@ function AppointmentSection() {
                   className="min-h-11 w-full rounded-[1rem] border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition focus:border-[rgba(252,223,92,0.35)] focus:bg-white/[0.07] sm:rounded-[1.15rem]"
                   name="emailAddress"
                   placeholder="name@email.com"
+                  type="email"
                   value={formValues.emailAddress}
                   onChange={handleChange}
                 />
@@ -177,8 +277,8 @@ function AppointmentSection() {
                 >
                   <option value="">Select a service</option>
                   {serviceOptions.map((item) => (
-                    <option key={item} value={item}>
-                      {item}
+                    <option key={item.value} value={item.value}>
+                      {item.label}
                     </option>
                   ))}
                 </select>
@@ -220,20 +320,26 @@ function AppointmentSection() {
 
             <div className="flex flex-col gap-4 border-t border-white/10 pt-4 sm:flex-row sm:items-center sm:justify-between">
               <button
-                className="button-shine inline-flex min-h-11 items-center justify-center rounded-full border border-[rgba(252,223,92,0.2)] bg-[var(--color-button)] px-5 py-3 text-center text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)] sm:px-6 sm:py-3.5"
+                className="button-shine inline-flex min-h-11 items-center justify-center rounded-full border border-[rgba(252,223,92,0.2)] bg-[var(--color-button)] px-5 py-3 text-center text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0 sm:px-6 sm:py-3.5"
+                disabled={isSubmitting}
                 type="submit"
               >
-                Request Appointment
+                {isSubmitting ? 'Submitting Request...' : 'Request Appointment'}
               </button>
               <p className="text-sm text-white/50">
-                Frontend-only for now. Ready for backend integration later.
+                Requests are sent directly to the clinic callback endpoint.
               </p>
             </div>
 
+            {submitError ? (
+              <div className="rounded-[1.2rem] border border-[rgba(245,73,145,0.22)] bg-[rgba(245,73,145,0.1)] p-4 text-sm text-[var(--color-heading)]">
+                {submitError}
+              </div>
+            ) : null}
+
             {isSubmitted ? (
               <div className="rounded-[1.2rem] border border-[rgba(252,223,92,0.18)] bg-[rgba(252,223,92,0.08)] p-4 text-sm text-[var(--color-heading)]">
-                Your request has been captured. A premium confirmation experience
-                can be connected to your backend or CRM next.
+                Your appointment request has been submitted successfully. The clinic team will contact you soon.
               </div>
             ) : null}
           </form>
