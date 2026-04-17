@@ -23,6 +23,14 @@ import pimpleAndAcneTreatmentImage from '../assets/images/Pimple_and_Acne Treatm
 import pubicAreaTighteningImage from '../assets/images/Pubic Area Tightening.jpeg'
 import sexyBodyResultGalleryImage from '../assets/sexy-body-export const resultsGallery.jpg'
 import skinGlowTreatmentImage from '../assets/images/skin_glow_treatment.jpeg'
+import beforeAfterImage49 from '../assets/treatmentImage/image (49).jpeg'
+import beforeAfterImage50 from '../assets/treatmentImage/image (50).jpeg'
+import beforeAfterImage33 from '../assets/treatmentImage/image (33).jpeg'
+import beforeAfterImage34 from '../assets/treatmentImage/image (34).jpeg'
+import beforeAfterImage56 from '../assets/treatmentImage/image (56).jpeg'
+import beforeAfterImage57 from '../assets/treatmentImage/image (57).jpeg'
+import beforeAfterImage60 from '../assets/treatmentImage/image (60).jpeg'
+import beforeAfterImage61 from '../assets/treatmentImage/image (61).jpeg'
 import wrinkleHifuTreatmentImage from '../assets/images/WrinkleHIFU Treatment.jpg'
 
 export const navigationItems = [
@@ -450,32 +458,24 @@ export const resultsGallery = [
 
 export const beforeAfterCases = [
   {
-    category: 'Hair Restoration',
-    beforeImage:
-      'https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=900&q=80',
-    afterImage:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80',
+    category: 'Mole and Wart Removal',
+    beforeImage: beforeAfterImage61,
+    afterImage: beforeAfterImage60,
   },
   {
     category: 'Pigmentation Correction',
-    beforeImage:
-      'https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=900&q=80',
-    afterImage:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80',
+    beforeImage: beforeAfterImage34,
+    afterImage: beforeAfterImage33,
   },
   {
     category: 'Acne Clarity',
-    beforeImage:
-      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80',
-    afterImage:
-      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80',
+    beforeImage: beforeAfterImage56,
+    afterImage: beforeAfterImage57,
   },
   {
     category: 'Skin Glow Renewal',
-    beforeImage:
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80',
-    afterImage:
-      'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80',
+    beforeImage: beforeAfterImage49,
+    afterImage: beforeAfterImage50,
   },
 ]
 

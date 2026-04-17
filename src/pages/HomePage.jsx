@@ -18,13 +18,14 @@ function HomePage() {
     <>
       <HeroVideoSection />
       <HeroGallerySection />
+      <BeforeAfterSection />
       <AboutSection />
       <ServicesSection />
       <BlobsShowcaseSection />
       <TreatmentGallerySection />
       <WhyChooseUsSection />
       <ResultsShowcase />
-      <BeforeAfterSection />
+      
       <AppointmentSection />
       <TestimonialsSection />
       <VideoTestimonialsSection />

@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import $ from 'jquery'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 import SectionHeading from '../ui/SectionHeading'
 import { beforeAfterCases } from '../../data/siteData'
 import { useRevealAnimations } from '../../hooks/useRevealAnimations'
@@ -152,6 +153,15 @@ function BeforeAfterSection() {
             <BeforeAfterCard {...item} />
           </div>
         ))}
+      </div>
+
+      <div className="reveal mt-10 flex justify-center sm:mt-12">
+        <Link
+          className="inline-flex min-h-11 items-center justify-center rounded-[0.5rem] border border-[rgba(252,223,92,0.28)] bg-[rgba(252,223,92,0.08)] px-6 py-3 text-sm font-semibold text-[var(--color-heading)] transition duration-300 hover:border-[rgba(245,73,145,0.34)] hover:bg-[rgba(245,73,145,0.12)] hover:text-[var(--color-highlight)]"
+          to="/gallery#treatment-archive"
+        >
+          See All Images
+        </Link>
       </div>
     </section>
   )
