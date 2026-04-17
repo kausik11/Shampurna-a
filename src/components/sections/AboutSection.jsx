@@ -2,6 +2,7 @@ import SectionHeading from '../ui/SectionHeading'
 import GlassPanel from '../ui/GlassPanel'
 import { aboutHighlights } from '../../data/siteData'
 import { useRevealAnimations } from '../../hooks/useRevealAnimations'
+import aboutSectionImage from '../../assets/aboutSection.jpeg'
 
 function AboutSection() {
   const sectionRef = useRevealAnimations()
@@ -49,8 +50,8 @@ function AboutSection() {
             <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10">
               <img
                 className="h-[18rem] w-full object-cover transition duration-700 group-hover:scale-105 min-[390px]:h-[21rem] sm:h-[26rem] lg:h-[34rem]"
-                src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80"
-                alt="Premium clinic interior placeholder"
+                src={aboutSectionImage}
+                alt="Shampurna Aesthetic clinic interior"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,0,2,0.05),rgba(1,0,2,0.6))]" />
               <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
