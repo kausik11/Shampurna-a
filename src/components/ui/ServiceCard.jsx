@@ -109,6 +109,20 @@ function ServiceCard({ service, index }) {
             {service.description}
           </p>
 
+          <div className="mt-5 flex items-end justify-between gap-4 border-t border-white/10 pt-4">
+            <div className="min-w-0">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/40">
+                {service.priceLabel}
+              </p>
+              <p className="mt-1 text-xs leading-5 text-white/58">
+                {service.priceNote}
+              </p>
+            </div>
+            <p className="shrink-0 text-right text-lg font-semibold text-[var(--color-gold)] sm:text-xl">
+              {service.priceValue}
+            </p>
+          </div>
+
           <div className="mt-6 flex flex-col gap-3 min-[420px]:flex-row min-[420px]:flex-wrap">
             <Link
               className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-center text-xs font-semibold uppercase tracking-[0.1em] text-white/75 transition hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)] sm:tracking-[0.18em]"

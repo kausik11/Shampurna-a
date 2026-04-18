@@ -160,6 +160,119 @@ const serviceImages = {
   'Glutathione - All Body': glutathioneAllBodyImage,
 }
 
+const defaultServicePricing = {
+  priceLabel: 'Pricing',
+  priceValue: 'On consult',
+  priceNote: 'Service-specific quote',
+}
+
+const servicePricing = {
+  'Permanent Hair Removal': {
+    priceLabel: 'Starting from',
+    priceValue: 'Rs. 3,000',
+    priceNote: 'Area based',
+  },
+  'Carbon Laser Treatment': {
+    priceLabel: 'Per session',
+    priceValue: 'Rs. 3,000',
+    priceNote: 'Laser facial',
+  },
+  // 'BB Glow CC Glow Treatment': {
+  //   ...defaultServicePricing,
+  // },
+  'Skin Glow Treatment': {
+    priceLabel: 'Per session',
+    priceValue: 'Rs. 6,000',
+    priceNote: 'Glow facial',
+  },
+  'Pimple and Acne Treatment': {
+    priceLabel: 'Per session',
+    priceValue: 'Rs. 5,000',
+    priceNote: 'Acne care',
+  },
+  'Wrinkle / HIFU Treatment': {
+    priceLabel: 'Per session',
+    priceValue: 'Rs. 6,000',
+    priceNote: 'HIFU skin tightening',
+  },
+  'Breast Enlargement': {
+     priceLabel: 'Per session',
+    priceValue: 'Rs. 5,000',
+  },
+  'Breast Shaping': {
+    priceLabel: 'Per session',
+    priceValue: 'Rs. 5,000',
+    priceNote: 'Breast tightening',
+  },
+  'Hips Shaping': {
+    priceLabel: 'Per session',
+    priceValue: 'Rs. 10,000',
+    priceNote: 'Hip fat shaping',
+  },
+  'Ear Lobes Repair': {
+    ...defaultServicePricing,
+  },
+  'All Body Piercing': {
+    priceLabel: 'Starting from',
+    priceValue: 'Rs. 1,000+',
+    priceNote: 'Depends on piercing',
+  },
+  'Mole, Tag and Wart Removal': {
+    ...defaultServicePricing,
+  },
+  'Pigmentation Removal': {
+    priceLabel: 'Per session',
+    priceValue: 'Rs. 6,000',
+    priceNote: 'Pigmentation care',
+  },
+  'Open Pores Treatment': {
+    priceLabel: 'Per session',
+    priceValue: 'Rs. 6,000',
+    priceNote: 'Texture refinement',
+  },
+  'Permanent Eye Brow': {
+    priceLabel: 'Fixed price',
+    priceValue: 'Rs. 10,000',
+    priceNote: 'Permanent makeup',
+  },
+  'Permanent Lip Color': {
+    priceLabel: 'Fixed price',
+    priceValue: 'Rs. 10,000',
+    priceNote: 'Permanent lips',
+  },
+  'Beauty Spot': {
+    priceLabel: 'Fixed price',
+    priceValue: 'Rs. 1,000',
+    priceNote: 'Beauty mark',
+  },
+  'Pubic Area Tightening': {
+    priceLabel: 'Per session',
+    priceValue: 'Rs. 6,000',
+    priceNote: 'Intimate wellness',
+  },
+  'Oxegenue Treatment': {
+    ...defaultServicePricing,
+  },
+  'Meso Therapy': {
+    priceLabel: 'Per session',
+    priceValue: 'Rs. 6,000',
+    priceNote: 'Meso facial',
+  },
+  'Permanent Tattoo Removal': {
+    ...defaultServicePricing,
+  },
+  'Cryolipolysis - Fat Freezing': {
+    priceLabel: 'Starting from',
+    priceValue: 'Rs. 10,000+',
+    priceNote: 'Area based',
+  },
+  'Glutathione - All Body': {
+    priceLabel: 'Per session',
+    priceValue: 'Rs. 5,000',
+    priceNote: 'All body glow',
+  },
+}
+
 export const services = 
 [
   {
@@ -344,6 +457,7 @@ export const services =
   },
 ].map((service, index) => ({
   ...service,
+  ...(servicePricing[service.title] || defaultServicePricing),
   image: serviceImages[service.title] || service.image,
   slug: createSlug(service.title),
   href: `/services/${createSlug(service.title)}`,
