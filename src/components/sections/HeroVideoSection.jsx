@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { HiLocationMarker } from 'react-icons/hi'
 
+const heroAddressText = 'Ps Aviator Building, Rajarhat Main Road, Chinar Park'
+
 const canUsePointerParallax = () =>
   typeof window !== 'undefined' &&
   window.matchMedia('(hover: hover) and (pointer: fine)').matches
@@ -106,7 +108,9 @@ function HeroVideoSection() {
                       aria-hidden="true"
                     />
                     <p className="text-[0.98rem] leading-7 text-[#f5efcf] sm:text-[1.30rem] sm:leading-8">
-                      Ps Aviator Building, Rajarhat Main Road, Chinar Park
+                      <span className="hero-location-text" data-text={heroAddressText}>
+                        {heroAddressText}
+                      </span>
                     </p>
                   </div>
                   <div className="mt-3 h-px w-full bg-[linear-gradient(90deg,rgba(252,223,92,0.36),rgba(255,255,255,0.08))]" />
