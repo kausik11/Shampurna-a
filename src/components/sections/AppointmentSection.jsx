@@ -1,18 +1,12 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
-import axios from 'axios'
+import { FiLoader } from 'react-icons/fi'
 import SectionHeading from '../ui/SectionHeading'
 import GlassPanel from '../ui/GlassPanel'
-import { services } from '../../data/siteData'
 import { useRevealAnimations } from '../../hooks/useRevealAnimations'
-import { SERVICES_API_BASE_URL } from '../../lib/servicesApi'
-
-const normalizeServiceTitle = (value) =>
-  `${value ?? ''}`
-    .trim()
-    .toLowerCase()
-    .replace(/&/g, 'and')
-    .replace(/[^a-z0-9]+/g, '')
+import useServices from '../../hooks/useServices'
+import { submitCallbackRequest } from '../../lib/servicesApi'
+import { isApiError } from '../../lib/apiClient'
 
 const initialForm = {
   fullName: '',
@@ -157,74 +151,16 @@ function AppointmentSuccessPopup({ isOpen, onClose }) {
 
 function AppointmentSection() {
   const sectionRef = useRevealAnimations()
+  const { serviceOptions, isLoading } = useServices()
   const [formValues, setFormValues] = useState(initialForm)
   const [errors, setErrors] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState('')
-  const [serviceOptions, setServiceOptions] = useState(() =>
-    services
-      .map((item) => item.title)
-      .sort((left, right) => left.localeCompare(right))
-      .map((title) => ({ label: title, value: title })),
-  )
 
   const closeSuccessPopup = useCallback(() => {
     setIsSubmitted(false)
   }, [])
-
-  const localServiceOptions = useMemo(
-    () => services.map((item) => item.title).sort((left, right) => left.localeCompare(right)),
-    [],
-  )
-
-  useEffect(() => {
-    let isMounted = true
-
-    const syncServiceOptions = async () => {
-      try {
-        const response = await axios.get(`${SERVICES_API_BASE_URL}/api/services`)
-        const backendTitles = Array.isArray(response.data)
-          ? response.data
-              .map((item) => `${item?.title ?? ''}`.trim())
-              .filter(Boolean)
-              .sort((left, right) => left.localeCompare(right))
-          : []
-
-        if (!isMounted) {
-          return
-        }
-
-        if (!backendTitles.length) {
-          setServiceOptions(localServiceOptions.map((title) => ({ label: title, value: title })))
-          return
-        }
-
-        const options = backendTitles.map((backendTitle) => {
-          const matchedLocalTitle = localServiceOptions.find(
-            (localTitle) => normalizeServiceTitle(localTitle) === normalizeServiceTitle(backendTitle),
-          )
-
-          return {
-            label: matchedLocalTitle || backendTitle,
-            value: backendTitle,
-          }
-        })
-
-        setServiceOptions(options)
-      } catch {
-        if (isMounted) {
-          setServiceOptions(localServiceOptions.map((title) => ({ label: title, value: title })))
-        }
-      }
-    }
-
-    syncServiceOptions()
-
-    return () => {
-      isMounted = false
-    }
-  }, [localServiceOptions])
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -249,7 +185,7 @@ function AppointmentSection() {
     setIsSubmitting(true)
 
     try {
-      await axios.post(`${SERVICES_API_BASE_URL}/api/callbacks`, {
+      await submitCallbackRequest({
         fullName: formValues.fullName.trim(),
         phoneNumber: formValues.phoneNumber.trim(),
         email: formValues.emailAddress.trim(),
@@ -264,7 +200,7 @@ function AppointmentSection() {
     } catch (error) {
       setIsSubmitted(false)
 
-      if (axios.isAxiosError(error)) {
+      if (isApiError(error)) {
         setSubmitError(
           error.response?.data?.message ||
             'Unable to submit your request right now. Please try again in a moment.',
@@ -366,13 +302,19 @@ function AppointmentSection() {
                   value={formValues.preferredService}
                   onChange={handleChange}
                 >
-                  <option value="">Select a service</option>
+                  <option value="">{isLoading ? 'Loading services...' : 'Select a service'}</option>
                   {serviceOptions.map((item) => (
                     <option key={item.value} value={item.value}>
                       {item.label}
                     </option>
                   ))}
                 </select>
+                {isLoading ? (
+                  <span className="mt-2 inline-flex items-center gap-2 text-xs text-white/45">
+                    <FiLoader className="h-3.5 w-3.5 animate-spin text-[var(--color-gold)]" aria-hidden="true" />
+                    Updating service list
+                  </span>
+                ) : null}
               </Field>
             </div>
 

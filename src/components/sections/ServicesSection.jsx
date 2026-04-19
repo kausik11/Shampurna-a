@@ -1,14 +1,15 @@
 import { useState } from 'react'
+import { FiLoader } from 'react-icons/fi'
 import SectionHeading from '../ui/SectionHeading'
 import ServiceCard from '../ui/ServiceCard'
 import { useRevealAnimations } from '../../hooks/useRevealAnimations'
-import useServicesData from '../../hooks/useServicesData'
+import useServices from '../../hooks/useServices'
 
 const SERVICES_BATCH_SIZE = 6
 
 function ServicesSection() {
   const sectionRef = useRevealAnimations()
-  const { services } = useServicesData()
+  const { services, isLoading } = useServices()
   const [visibleCount, setVisibleCount] = useState(SERVICES_BATCH_SIZE)
   const visibleServices = services.slice(0, visibleCount)
   const canLoadMore = visibleCount < services.length
@@ -37,6 +38,13 @@ function ServicesSection() {
         title="A full premium treatment portfolio."
         description="Every treatment is positioned with concise luxury language, strong visual hierarchy, and clear CTA pathways for future lead generation."
       />
+
+      {isLoading ? (
+        <div className="reveal mt-8 inline-flex items-center gap-3 rounded-[0.5rem] border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white/68 backdrop-blur-xl">
+          <FiLoader className="h-4 w-4 animate-spin text-[var(--color-gold)]" aria-hidden="true" />
+          Loading latest services
+        </div>
+      ) : null}
 
       <div className="mt-10 grid gap-5 sm:mt-12 md:grid-cols-2 xl:grid-cols-3">
         {visibleServices.map((service, index) => (

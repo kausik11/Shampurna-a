@@ -1,16 +1,16 @@
 import { useLayoutEffect, useMemo, useState } from 'react'
-import { FiArrowLeft, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import { FiArrowLeft, FiChevronLeft, FiChevronRight, FiLoader } from 'react-icons/fi'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import GlassPanel from '../components/ui/GlassPanel'
 import SectionHeading from '../components/ui/SectionHeading'
 import AppointmentSection from '../components/sections/AppointmentSection'
 import { useRevealAnimations } from '../hooks/useRevealAnimations'
-import useServicesData from '../hooks/useServicesData'
+import useServices from '../hooks/useServices'
 
 function ServiceDetailPage() {
   const { slug } = useParams()
   const sectionRef = useRevealAnimations()
-  const { services, isLoading } = useServicesData()
+  const { services, isLoading } = useServices()
   const service = useMemo(
     () => services.find((item) => item.slug === slug),
     [services, slug],
@@ -34,7 +34,19 @@ function ServiceDetailPage() {
   }, [slug])
 
   if (!service && isLoading) {
-    return null
+    return (
+      <main className="relative mx-auto flex min-h-[60vh] max-w-7xl items-center justify-center px-4 py-20 sm:px-6 lg:px-8">
+        <GlassPanel className="flex w-full max-w-md flex-col items-center p-8 text-center">
+          <FiLoader className="h-8 w-8 animate-spin text-[var(--color-gold)]" aria-hidden="true" />
+          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-white/45">
+            Loading service
+          </p>
+          <p className="mt-3 text-sm leading-6 text-white/65">
+            Fetching the latest service details.
+          </p>
+        </GlassPanel>
+      </main>
+    )
   }
 
   if (!service) {

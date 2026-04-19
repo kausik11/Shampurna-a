@@ -11,6 +11,8 @@ import TestimonialsPage from './pages/TestimonialsPage'
 import ContactPage from './pages/ContactPage'
 import ChatPage from './pages/ChatPage'
 import { useLenis } from './hooks/useLenis'
+import { ServicesProvider } from './context/ServicesContext'
+import ServiceDataErrorPopup from './components/ui/ServiceDataErrorPopup'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -28,19 +30,22 @@ function App() {
   return (
     <>
       <PageLoader isLoading={isLoading} />
-      <Routes>
-        <Route element={<AppShell />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/services/:slug" element={<ServiceDetailPage />} />
-          <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/testimonials" element={<TestimonialsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/chat" element={<ChatPage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Route>
-      </Routes>
+      <ServicesProvider>
+        <ServiceDataErrorPopup />
+        <Routes>
+          <Route element={<AppShell />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/:slug" element={<ServiceDetailPage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/testimonials" element={<TestimonialsPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/chat" element={<ChatPage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Route>
+        </Routes>
+      </ServicesProvider>
     </>
   )
 }

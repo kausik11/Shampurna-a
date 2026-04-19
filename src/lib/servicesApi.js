@@ -1,9 +1,5 @@
-import axios from 'axios'
 import { services as localServices } from '../data/siteData'
-
-export const SERVICES_API_BASE_URL = (
-  import.meta.env.VITE_API_BASE_URL || 'https://sampurna-backend.vercel.app'
-).replace(/\/$/, '')
+import apiClient from './apiClient'
 
 export const createServiceSlug = (value) =>
   `${value ?? ''}`
@@ -127,7 +123,11 @@ export const normalizeBackendServices = (services) =>
     : []
 
 export async function fetchBackendServices() {
-  const response = await axios.get(`${SERVICES_API_BASE_URL}/api/services`)
+  const response = await apiClient.get('/api/services')
 
   return normalizeBackendServices(response.data)
+}
+
+export async function submitCallbackRequest(payload) {
+  return apiClient.post('/api/callbacks', payload)
 }
