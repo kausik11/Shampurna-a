@@ -4,8 +4,8 @@ import TestimonialCard from '../ui/TestimonialCard'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Card, CardContent } from '@/components/ui/card'
 import { Marquee } from '@/components/ui/3d-testimonails'
-import { testimonials } from '../../data/siteData'
 import { useRevealAnimations } from '../../hooks/useRevealAnimations'
+import useSiteContent from '../../hooks/useSiteContent'
 
 function MarqueeTestimonialCard({ image, name, username, quote, country }) {
   return (
@@ -36,19 +36,28 @@ function MarqueeTestimonialCard({ image, name, username, quote, country }) {
 
 function TestimonialsSection() {
   const sectionRef = useRevealAnimations()
+  const { testimonials } = useSiteContent()
   const [activeIndex, setActiveIndex] = useState(0)
   const featuredTestimonials = useMemo(
     () => testimonials.slice(0, 3),
-    [],
+    [testimonials],
   )
 
   useEffect(() => {
+    if (!testimonials.length) {
+      return undefined
+    }
+
     const timerId = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % testimonials.length)
     }, 4800)
 
     return () => window.clearInterval(timerId)
-  }, [])
+  }, [testimonials.length])
+
+  if (!testimonials.length) {
+    return null
+  }
 
   return (
     <section

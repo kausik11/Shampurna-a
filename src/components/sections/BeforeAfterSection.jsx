@@ -3,8 +3,8 @@ import $ from 'jquery'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import SectionHeading from '../ui/SectionHeading'
-import { beforeAfterCases } from '../../data/siteData'
 import { useRevealAnimations } from '../../hooks/useRevealAnimations'
+import useSiteContent from '../../hooks/useSiteContent'
 
 function BeforeAfterCard({ category, beforeImage, afterImage }) {
   return (
@@ -70,6 +70,7 @@ function BeforeAfterCard({ category, beforeImage, afterImage }) {
 
 function BeforeAfterSection() {
   const sectionRef = useRevealAnimations()
+  const { beforeAfterCases } = useSiteContent()
 
   useEffect(() => {
     if (!sectionRef.current) {

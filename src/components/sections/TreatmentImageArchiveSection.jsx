@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import SectionHeading from '../ui/SectionHeading'
 import { useRevealAnimations } from '../../hooks/useRevealAnimations'
+import useSiteContent from '../../hooks/useSiteContent'
 
 const treatmentImageModules = import.meta.glob(
   '../../assets/treatmentImage/*.{jpeg,jpg,png,JPEG,JPG,PNG}',
@@ -37,11 +38,13 @@ const IMAGES_PER_BATCH = 6
 function TreatmentImageArchiveSection() {
   const sectionRef = useRevealAnimations()
   const location = useLocation()
+  const { galleryItems } = useSiteContent()
   const sentinelRef = useRef(null)
   const [visibleCount, setVisibleCount] = useState(IMAGES_PER_BATCH)
+  const archiveItems = galleryItems.length ? galleryItems : treatmentGalleryItems
 
-  const visibleItems = treatmentGalleryItems.slice(0, visibleCount)
-  const hasMoreImages = visibleCount < treatmentGalleryItems.length
+  const visibleItems = archiveItems.slice(0, visibleCount)
+  const hasMoreImages = visibleCount < archiveItems.length
 
   useEffect(() => {
     if (location.hash !== '#treatment-archive' || !sectionRef.current) {
@@ -65,7 +68,7 @@ function TreatmentImageArchiveSection() {
         }
 
         setVisibleCount((currentCount) =>
-          Math.min(currentCount + IMAGES_PER_BATCH, treatmentGalleryItems.length),
+          Math.min(currentCount + IMAGES_PER_BATCH, archiveItems.length),
         )
       },
       {
@@ -78,7 +81,7 @@ function TreatmentImageArchiveSection() {
     observer.observe(sentinelRef.current)
 
     return () => observer.disconnect()
-  }, [hasMoreImages])
+  }, [archiveItems.length, hasMoreImages])
 
   return (
     <section
@@ -90,12 +93,12 @@ function TreatmentImageArchiveSection() {
         <SectionHeading
           eyebrow="Treatment Archive"
           title="A complete visual gallery of treatment references."
-          description={`Browse all ${treatmentGalleryItems.length} treatment visuals in a progressive gallery that reveals more images as you scroll.`}
+          description={`Browse all ${archiveItems.length} treatment visuals in a progressive gallery that reveals more images as you scroll.`}
         />
       </div>
 
       <div className="reveal mt-8 flex items-center justify-between gap-3 text-sm text-white/60 sm:mt-10">
-        <p>Showing {visibleItems.length} of {treatmentGalleryItems.length} images</p>
+        <p>Showing {visibleItems.length} of {archiveItems.length} images</p>
         <p>{hasMoreImages ? 'Scroll to load more' : 'All images loaded'}</p>
       </div>
 

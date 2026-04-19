@@ -1,5 +1,4 @@
 import { useMemo } from 'react'
-import { services } from '@/data/siteData'
 import { Badge } from '@/components/ui/badge'
 import {
   CardHoverReveal,
@@ -11,6 +10,7 @@ import {
   ScrollXCarouselContainer,
   ScrollXCarouselWrap,
 } from '@/components/ui/scroll-x-carousel'
+import useServices from '@/hooks/useServices'
 
 const galleryNotes = [
   'Consultation first',
@@ -70,13 +70,14 @@ function GalleryCard({ item, note }) {
 }
 
 function HeroGallerySection() {
+  const { services } = useServices()
   const galleryItems = useMemo(
     () =>
       services.slice(0, 10).map((service, index) => ({
         ...service,
         note: galleryNotes[index % galleryNotes.length],
       })),
-    [],
+    [services],
   )
 
   const firstRow = galleryItems.slice(0, 5)

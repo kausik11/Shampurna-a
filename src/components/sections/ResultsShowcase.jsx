@@ -2,12 +2,16 @@ import { useEffect, useState } from 'react'
 import { gsap } from 'gsap'
 import SectionHeading from '../ui/SectionHeading'
 import GlassPanel from '../ui/GlassPanel'
-import { resultsGallery } from '../../data/siteData'
 import { useRevealAnimations } from '../../hooks/useRevealAnimations'
+import useSiteContent from '../../hooks/useSiteContent'
 
 function ResultsShowcase() {
   const sectionRef = useRevealAnimations()
+  const { resultsGallery } = useSiteContent()
   const [activeIndex, setActiveIndex] = useState(0)
+  const activeItem = resultsGallery.length
+    ? resultsGallery[activeIndex % resultsGallery.length]
+    : null
 
   useEffect(() => {
     gsap.fromTo(
@@ -16,6 +20,10 @@ function ResultsShowcase() {
       { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: 0.6, ease: 'power3.out' },
     )
   }, [activeIndex])
+
+  if (!activeItem) {
+    return null
+  }
 
   return (
     <section
@@ -40,19 +48,19 @@ function ResultsShowcase() {
           <div className="relative overflow-hidden rounded-[1.2rem] sm:rounded-[1.75rem]">
             <img
               className="h-[18rem] w-full object-cover min-[390px]:h-[20rem] sm:h-[24rem] lg:h-[28rem]"
-              src={resultsGallery[activeIndex].image}
-              alt={resultsGallery[activeIndex].title}
+              src={activeItem.image}
+              alt={activeItem.title}
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,0,2,0.05),rgba(1,0,2,0.72))]" />
             <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
               <p className="text-[10px] uppercase tracking-[0.14em] text-[var(--color-gold)] sm:text-xs sm:tracking-[0.28em]">
-                {resultsGallery[activeIndex].tag}
+                {activeItem.tag}
               </p>
               <h3 className="mt-2 text-wrap font-display text-2xl leading-tight text-[var(--color-heading)] sm:text-3xl">
-                {resultsGallery[activeIndex].title}
+                {activeItem.title}
               </h3>
               <p className="mt-3 max-w-lg text-sm leading-7 text-white/70">
-                {resultsGallery[activeIndex].description}
+                {activeItem.description}
               </p>
             </div>
           </div>

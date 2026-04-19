@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
-import { services } from '../../data/siteData'
 import { CircularGallery } from '../ui/circular-gallery'
+import useServices from '../../hooks/useServices'
 
 function TreatmentGallerySection() {
+  const { services } = useServices()
   const [radius, setRadius] = useState(520)
   const [cardHeight, setCardHeight] = useState(
     'clamp(7.75rem, min(32vw, 36svh), 22rem)',
@@ -19,7 +20,7 @@ function TreatmentGallerySection() {
           by: 'Unsplash',
         },
       })),
-    [],
+    [services],
   )
 
   useEffect(() => {

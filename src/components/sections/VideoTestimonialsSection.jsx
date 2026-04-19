@@ -3,8 +3,8 @@ import { FiExternalLink, FiPlay, FiShare2 } from 'react-icons/fi'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { MasonryGrid } from '@/components/ui/image-testimonial-grid'
 import SectionHeading from '../ui/SectionHeading'
-import { videoTestimonials } from '../../data/siteData'
 import { useRevealAnimations } from '../../hooks/useRevealAnimations'
+import useSiteContent from '../../hooks/useSiteContent'
 
 function VideoTestimonialCard({
   profileImage,
@@ -73,7 +73,7 @@ function VideoTestimonialCard({
   )
 }
 
-function ResponsiveVideoMasonry() {
+function ResponsiveVideoMasonry({ videoTestimonials }) {
   const [columns, setColumns] = useState(2)
 
   useEffect(() => {
@@ -103,6 +103,11 @@ function ResponsiveVideoMasonry() {
 
 function VideoTestimonialsSection() {
   const sectionRef = useRevealAnimations()
+  const { videoTestimonials } = useSiteContent()
+
+  if (!videoTestimonials.length) {
+    return null
+  }
 
   return (
     <section
@@ -119,7 +124,7 @@ function VideoTestimonialsSection() {
         />
 
         <div className="mt-8">
-          <ResponsiveVideoMasonry />
+          <ResponsiveVideoMasonry videoTestimonials={videoTestimonials} />
         </div>
       </div>
     </section>

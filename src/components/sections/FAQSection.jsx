@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { FiMinus, FiPlus } from 'react-icons/fi'
 import SectionHeading from '../ui/SectionHeading'
 import GlassPanel from '../ui/GlassPanel'
-import { faqs } from '../../data/siteData'
 import { useRevealAnimations } from '../../hooks/useRevealAnimations'
+import useSiteContent from '../../hooks/useSiteContent'
 
 function FAQItem({ item, isOpen, onToggle }) {
   return (
@@ -36,6 +36,7 @@ function FAQItem({ item, isOpen, onToggle }) {
 
 function FAQSection() {
   const sectionRef = useRevealAnimations()
+  const { faqs } = useSiteContent()
   const [openIndex, setOpenIndex] = useState(0)
 
   return (
