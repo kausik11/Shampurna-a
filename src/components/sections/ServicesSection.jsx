@@ -33,7 +33,7 @@ function ServicesSection() {
     >
       <SectionHeading
         eyebrow="Signature Services"
-        title="A full premium treatment portfolio presented through reusable, glass-led service cards."
+        title="A full premium treatment portfolio."
         description="Every treatment is positioned with concise luxury language, strong visual hierarchy, and clear CTA pathways for future lead generation."
       />
 

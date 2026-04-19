@@ -88,9 +88,9 @@ function ServiceCard({ service, index }) {
             <div className="absolute left-3 top-3 inline-flex max-w-[calc(100%-4.5rem)] items-center rounded-full border border-[rgba(252,223,92,0.22)] bg-[rgba(1,0,2,0.46)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-gold)] backdrop-blur-xl sm:left-4 sm:top-4 sm:text-[11px] sm:tracking-[0.22em]">
               {service.focus}
             </div>
-            <div className="absolute bottom-4 right-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[rgba(1,0,2,0.48)] text-xl text-[var(--color-gold)] backdrop-blur-xl">
+            {/* <div className="absolute bottom-4 right-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[rgba(1,0,2,0.48)] text-xl text-[var(--color-gold)] backdrop-blur-xl">
               <ServiceIcon className="h-5 w-5" aria-hidden="true" />
-            </div>
+            </div> */}
           </div>
 
           <div className="flex items-center justify-between">

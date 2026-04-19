@@ -62,7 +62,7 @@ function ServiceDetailPage() {
               {service.detailDescription}
             </p>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            {/* <div className="mt-8 grid gap-3 sm:grid-cols-3">
               {service.highlights.map((item) => (
                 <div
                   key={item}
@@ -71,7 +71,7 @@ function ServiceDetailPage() {
                   {item}
                 </div>
               ))}
-            </div>
+            </div> */}
 
             <div className="mt-8 flex flex-col gap-3 min-[420px]:flex-row min-[420px]:flex-wrap">
               <a
@@ -97,14 +97,14 @@ function ServiceDetailPage() {
                 alt={service.imageAlt}
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,0,2,0.1),rgba(1,0,2,0.82))]" />
-              <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8">
+              {/* <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-gold)] sm:text-xs sm:tracking-[0.28em]">
                   Service Detail
                 </p>
                 <p className="mt-4 max-w-xl text-wrap font-display text-[1.65rem] leading-tight text-white sm:text-4xl sm:leading-none">
                   Consultation-first care for a refined, comfortable result.
                 </p>
-              </div>
+              </div> */}
             </div>
           </GlassPanel>
         </section>
