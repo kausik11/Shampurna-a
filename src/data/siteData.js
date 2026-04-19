@@ -23,10 +23,20 @@ import pimpleAndAcneTreatmentImage from '../assets/images/Pimple_and_Acne Treatm
 import pubicAreaTighteningImage from '../assets/images/Pubic Area Tightening.jpeg'
 import sexyBodyResultGalleryImage from '../assets/sexy-body-export const resultsGallery.jpg'
 import skinGlowTreatmentImage from '../assets/images/skin_glow_treatment.jpeg'
-import beforeAfterImage49 from '../assets/treatmentImage/image (49).jpeg'
-import beforeAfterImage50 from '../assets/treatmentImage/image (50).jpeg'
+import beforeAfterImage118 from '../assets/treatmentImage/image (118).jpeg'
+import beforeAfterImage121 from '../assets/treatmentImage/image (121).jpeg'
+import beforeAfterImage70 from '../assets/treatmentImage/image (70).jpeg'
+import beforeAfterImage74 from '../assets/treatmentImage/image (74).jpeg'
 import beforeAfterImage33 from '../assets/treatmentImage/image (33).jpeg'
 import beforeAfterImage34 from '../assets/treatmentImage/image (34).jpeg'
+import beforeAfterImage94 from '../assets/treatmentImage/image (94).jpeg'
+import beforeAfterImage45 from '../assets/treatmentImage/image (45).jpeg'
+import beforeAfterImage112 from '../assets/treatmentImage/image (112).jpeg'
+import beforeAfterImage120 from '../assets/treatmentImage/image (120).jpeg'
+import beforeAfterImage102 from '../assets/treatmentImage/image (102).jpeg'
+import beforeAfterImage110 from '../assets/treatmentImage/image (110).jpeg'
+import beforeAfterImage97 from '../assets/treatmentImage/image (97).jpeg'
+import beforeAfterImage44 from '../assets/treatmentImage/image (44).jpeg'
 import beforeAfterImage56 from '../assets/treatmentImage/image (56).jpeg'
 import beforeAfterImage57 from '../assets/treatmentImage/image (57).jpeg'
 import beforeAfterImage60 from '../assets/treatmentImage/image (60).jpeg'
@@ -589,8 +599,33 @@ export const beforeAfterCases = [
   },
   {
     category: 'Skin Glow Renewal',
-    beforeImage: beforeAfterImage49,
-    afterImage: beforeAfterImage50,
+    beforeImage: beforeAfterImage74,
+    afterImage: beforeAfterImage70,
+  },
+  {
+    category: 'Texture Refinement',
+    beforeImage: beforeAfterImage121,
+    afterImage: beforeAfterImage118,
+  },
+  {
+    category: 'Tone Brightening',
+    beforeImage: beforeAfterImage44,
+    afterImage: beforeAfterImage45,
+  },
+  {
+    category: 'Visible Skin Polish',
+    beforeImage: beforeAfterImage120,
+    afterImage: beforeAfterImage112,
+  },
+  {
+    category: 'Pore Smoothing',
+    beforeImage: beforeAfterImage110,
+    afterImage: beforeAfterImage102,
+  },
+  {
+    category: 'Complexion Refresh',
+    beforeImage: beforeAfterImage97,
+    afterImage: beforeAfterImage94,
   },
 ]
 

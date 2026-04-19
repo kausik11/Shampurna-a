@@ -8,35 +8,35 @@ import { useRevealAnimations } from '../../hooks/useRevealAnimations'
 
 function BeforeAfterCard({ category, beforeImage, afterImage }) {
   return (
-    <article className="group relative rounded-[1.2rem] bg-[rgba(255,255,255,0.045)] p-2 shadow-[0_20px_50px_rgba(0,0,0,0.24)] backdrop-blur-2xl sm:rounded-[1.75rem] sm:p-3">
-      <div className="absolute inset-x-10 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(252,223,92,0.4),transparent)]" />
+    <article className="group relative rounded-[0.8rem] bg-[rgba(255,255,255,0.045)] p-1.5 shadow-[0_14px_34px_rgba(0,0,0,0.22)] backdrop-blur-2xl sm:rounded-[1rem] sm:p-2">
+      <div className="absolute inset-x-7 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(252,223,92,0.4),transparent)]" />
 
-      <div className="relative -mt-6 mx-auto w-fit max-w-[calc(100%-1rem)] rounded-[1rem] bg-[linear-gradient(135deg,rgba(143,135,67,0.95),rgba(245,73,145,0.68))] px-3.5 py-2.5 text-center shadow-[0_16px_34px_rgba(0,0,0,0.22)] sm:-mt-8 sm:rounded-[1.25rem] sm:px-6 sm:py-3">
-        <p className="text-[11px] font-extrabold uppercase tracking-[0.08em] text-white sm:text-sm sm:tracking-[0.16em]">
+      <div className="relative -mt-5 mx-auto w-fit max-w-[calc(100%-1rem)] rounded-[0.6rem] bg-[linear-gradient(135deg,rgba(143,135,67,0.95),rgba(245,73,145,0.68))] px-3 py-1.5 text-center shadow-[0_10px_24px_rgba(0,0,0,0.22)] sm:-mt-6 sm:rounded-[0.75rem] sm:px-4 sm:py-2">
+        <p className="text-[9px] font-extrabold uppercase tracking-[0.06em] text-white sm:text-[11px] sm:tracking-[0.1em]">
           {category}
         </p>
       </div>
 
-      <div className="mt-5 rounded-[1.2rem] bg-[rgba(255,255,255,0.03)] p-2.5 sm:mt-6 sm:rounded-[1.35rem] sm:p-4">
-        <div className="mb-3 flex items-center justify-between gap-3 px-1 text-sm font-semibold sm:mb-4 sm:px-2 sm:text-[1.05rem]">
-          <span className="rounded-full bg-[rgba(245,73,145,0.18)] px-3 py-1.5 text-xs font-extrabold uppercase tracking-[0.06em] text-[var(--color-highlight)] shadow-[0_0_24px_rgba(245,73,145,0.16)] sm:px-5 sm:py-2 sm:text-[1.05rem] sm:tracking-[0.08em]">
+      <div className="mt-3.5 rounded-[0.75rem] bg-[rgba(255,255,255,0.03)] p-1.5 sm:mt-4 sm:rounded-[0.9rem] sm:p-2">
+        <div className="mb-2 flex items-center justify-between gap-2 px-1 text-xs font-semibold">
+          <span className="rounded-full bg-[rgba(245,73,145,0.18)] px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-[0.04em] text-[var(--color-highlight)] shadow-[0_0_18px_rgba(245,73,145,0.16)] sm:text-[10px]">
             Before
           </span>
-          <span className="rounded-full bg-[rgba(252,223,92,0.18)] px-3 py-1.5 text-xs font-extrabold uppercase tracking-[0.06em] text-[var(--color-gold)] shadow-[0_0_24px_rgba(252,223,92,0.16)] sm:px-5 sm:py-2 sm:text-[1.05rem] sm:tracking-[0.08em]">
+          <span className="rounded-full bg-[rgba(252,223,92,0.18)] px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-[0.04em] text-[var(--color-gold)] shadow-[0_0_18px_rgba(252,223,92,0.16)] sm:text-[10px]">
             After
           </span>
         </div>
 
-        <div className="js-before-after relative touch-none overflow-hidden rounded-[1.2rem]">
+        <div className="js-before-after relative touch-none overflow-hidden rounded-[0.7rem] sm:rounded-[0.8rem]">
           <img
-            className="h-[14rem] w-full object-cover min-[390px]:h-[16rem] sm:h-[20rem] lg:h-[22rem]"
+            className="h-[10rem] w-full object-cover min-[390px]:h-[11rem] sm:h-[12rem] md:h-[13rem] xl:h-[13.5rem]"
             src={beforeImage}
             alt={`${category} before placeholder`}
           />
 
           <div className="js-after-overlay absolute inset-y-0 left-0 overflow-hidden" style={{ width: '50%' }}>
             <img
-              className="js-after-image h-[14rem] w-full max-w-none object-cover min-[390px]:h-[16rem] sm:h-[20rem] lg:h-[22rem]"
+              className="js-after-image h-[10rem] w-full max-w-none object-cover min-[390px]:h-[11rem] sm:h-[12rem] md:h-[13rem] xl:h-[13.5rem]"
               src={afterImage}
               alt={`${category} after placeholder`}
               style={{ width: '200%' }}
@@ -49,12 +49,12 @@ function BeforeAfterCard({ category, beforeImage, afterImage }) {
           />
 
           <div
-            className="js-handle pointer-events-none absolute top-1/2 flex h-11 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_12px_30px_rgba(0,0,0,0.22)] sm:h-12 sm:w-20"
+            className="js-handle pointer-events-none absolute top-1/2 flex h-8 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_10px_24px_rgba(0,0,0,0.22)] sm:h-9 sm:w-14"
             style={{ left: '50%' }}
           >
-            <FiChevronLeft className="h-4 w-4 text-[var(--color-highlight)]" aria-hidden="true" />
-            <span className="mx-2 h-5 w-px bg-[rgba(143,135,67,0.25)]" />
-            <FiChevronRight className="h-4 w-4 text-[var(--color-highlight)]" aria-hidden="true" />
+            <FiChevronLeft className="h-3 w-3 text-[var(--color-highlight)]" aria-hidden="true" />
+            <span className="mx-1.5 h-3.5 w-px bg-[rgba(143,135,67,0.25)]" />
+            <FiChevronRight className="h-3 w-3 text-[var(--color-highlight)]" aria-hidden="true" />
           </div>
 
           <button
@@ -147,9 +147,9 @@ function BeforeAfterSection() {
         />
       </div>
 
-      <div className="mt-12 grid gap-10 sm:mt-16 xl:grid-cols-2">
-        {beforeAfterCases.map((item) => (
-          <div key={item.category} className="reveal">
+      <div className="mt-9 grid gap-x-4 gap-y-9 sm:mt-11 md:grid-cols-2 xl:grid-cols-3">
+        {beforeAfterCases.map((item, index) => (
+          <div key={`${item.category}-${index}`} className="reveal">
             <BeforeAfterCard {...item} />
           </div>
         ))}

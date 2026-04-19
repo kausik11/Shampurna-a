@@ -215,7 +215,7 @@ function AppointmentSection() {
         })
 
         setServiceOptions(options)
-      } catch (_error) {
+      } catch {
         if (isMounted) {
           setServiceOptions(localServiceOptions.map((title) => ({ label: title, value: title })))
         }
