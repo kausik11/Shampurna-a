@@ -1,30 +1,41 @@
 import { gsap } from 'gsap'
-import { FiStar } from 'react-icons/fi'
 import { Link, useNavigate } from 'react-router-dom'
-import { serviceIcons } from '@/lib/icons'
 import GlassPanel from './GlassPanel'
 
 const canUseTilt = () =>
   typeof window !== 'undefined' &&
   window.matchMedia('(hover: hover) and (pointer: fine)').matches
 
+const resetScrollPosition = () => {
+  window.__lenis?.scrollTo?.(0, { immediate: true, force: true })
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+}
+
 function ServiceCard({ service, index }) {
-  const ServiceIcon = serviceIcons[service.title] ?? FiStar
   const navigate = useNavigate()
+
+  const openServiceDetail = () => {
+    resetScrollPosition()
+    navigate(service.href)
+  }
 
   const goToService = (event) => {
     if (event.target.closest('a, button')) {
       return
     }
 
-    navigate(service.href)
+    openServiceDetail()
   }
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault()
-      navigate(service.href)
+      openServiceDetail()
     }
+  }
+
+  const handleServiceLinkClick = () => {
+    resetScrollPosition()
   }
 
   const handleMove = (event) => {
@@ -127,15 +138,17 @@ function ServiceCard({ service, index }) {
             <Link
               className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-center text-xs font-semibold uppercase tracking-[0.1em] text-white/75 transition hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)] sm:tracking-[0.18em]"
               to={service.href}
+              onClick={handleServiceLinkClick}
             >
               Learn More
             </Link>
-            <a
+            <Link
               className="inline-flex min-h-11 items-center justify-center rounded-full border border-[rgba(252,223,92,0.18)] bg-[rgba(252,223,92,0.08)] px-4 py-2.5 text-center text-xs font-semibold uppercase tracking-[0.1em] text-[var(--color-gold)] transition hover:bg-[rgba(252,223,92,0.14)] sm:tracking-[0.18em]"
-              href="#appointment"
+              to={service.href}
+              onClick={handleServiceLinkClick}
             >
               Book Now
-            </a>
+            </Link>
           </div>
         </div>
       </article>

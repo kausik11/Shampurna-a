@@ -9,6 +9,8 @@ export function useLenis() {
       smoothTouch: false,
     })
 
+    window.__lenis = lenis
+
     let frameId = 0
 
     const raf = (time) => {
@@ -20,6 +22,9 @@ export function useLenis() {
 
     return () => {
       window.cancelAnimationFrame(frameId)
+      if (window.__lenis === lenis) {
+        delete window.__lenis
+      }
       lenis.destroy()
     }
   }, [])

@@ -1,41 +1,59 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useLayoutEffect, useMemo, useState } from 'react'
 import { FiArrowLeft, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import GlassPanel from '../components/ui/GlassPanel'
 import SectionHeading from '../components/ui/SectionHeading'
 import AppointmentSection from '../components/sections/AppointmentSection'
-import { services } from '../data/siteData'
 import { useRevealAnimations } from '../hooks/useRevealAnimations'
+import useServicesData from '../hooks/useServicesData'
 
 function ServiceDetailPage() {
   const { slug } = useParams()
   const sectionRef = useRevealAnimations()
+  const { services, isLoading } = useServicesData()
   const service = useMemo(
     () => services.find((item) => item.slug === slug),
-    [slug],
+    [services, slug],
   )
   const [activeResult, setActiveResult] = useState(0)
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' })
+  useLayoutEffect(() => {
+    const lenis = window.__lenis
+
+    lenis?.stop?.()
+    lenis?.scrollTo?.(0, { immediate: true, force: true })
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+
+    const frameId = window.requestAnimationFrame(() => {
+      lenis?.scrollTo?.(0, { immediate: true, force: true })
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+      lenis?.start?.()
+    })
+
+    return () => window.cancelAnimationFrame(frameId)
   }, [slug])
+
+  if (!service && isLoading) {
+    return null
+  }
 
   if (!service) {
     return <Navigate to="/services" replace />
   }
 
-  const normalizedResultIndex = activeResult % service.results.length
-  const result = service.results[normalizedResultIndex]
+  const results = service.results || []
+  const normalizedResultIndex = results.length ? activeResult % results.length : 0
+  const result = results[normalizedResultIndex]
 
   const showPreviousResult = () => {
     setActiveResult((current) =>
-      current === 0 ? service.results.length - 1 : current - 1,
+      current === 0 ? results.length - 1 : current - 1,
     )
   }
 
   const showNextResult = () => {
     setActiveResult((current) =>
-      current === service.results.length - 1 ? 0 : current + 1,
+      current === results.length - 1 ? 0 : current + 1,
     )
   }
 
@@ -62,6 +80,22 @@ function ServiceDetailPage() {
               {service.detailDescription}
             </p>
 
+            <div className="mt-7 flex w-full max-w-md items-end justify-between gap-4 border-y border-white/10 py-4">
+              <div className="min-w-0">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/42 sm:text-[11px]">
+                  {service.priceLabel}
+                </p>
+                {service.priceNote ? (
+                  <p className="mt-1 text-sm leading-6 text-white/58">
+                    {service.priceNote}
+                  </p>
+                ) : null}
+              </div>
+              <p className="shrink-0 text-right text-2xl font-semibold text-[var(--color-gold)] sm:text-3xl">
+                {service.priceValue}
+              </p>
+            </div>
+
             {/* <div className="mt-8 grid gap-3 sm:grid-cols-3">
               {service.highlights.map((item) => (
                 <div
@@ -82,9 +116,9 @@ function ServiceDetailPage() {
               </a>
               <a
                 className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-6 py-3 text-center text-sm font-semibold text-white/75 transition hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)]"
-                href="#results"
+                href={results.length ? '#results' : '#appointment'}
               >
-                View Results
+                {results.length ? 'View Results' : 'Book Consultation'}
               </a>
             </div>
           </div>
@@ -109,79 +143,83 @@ function ServiceDetailPage() {
           </GlassPanel>
         </section>
 
-        <section
-          id="results"
-          className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24"
-        >
-          <SectionHeading
-            eyebrow="Result Slider"
-            title={`${service.title} result stories`}
-            description="Each slide combines the result title, short description, and before-after image pair so the service outcome can be reviewed as one focused story."
-          />
+        {result ? (
+          <section
+            id="results"
+            className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24"
+          >
+            <SectionHeading
+              eyebrow="Result Slider"
+              title={`${service.title} result stories`}
+              description="Each slide combines the result title, short description, and before-after image pair so the service outcome can be reviewed as one focused story."
+            />
 
-          <GlassPanel className="reveal mt-10 overflow-hidden p-3 sm:mt-12 sm:p-6">
-            <div className="grid gap-6 lg:grid-cols-[0.78fr_1.22fr]">
-              <div className="flex flex-col justify-between rounded-[1.2rem] border border-white/10 bg-white/[0.04] p-5 sm:rounded-[1.35rem] sm:p-6">
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-gold)] sm:text-xs sm:tracking-[0.28em]">
-                    {String(normalizedResultIndex + 1).padStart(2, '0')} /{' '}
-                    {String(service.results.length).padStart(2, '0')}
-                  </p>
-                  <h2 className="mt-4 text-wrap font-display text-[2rem] leading-tight text-[var(--color-heading)] sm:mt-5 sm:text-4xl sm:leading-none">
-                    {result.title}
-                  </h2>
-                  <p className="mt-5 text-sm leading-7 text-white/65">
-                    {result.description}
-                  </p>
-                </div>
-
-                <div className="mt-8 flex items-center gap-3">
-                  <button
-                    className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/75 transition hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)]"
-                    type="button"
-                    aria-label="Previous result"
-                    onClick={showPreviousResult}
-                  >
-                    <FiChevronLeft className="h-5 w-5" aria-hidden="true" />
-                  </button>
-                  <button
-                    className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/75 transition hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)]"
-                    type="button"
-                    aria-label="Next result"
-                    onClick={showNextResult}
-                  >
-                    <FiChevronRight className="h-5 w-5" aria-hidden="true" />
-                  </button>
-                </div>
-              </div>
-
-              <div className="grid gap-4 md:grid-cols-2">
-                {[
-                  ['Before', result.beforeImage],
-                  ['After', result.afterImage],
-                ].map(([label, image]) => (
-                  <div
-                    key={label}
-                    className="overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.04]"
-                  >
-                    <div className="flex items-center justify-between px-5 py-4">
-                      <span className="text-xs font-extrabold uppercase tracking-[0.16em] text-white/55 sm:tracking-[0.22em]">
-                        {label}
-                      </span>
-                      <span className="h-2 w-2 rounded-full bg-[var(--color-highlight)]" />
-                    </div>
-                    <img
-                      className="h-[15rem] w-full object-cover min-[390px]:h-[17rem] sm:h-[20rem] lg:h-[22rem]"
-                      src={image}
-                      alt={`${service.title} ${label.toLowerCase()} result`}
-                      loading="lazy"
-                    />
+            <GlassPanel className="reveal mt-10 overflow-hidden p-3 sm:mt-12 sm:p-6">
+              <div className="grid gap-6 lg:grid-cols-[0.78fr_1.22fr]">
+                <div className="flex flex-col justify-between rounded-[1.2rem] border border-white/10 bg-white/[0.04] p-5 sm:rounded-[1.35rem] sm:p-6">
+                  <div>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-gold)] sm:text-xs sm:tracking-[0.28em]">
+                      {String(normalizedResultIndex + 1).padStart(2, '0')} /{' '}
+                      {String(results.length).padStart(2, '0')}
+                    </p>
+                    <h2 className="mt-4 text-wrap font-display text-[2rem] leading-tight text-[var(--color-heading)] sm:mt-5 sm:text-4xl sm:leading-none">
+                      {result.title}
+                    </h2>
+                    <p className="mt-5 text-sm leading-7 text-white/65">
+                      {result.description}
+                    </p>
                   </div>
-                ))}
+
+                  {results.length > 1 ? (
+                    <div className="mt-8 flex items-center gap-3">
+                      <button
+                        className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/75 transition hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)]"
+                        type="button"
+                        aria-label="Previous result"
+                        onClick={showPreviousResult}
+                      >
+                        <FiChevronLeft className="h-5 w-5" aria-hidden="true" />
+                      </button>
+                      <button
+                        className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/75 transition hover:border-[var(--color-highlight)] hover:text-[var(--color-highlight)]"
+                        type="button"
+                        aria-label="Next result"
+                        onClick={showNextResult}
+                      >
+                        <FiChevronRight className="h-5 w-5" aria-hidden="true" />
+                      </button>
+                    </div>
+                  ) : null}
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  {[
+                    ['Before', result.beforeImage],
+                    ['After', result.afterImage],
+                  ].map(([label, image]) => (
+                    <div
+                      key={label}
+                      className="overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.04]"
+                    >
+                      <div className="flex items-center justify-between px-5 py-4">
+                        <span className="text-xs font-extrabold uppercase tracking-[0.16em] text-white/55 sm:tracking-[0.22em]">
+                          {label}
+                        </span>
+                        <span className="h-2 w-2 rounded-full bg-[var(--color-highlight)]" />
+                      </div>
+                      <img
+                        className="h-[15rem] w-full object-cover min-[390px]:h-[17rem] sm:h-[20rem] lg:h-[22rem]"
+                        src={image}
+                        alt={`${service.title} ${label.toLowerCase()} result`}
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          </GlassPanel>
-        </section>
+            </GlassPanel>
+          </section>
+        ) : null}
 
         <section className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
           <SectionHeading

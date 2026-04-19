@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Navbar from './Navbar'
 import Footer from './Footer'
@@ -10,7 +10,32 @@ function AppShell() {
   const location = useLocation()
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+    if (!('scrollRestoration' in window.history)) {
+      return undefined
+    }
+
+    const originalScrollRestoration = window.history.scrollRestoration
+    window.history.scrollRestoration = 'manual'
+
+    return () => {
+      window.history.scrollRestoration = originalScrollRestoration
+    }
+  }, [])
+
+  useLayoutEffect(() => {
+    const lenis = window.__lenis
+
+    lenis?.stop?.()
+    lenis?.scrollTo?.(0, { immediate: true, force: true })
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+
+    const frameId = window.requestAnimationFrame(() => {
+      lenis?.scrollTo?.(0, { immediate: true, force: true })
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+      lenis?.start?.()
+    })
+
+    return () => window.cancelAnimationFrame(frameId)
   }, [location.pathname])
 
   return (

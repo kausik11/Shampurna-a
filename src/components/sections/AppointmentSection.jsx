@@ -5,10 +5,7 @@ import SectionHeading from '../ui/SectionHeading'
 import GlassPanel from '../ui/GlassPanel'
 import { services } from '../../data/siteData'
 import { useRevealAnimations } from '../../hooks/useRevealAnimations'
-
-const CALLBACK_API_BASE_URL = (
-  import.meta.env.VITE_API_BASE_URL || 'https://sampurna-backend.vercel.app'
-).replace(/\/$/, '')
+import { SERVICES_API_BASE_URL } from '../../lib/servicesApi'
 
 const normalizeServiceTitle = (value) =>
   `${value ?? ''}`
@@ -186,7 +183,7 @@ function AppointmentSection() {
 
     const syncServiceOptions = async () => {
       try {
-        const response = await axios.get(`${CALLBACK_API_BASE_URL}/api/services`)
+        const response = await axios.get(`${SERVICES_API_BASE_URL}/api/services`)
         const backendTitles = Array.isArray(response.data)
           ? response.data
               .map((item) => `${item?.title ?? ''}`.trim())
@@ -215,7 +212,7 @@ function AppointmentSection() {
         })
 
         setServiceOptions(options)
-      } catch (_error) {
+      } catch {
         if (isMounted) {
           setServiceOptions(localServiceOptions.map((title) => ({ label: title, value: title })))
         }
@@ -252,7 +249,7 @@ function AppointmentSection() {
     setIsSubmitting(true)
 
     try {
-      await axios.post(`${CALLBACK_API_BASE_URL}/api/callbacks`, {
+      await axios.post(`${SERVICES_API_BASE_URL}/api/callbacks`, {
         fullName: formValues.fullName.trim(),
         phoneNumber: formValues.phoneNumber.trim(),
         email: formValues.emailAddress.trim(),

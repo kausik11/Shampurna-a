@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import SectionHeading from '../ui/SectionHeading'
 import ServiceCard from '../ui/ServiceCard'
-import { services } from '../../data/siteData'
 import { useRevealAnimations } from '../../hooks/useRevealAnimations'
+import useServicesData from '../../hooks/useServicesData'
 
 const SERVICES_BATCH_SIZE = 6
 
 function ServicesSection() {
   const sectionRef = useRevealAnimations()
+  const { services } = useServicesData()
   const [visibleCount, setVisibleCount] = useState(SERVICES_BATCH_SIZE)
   const visibleServices = services.slice(0, visibleCount)
   const canLoadMore = visibleCount < services.length
