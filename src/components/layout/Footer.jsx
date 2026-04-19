@@ -64,9 +64,10 @@ function Footer() {
           <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-gold)] sm:text-sm sm:tracking-[0.28em]">
             Contact
           </h2>
-          <div className="mt-5 space-y-3 text-sm text-white/65">
+          <address className="mt-5 space-y-3 text-sm not-italic text-white/65">
             <p>Shampurna Aesthetic Clinic</p>
-            <p>Premium address placeholder, Kolkata</p>
+            <p>Ps Aviator Building, Rajarhat Main Road, Chinar Park</p>
+            <p>3rd Floor, Unit-303, Kolkata -700136</p>
             <p>
               <a className="transition hover:text-[var(--color-highlight)]" href="tel:9804100036">
                 9804100036
@@ -80,7 +81,7 @@ function Footer() {
                 enquiry.shampurna@gmail.com
               </a>
             </p>
-          </div>
+          </address>
 
           <div className="mt-6 flex gap-3">
             {socialLinks.map((item) => {
