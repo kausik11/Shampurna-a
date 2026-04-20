@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { HiLocationMarker } from 'react-icons/hi'
 
-const heroAddressText = 'Ps Aviator Building, Rajarhat Main Road, Chinar Park'
+const heroAddressText = 'PS Aviator Building, Satyam Bazar, Next to Spencers, Chinar Park'
 
 const canUsePointerParallax = () =>
   typeof window !== 'undefined' &&
@@ -97,7 +97,7 @@ function HeroVideoSection() {
                 Luxury Aesthetic Clinic
               </p>
               <h1 className="hero-reveal hidden mt-5 text-wrap font-display text-[2.25rem] leading-[1.04] text-[var(--color-heading)] min-[390px]:text-5xl sm:mt-0 sm:block lg:text-6xl xl:text-7xl">
-                Shampurna Aesthetic
+                Shampurna Aesthetic Clinic
               </h1>
               <address className="hero-reveal mt-5 max-w-2xl not-italic sm:mt-7">
                 <div className="relative overflow-hidden rounded-[8px] border border-[rgba(252,223,92,0.18)] bg-[linear-gradient(135deg,rgba(255,255,255,0.09),rgba(255,255,255,0.03))] px-4 py-4 shadow-[0_24px_60px_rgba(0,0,0,0.28)] backdrop-blur-xl sm:px-5 sm:py-5">

@@ -187,9 +187,11 @@ const servicePricing = {
     priceValue: 'Rs. 3,000',
     priceNote: 'Laser facial',
   },
-  // 'BB Glow CC Glow Treatment': {
-  //   ...defaultServicePricing,
-  // },
+  'BB Glow CC Glow Treatment': {
+    priceLabel: 'Per session',
+    priceValue: 'Rs. 6,000',
+    priceNote: 'Laser facial',
+  },
   'Skin Glow Treatment': {
     priceLabel: 'Per session',
     priceValue: 'Rs. 6,000',
@@ -278,7 +280,7 @@ const servicePricing = {
   },
   'Glutathione - All Body': {
     priceLabel: 'Per session',
-    priceValue: 'Rs. 5,000',
+    priceValue: 'Rs. 6,000',
     priceNote: 'All body glow',
   },
 }
