@@ -1,6 +1,11 @@
 import { footerServices, navigationItems, socialLinks } from '../../data/siteData'
-import { FiStar } from 'react-icons/fi'
+import { FiPhoneCall, FiStar } from 'react-icons/fi'
 import { socialIcons } from '@/lib/icons'
+
+const phoneNumbers = [
+  { label: '98318 33650', href: 'tel:9831833650' },
+  { label: '62891 93286', href: 'tel:6289193286' },
+]
 
 function Footer() {
   return (
@@ -68,11 +73,18 @@ function Footer() {
             <p>Shampurna Aesthetic Clinic</p>
             <p>Ps Aviator Building, Rajarhat Main Road, Chinar Park</p>
             <p>3rd Floor, Unit-303, Kolkata -700136</p>
-            <p>
-              <a className="transition hover:text-[var(--color-highlight)]" href="tel:9804100036">
-                9804100036
-              </a>
-            </p>
+            <div className="grid gap-2 pt-1 sm:grid-cols-2 lg:grid-cols-1">
+              {phoneNumbers.map((phone) => (
+                <a
+                  key={phone.href}
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[8px] border border-[rgba(252,223,92,0.34)] bg-[rgba(252,223,92,0.1)] px-4 py-3 text-sm font-bold text-[var(--color-gold)] shadow-[0_16px_34px_rgba(143,135,67,0.2)] transition duration-300 hover:-translate-y-0.5 hover:bg-[rgba(252,223,92,0.16)] hover:text-[var(--color-highlight)]"
+                  href={phone.href}
+                >
+                  <FiPhoneCall className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  {phone.label}
+                </a>
+              ))}
+            </div>
             <p>
               <a
                 className="transition hover:text-[var(--color-highlight)]"

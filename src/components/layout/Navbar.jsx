@@ -1,8 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
-import { FiMenu, FiX } from 'react-icons/fi'
+import { FiMenu, FiPhoneCall, FiX } from 'react-icons/fi'
 import { Link, NavLink } from 'react-router-dom'
 import { navigationItems } from '../../data/siteData'
+
+const phoneNumbers = [
+  { label: '98318 33650', href: 'tel:9831833650' },
+  { label: '62891 93286', href: 'tel:6289193286' },
+]
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -52,7 +57,7 @@ function Navbar() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-5 xl:gap-7 lg:flex">
           {navigationItems.map((item) => (
             <NavLink
               key={item.label}
@@ -68,9 +73,22 @@ function Navbar() {
           ))}
         </nav>
 
+        <div className="hidden shrink-0 flex-col gap-1.5 lg:flex xl:flex-row xl:items-center xl:gap-2">
+          {phoneNumbers.map((phone) => (
+            <a
+              key={phone.href}
+              className="inline-flex items-center justify-center gap-1.5 rounded-full border border-[rgba(252,223,92,0.18)] bg-white/[0.06] px-2.5 py-1.5 text-[11px] font-semibold leading-none text-white/78 shadow-[0_12px_28px_rgba(1,0,2,0.18)] transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(252,223,92,0.38)] hover:text-[var(--color-gold)] xl:gap-2 xl:px-3 xl:py-2 xl:text-xs"
+              href={phone.href}
+            >
+              <FiPhoneCall className="h-3.5 w-3.5 text-[var(--color-highlight)]" aria-hidden="true" />
+              {phone.label}
+            </a>
+          ))}
+        </div>
+
         <div className="hidden lg:block">
           <Link
-            className="button-shine inline-flex items-center rounded-full border border-[rgba(252,223,92,0.22)] bg-[var(--color-button)] px-5 py-3 text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)]"
+            className="button-shine inline-flex items-center rounded-full border border-[rgba(252,223,92,0.22)] bg-[var(--color-button)] px-4 py-3 text-sm font-semibold text-[#f5efcf] shadow-[0_18px_40px_rgba(143,135,67,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_rgba(143,135,67,0.42)] xl:px-5"
             to="/contact"
           >
             Book Appointment
@@ -109,6 +127,19 @@ function Navbar() {
               {item.label}
             </NavLink>
           ))}
+          <div className="grid gap-2 sm:grid-cols-2">
+            {phoneNumbers.map((phone) => (
+              <a
+                key={phone.href}
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[1rem] border border-[rgba(252,223,92,0.16)] bg-white/[0.06] px-4 py-3 text-sm font-semibold text-white/82 transition hover:border-[rgba(252,223,92,0.34)] hover:text-[var(--color-gold)] sm:rounded-2xl"
+                href={phone.href}
+                onClick={() => setIsOpen(false)}
+              >
+                <FiPhoneCall className="h-4 w-4 text-[var(--color-highlight)]" aria-hidden="true" />
+                {phone.label}
+              </a>
+            ))}
+          </div>
           <Link
             className="button-shine mt-1 inline-flex min-h-11 items-center justify-center rounded-[1rem] bg-[var(--color-button)] px-4 py-3 text-sm font-semibold text-[#f5efcf] sm:mt-2 sm:rounded-2xl"
             to="/contact"
