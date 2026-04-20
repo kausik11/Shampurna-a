@@ -1,4 +1,5 @@
 import HeroVideoSection from '../components/sections/HeroVideoSection'
+import ShampurnaExpertiseSection from '../components/sections/ShampurnaExpertiseSection'
 import HeroGallerySection from '../components/sections/HeroGallerySection'
 import AboutSection from '../components/sections/AboutSection'
 import ServicesSection from '../components/sections/ServicesSection'
@@ -18,6 +19,7 @@ function HomePage() {
   return (
     <>
       <HeroVideoSection />
+      <ShampurnaExpertiseSection />
       <HeroGallerySection />
       <BeforeAfterSection />
       <AboutSection />
