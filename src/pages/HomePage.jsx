@@ -3,6 +3,7 @@ import HeroGallerySection from '../components/sections/HeroGallerySection'
 import AboutSection from '../components/sections/AboutSection'
 import ServicesSection from '../components/sections/ServicesSection'
 import BlobsShowcaseSection from '../components/sections/BlobsShowcaseSection'
+import ShampurnaAcademySection from '../components/sections/ShampurnaAcademySection'
 import WhyChooseUsSection from '../components/sections/WhyChooseUsSection'
 import ResultsShowcase from '../components/sections/ResultsShowcase'
 import TreatmentGallerySection from '../components/sections/TreatmentGallerySection'
@@ -22,13 +23,14 @@ function HomePage() {
       <AboutSection />
       <ServicesSection />
       <BlobsShowcaseSection />
+      <ShampurnaAcademySection />
       <TreatmentGallerySection />
       <WhyChooseUsSection />
       <ResultsShowcase />
       
       <AppointmentSection />
       <TestimonialsSection />
-      <VideoTestimonialsSection />
+      {/* <VideoTestimonialsSection /> */}
       <FAQSection />
       <CTASection />
     </>
