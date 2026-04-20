@@ -9,6 +9,8 @@ const whatsappMessage = encodeURIComponent(
   'Hello Shampurna Aesthetic, I would like to know more about your treatments and book a consultation. Please share the next steps.',
 )
 
+const whatsappNumbers = ['919804100036', '916289193286']
+
 const chatHintPrompts = [
   '"What skin problems do your services treat?"',
   '"Which treatment is best for acne scars?"',
@@ -47,20 +49,8 @@ function StickyActions() {
 
   return (
     <div className="fixed inset-x-3 bottom-3 z-40 flex max-w-[calc(100vw-1.5rem)] flex-col items-end gap-2 sm:inset-x-auto sm:bottom-5 sm:right-6 sm:max-w-none sm:gap-3">
-      <div className="relative flex items-center justify-end gap-2 sm:gap-3">
-        <a
-          className="group inline-flex h-11 w-11 items-center justify-center rounded-full bg-[rgba(1,0,2,0.68)] text-[#25D366] shadow-[0_18px_45px_rgba(1,0,2,0.32)] backdrop-blur-2xl transition duration-300 hover:-translate-y-0.5 sm:h-14 sm:w-14"
-          href={`https://wa.me/919804100036?text=${whatsappMessage}`}
-          aria-label="WhatsApp"
-          rel="noreferrer"
-          target="_blank"
-        >
-          <span className="inline-flex items-center justify-center transition-transform duration-500 group-hover:rotate-180">
-            <FaWhatsapp className="h-5 w-5 sm:h-7 sm:w-7" aria-hidden="true" />
-          </span>
-        </a>
-
-        <div className="relative flex items-center justify-center">
+      <div className="relative flex flex-col items-end justify-end gap-2 sm:flex-row sm:items-center sm:gap-3">
+         <div className="relative flex items-center justify-center">
           {showChatHint ? (
             <div className="absolute bottom-[calc(100%+0.75rem)] right-0 z-10 w-[14.75rem] max-w-[calc(100vw-4rem)] sm:bottom-[calc(100%+0.85rem)] sm:w-[18rem] sm:max-w-[calc(100vw-1.5rem)]">
               <div className="relative overflow-hidden rounded-[8px] border border-[rgba(252,223,92,0.16)] bg-[linear-gradient(135deg,rgba(18,7,14,0.78),rgba(43,14,34,0.62))] p-3 pr-8 shadow-[0_18px_42px_rgba(0,0,0,0.24)] backdrop-blur-xl sm:border-[rgba(252,223,92,0.18)] sm:bg-[linear-gradient(135deg,rgba(18,7,14,0.96),rgba(43,14,34,0.88))] sm:p-4 sm:pr-10 sm:shadow-[0_24px_60px_rgba(0,0,0,0.32)] sm:backdrop-blur-2xl">
@@ -100,6 +90,22 @@ function StickyActions() {
             </span>
           </button>
         </div>
+        {whatsappNumbers.map((number, index) => (
+          <a
+            key={number}
+            className="group inline-flex h-11 w-11 items-center justify-center rounded-full bg-[rgba(1,0,2,0.68)] text-[#25D366] shadow-[0_18px_45px_rgba(1,0,2,0.32)] backdrop-blur-2xl transition duration-300 hover:-translate-y-0.5 sm:h-14 sm:w-14"
+            href={`https://wa.me/${number}?text=${whatsappMessage}`}
+            aria-label={`WhatsApp ${index + 1}`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <span className="inline-flex items-center justify-center transition-transform duration-500 group-hover:rotate-180">
+              <FaWhatsapp className="h-5 w-5 sm:h-7 sm:w-7" aria-hidden="true" />
+            </span>
+          </a>
+        ))}
+
+       
       </div>
 
       <a
