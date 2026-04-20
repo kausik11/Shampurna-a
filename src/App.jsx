@@ -12,6 +12,8 @@ import ContactPage from './pages/ContactPage'
 import ChatPage from './pages/ChatPage'
 import { useLenis } from './hooks/useLenis'
 
+const loaderDuration = 2500
+
 function App() {
   const [isLoading, setIsLoading] = useState(true)
 
@@ -20,7 +22,7 @@ function App() {
   useEffect(() => {
     const timerId = window.setTimeout(() => {
       setIsLoading(false)
-    }, 1350)
+    }, loaderDuration)
 
     return () => window.clearTimeout(timerId)
   }, [])
