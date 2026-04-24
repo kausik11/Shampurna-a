@@ -14,13 +14,13 @@ function Footer() {
         <div className="min-w-0">
           <a className="inline-flex min-w-0 items-center gap-3 sm:gap-4" href="#home">
             <img
-              className="h-12 w-12 shrink-0 rounded-full border border-[rgba(252,223,92,0.4)] object-cover shadow-[0_10px_30px_rgba(0,0,0,0.35)] sm:h-16 sm:w-16"
-              src="/shampurna-logo.jpeg"
+              className="h-12 w-12 shrink-0 rounded-full border border-[rgba(252,223,92,0.38)] object-cover object-center shadow-[0_10px_30px_rgba(0,0,0,0.35)] sm:h-16 sm:w-16"
+              src="/logo.png"
               alt="Shampurna Aesthetic logo"
             />
             <div className="min-w-0">
               <p className="text-wrap font-display text-2xl leading-tight text-[var(--color-heading)] sm:text-3xl">
-                Shampurna Aesthetic
+                Shampurna Aesthetic Clinic
               </p>
               <p className="text-sm text-white/65">
                 Luxury skin, body and aesthetic care with a refined clinical
@@ -115,8 +115,18 @@ function Footer() {
       </div>
 
       <div className="mx-auto mt-6 flex max-w-7xl flex-col gap-3 px-2 text-[10px] uppercase tracking-[0.16em] text-white/35 sm:flex-row sm:items-center sm:justify-between sm:text-xs sm:tracking-[0.22em]">
-        <p>© 2026 Shampurna Aesthetic. All rights reserved.</p>
-        <p>Luxury aesthetic frontend experience</p>
+        <p>&copy; 2026 Shampurna Aesthetic. All rights reserved.</p>
+        <p className="normal-case tracking-normal text-white/45 sm:text-[0.8rem]">
+          Designed and developed by{' '}
+          <a
+            className="font-medium text-[var(--color-gold)] transition hover:text-[var(--color-highlight)]"
+            href="https://www.linkedin.com/in/kausik-saha-fsd"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Kausik
+          </a>
+        </p>
       </div>
     </footer>
   )
